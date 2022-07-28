@@ -5,9 +5,6 @@ import bodyParser from "body-parser"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 const api = Router()
-import Hive from '../cluster/Hive'
-import { async } from "regenerator-runtime"
-const hive = new Hive
 
 // Cors Config
 const corsOptions = {
@@ -28,25 +25,9 @@ api.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", ["GET", "POST", "PATCH", "DELETE"])
     next()
 })
-
-
-api.post('/data', async (req, res) => {
-
-    // if (!req.body) res.sendStatus(404)
-    let data = await hive.data(req.query.waletid, req.body)
-    res.send(data)
-})
-api.get("/loadSpine", async (req, res) => {
-    let data = await hive.loadSpine()
-    res.send(data)
-})
-api.patch("/createGenius", async (req, res) => {
-    res.send(await hive.createSpine())
-})
-
-
-
-
+/*And Every apis path here*/
+const Spine = require("./routes/api_spine")
+api.use("/spine", Spine)
 
 
 
