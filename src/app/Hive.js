@@ -4,6 +4,8 @@ const path = require('path');
 import { encrypt, decrypt } from './security'
 import crypto from 'crypto'
 import moment from 'moment';
+import { resolve } from 'path';
+import { async } from 'regenerator-runtime';
 const secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
 const hash_size = 2
 
@@ -27,8 +29,15 @@ class Hive {
     }
 
     calculateHash(uuid, data, timestamp) {
-        if (!uuid || !data || !timestamp) return "Missing data"
-        return crypto.createHash('sha256').update(uuid + data + timestamp).digest('hex');
+        return new Promise(async (resolve, reject) => {
+            data = JSON.stringify(data)
+            if (!uuid) reject("Missing data")
+            if (!data) reject("Missing data")
+            if (!timestamp) reject("Missing data")
+            const hash = await crypto.createHash('sha256').update(uuid + data + timestamp).digest('hex')
+            if (hash === undefined) reject(null)
+            resolve(hash)
+        }).catch((err) => { reject(err) })
     }
 
     async createSpine() {
@@ -44,6 +53,7 @@ class Hive {
                 "body": [
                     { "Data": "Genius Block" }
                 ],
+                "status": "1",
                 "signatue": "null"
             }
         }
@@ -57,29 +67,27 @@ class Hive {
     }
 
 
-    async loadSpine() {
+    async getSpine() {
         const _spine = await fs.readFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data' + 'spine.aura', 'utf8')
         let data = JSON.parse(_spine)
         data = await decrypt(data)
         data = JSON.parse(data)
         return data
     }
-    async loadUser(param) {
-        // const user = `"uuid": "${param}"`
-        let data = await this.loadSpine()
 
-        data.map((data) => {
-            console.log(data);
-        })
-        // return data.filter((data) => { return data.uuid == param })
-    }
 
-    async addSpine(publickey, body_data) {
-        try {
+    pushSpine(publickey, body_data) {
+
+        return new Promise(async (resolve, reject) => {
+
+
+            if (!publickey) reject("Null value found.")
+            if (!body_data) reject("Body cannot be null.")
+
             /*
              Load Spine
             */
-            let data = await this.loadSpine()
+            let data = await this.getSpine()
             /* Spine Length */
             let len = Object.keys(data)
             len = len.length - 1
@@ -93,14 +101,14 @@ class Hive {
                 let temp_hash = previous_block.ref
                 const _len_ref_block = len - 1
                 let previous_ref_block = data[_len_ref_block]
-                let _hash = this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp)
+                let _hash = await this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
+                    reject(err)
+                })
                 if (_hash != temp_hash) {
-                    console.log("Hash Mismatch");
-                    return "Hash Mismatch"
+                    reject({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash })
                 }
                 if (previous_block.uuid === publickey) {
-                    console.log("Hash Mismatch");
-                    return "User already present."
+                    reject("User already present.")
                 }
             }
 
@@ -116,39 +124,41 @@ class Hive {
             new_block[len + 1] = {
                 "uuid": publickey,
                 "timestamp": date,
-                "ref": this.createSpine(previous_block.uuid, previous_block.body, previous_block.timestamp),
-                "hash": this.createSpine(publickey, body_data, date),
+                "ref": await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+                    reject(err)
+                }),
+                "hash": await this.calculateHash(publickey, body_data, date).catch((err) => {
+                    reject(err)
+                }),
                 "body": body_data,
+                "status": "1",
                 "signatue": "null"
             }
             Object.assign(data, new_block) //Join with old block
             this.updateSpine(data) //Update source file
-            return data
-        } catch (e) { console.log(e); }
+            resolve(data)
+
+        }).catch((err) => { return err })
     }
 
 
+    async search(param) {
+        // const user = `"uuid": "${param}"`
+        let data = await this.getSpine()
+        data = Object.values(data).find((obj) => { return obj.uuid == param })
 
+        return data
 
-
-
-
-
-
-    pushSpine(params) {
-        console.log("hi");
     }
-    getSpine(params) {
-        // let spine = JSON.stringify(spine)
-        // return spine
-        console.log("hi");
-    }
-    addChild(params) {
-        console.log("hi");
-    }
-    pushChild(publickey, privatekey, data) {
-        console.log("hi");
-    }
+
+
+    // addChild(params) {
+    //     console.log("hi");
+    // }
+
+    // pushChild(publickey, privatekey, data) {
+    //     console.log("hi");
+    // }
 
 }
 

@@ -14,7 +14,7 @@ class Vertix {
     constructor() {
         this.publicid = uuid
     }
-    async updateVertix(data) {
+    async update(data) {
 
         try {
             data = JSON.stringify(data)
@@ -33,7 +33,7 @@ class Vertix {
         return crypto.createHash('sha256').update(parante + dir_vartix_in + dir_vartix_out + data + timestamp).digest('hex');
     }
 
-    async loadVertix() {
+    async get() {
         const _node = await fs.readFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data\\cluster' + `${uuid}.aura`, 'utf8')
         let data = JSON.parse(_node)
         data = await decrypt(data)
@@ -41,41 +41,44 @@ class Vertix {
         return data
     }
 
-    async addVertix(publickey, body_data) {
+    async insart(publickey, body_data, dir_vartix_in, dir_vartix_out) {
         try {
             /*
              Load Vertix
             */
-            let data = await this.loadVertix()
+            let data = await this.get()
             /* Vertix Length */
             let len = Object.keys(data)
             len = len.length - 1
 
             let previous_block = ""
-
+            let parent = Hive.search(publickey)
+            let _ref = ""
+            this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp)
             if (len === 0 || !len) {
-                previous_block = Hive.getVertix
-
+                previous_block = parent
+                _ref = parent.hash
             } else {
-
                 previous_block = data[len]
+                _ref = this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp)
+                _parent = parent.hash
             }
 
             // Security
-            if (len != 0) {
-                let temp_hash = previous_block.ref
-                const _len_ref_block = len - 1
-                let previous_ref_block = data[_len_ref_block]
-                let _hash = this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp)
-                if (_hash != temp_hash) {
-                    console.log("Hash Mismatch");
-                    return "Hash Mismatch"
-                }
-                if (previous_block.uuid === publickey) {
-                    console.log("Hash Mismatch");
-                    return "User already present."
-                }
-            }
+            // if (len != 0) {
+            //     let temp_hash = previous_block.ref
+            //     const _len_ref_block = len - 1
+            //     let previous_ref_block = data[_len_ref_block]
+            //     let _hash = this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp)
+            //     if (_hash != temp_hash) {
+            //         console.log("Hash Mismatch");
+            //         return "Hash Mismatch"
+            //     }
+            //     if (previous_block.uuid === publickey) {
+            //         console.log("Hash Mismatch");
+            //         return "User already present."
+            //     }
+            // }
 
 
             /*
@@ -88,40 +91,19 @@ class Vertix {
             let new_block = {}
 
             new_block[len + 1] = {
-                "uuid": publickey,
                 "timestamp": date,
-                "ref": this.createVertix(previous_block.uuid, previous_block.body, previous_block.timestamp),
-                "hash": this.createVertix(publickey, body_data, date),
+                "parante": _perant,
+                "ref": _ref,
+                "edge_in": [dir_vartix_in],
+                "edge_out": [dir_vartix_out],
+                "hash": this.calculateHash(publickey, body_data, date, dir_vartix_in, dir_vartix_out),
                 "body": body_data,
                 "signatue": "null"
             }
             Object.assign(data, new_block) //Join with old block
-            this.updateVertix(data) //Update source file
+            this.update(data) //Update source file
             return data
         } catch (e) { console.log(e); }
-    }
-
-
-
-
-
-
-
-
-
-    pushVertix(params) {
-        console.log("hi");
-    }
-    getVertix(params) {
-        // let spine = JSON.stringify(spine)
-        // return spine
-        console.log("hi");
-    }
-    addChild(params) {
-        console.log("hi");
-    }
-    pushChild(publickey, privatekey, data) {
-        console.log("hi");
     }
 
 }

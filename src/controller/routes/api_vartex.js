@@ -1,19 +1,19 @@
 import { Router } from "express"
 const api = Router()
-import Hive from '../../app/Hive'
+import v from '../../app/Vertix'
 const hive = new Hive
 
-api.get("/get", async (req, res) => {
-    let data = await hive.getSpine()
+api.post("/get", async (req, res) => {
+    let data = await v.get()
     res.send(data)
 })
 
 api.post('/push', async (req, res) => {
-    let data = await hive.pushSpine(req.body.waletid, req.body.content)
+    let data = await v.insert(req.body.waletid, req.body.content)
     res.send(data)
 })
 api.post("/search", async (req, res) => {
-    let data = await hive.search(req.body.user)
+    let data = await v.search(req.body.user)
     if (data === undefined) {
         res.status(404).json("Not Found ")
     } else {
@@ -22,7 +22,7 @@ api.post("/search", async (req, res) => {
 })
 
 api.patch("/genarate", async (req, res) => {
-    res.send(await hive.createSpine())
+    res.send(await v.createSpine())
 })
 
 

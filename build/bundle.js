@@ -43767,17 +43767,22 @@ var _express = __webpack_require__(13);
 var _Hive = __webpack_require__(277);var _Hive2 = _interopRequireDefault(_Hive);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
 var hive = new _Hive2.default();
 
-api.get("/load", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {var data;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                            hive.loadSpine());case 2:data = _context.sent;
+api.get("/get", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {var data;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                            hive.getSpine());case 2:data = _context.sent;
                         res.send(data);case 4:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
 
 
-api.post('/addUser', function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                            hive.addSpine(req.body.waletid, req.body.content));case 2:data = _context2.sent;
+api.post('/push', function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                            hive.pushSpine(req.body.waletid, req.body.content));case 2:data = _context2.sent;
                         res.send(data);case 4:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
 
-api.post("/user", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.t0 =
-                        res;_context3.next = 3;return hive.loadUser(req.body.user);case 3:_context3.t1 = _context3.sent;_context3.t0.send.call(_context3.t0, _context3.t1);case 5:case "end":return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
+api.post("/search", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {var data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                            hive.search(req.body.user));case 2:data = _context3.sent;
+                        if (data === undefined) {
+                            res.status(404).json("Not Found ");
+                        } else {
+                            res.send(data);
+                        }case 4:case "end":return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
 
 
 api.patch("/genarate", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.t0 =
@@ -43811,7 +43816,9 @@ module.exports = api;
 
 var _security = __webpack_require__(278);
 var _crypto = __webpack_require__(25);var _crypto2 = _interopRequireDefault(_crypto);
-var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(4);var path = __webpack_require__(1);
+var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);
+var _path = __webpack_require__(1);
+var _regeneratorRuntime = __webpack_require__(280);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(4);var path = __webpack_require__(1);
 var secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
 var hash_size = 2;var
 
@@ -43834,10 +43841,17 @@ Hive = function () {
 
 
 
-        uuid, data, timestamp) {
-            if (!uuid || !data || !timestamp) return "Missing data";
-            return _crypto2.default.createHash('sha256').update(uuid + data + timestamp).digest('hex');
-        } }, { key: 'createSpine', value: function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {var date, genius_block;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+        uuid, data, timestamp) {var _this = this;
+            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, reject) {var hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                    data = JSON.stringify(data);
+                                    if (!uuid) reject("Missing data");
+                                    if (!data) reject("Missing data");
+                                    if (!timestamp) reject("Missing data");_context2.next = 6;return (
+                                        _crypto2.default.createHash('sha256').update(uuid + data + timestamp).digest('hex'));case 6:hash = _context2.sent;
+                                    if (hash === undefined) reject(null);
+                                    resolve(hash);case 9:case 'end':return _context2.stop();}}}, _callee2, _this);}));return function (_x2, _x3) {return _ref2.apply(this, arguments);};}()).
+            catch(function (err) {reject(err);});
+        } }, { key: 'createSpine', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {var date, genius_block;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
 
 
                                 console.log("A request to create Spine of your Hive Cluster");
@@ -43852,112 +43866,113 @@ Hive = function () {
                                         "body": [
                                         { "Data": "Genius Block" }],
 
-                                        "signatue": "null" } };_context2.prev = 4;
+                                        "status": "1",
+                                        "signatue": "null" } };_context3.prev = 4;
 
 
 
-                                this.updateSpine(genius_block);_context2.next = 11;break;case 8:_context2.prev = 8;_context2.t0 = _context2['catch'](4);return _context2.abrupt('return', _context2.t0);case 11:return _context2.abrupt('return',
+                                this.updateSpine(genius_block);_context3.next = 11;break;case 8:_context3.prev = 8;_context3.t0 = _context3['catch'](4);return _context3.abrupt('return', _context3.t0);case 11:return _context3.abrupt('return',
 
 
 
-                                "Success");case 12:case 'end':return _context2.stop();}}}, _callee2, this, [[4, 8]]);}));function createSpine() {return _ref2.apply(this, arguments);}return createSpine;}() }, { key: 'loadSpine', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {var _spine, data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-
-
-
-
-
-                                    fs.readFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data' + 'spine.aura', 'utf8'));case 2:_spine = _context3.sent;
-                                data = JSON.parse(_spine);_context3.next = 6;return (
-                                    (0, _security.decrypt)(data));case 6:data = _context3.sent;
-                                data = JSON.parse(data);return _context3.abrupt('return',
-                                data);case 9:case 'end':return _context3.stop();}}}, _callee3, this);}));function loadSpine() {return _ref3.apply(this, arguments);}return loadSpine;}() }, { key: 'loadUser', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(
-
-            param) {var data;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
-
-                                    this.loadSpine());case 2:data = _context4.sent;
-
-                                data.map(function (data) {
-                                    console.log(data);
-                                });
-                                // return data.filter((data) => { return data.uuid == param })
-                            case 4:case 'end':return _context4.stop();}}}, _callee4, this);}));function loadUser(_x2) {return _ref4.apply(this, arguments);}return loadUser;}() }, { key: 'addSpine', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(
-
-            publickey, body_data) {var data, len, previous_block, temp_hash, _len_ref_block, previous_ref_block, _hash, block_no, date, new_block;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.prev = 0;_context5.next = 3;return (
-
-
-
-
-                                    this.loadSpine());case 3:data = _context5.sent;
-                                /* Spine Length */
-                                len = Object.keys(data);
-                                len = len.length - 1;
-                                /* 
-                                                           Working with previous block
-                                                       */
-                                previous_block = data[len];
-
-                                // Security
-                                if (!(len != 0)) {_context5.next = 18;break;}
-                                temp_hash = previous_block.ref;
-                                _len_ref_block = len - 1;
-                                previous_ref_block = data[_len_ref_block];
-                                _hash = this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp);if (!(
-                                _hash != temp_hash)) {_context5.next = 15;break;}
-                                console.log("Hash Mismatch");return _context5.abrupt('return',
-                                "Hash Mismatch");case 15:if (!(
-
-                                previous_block.uuid === publickey)) {_context5.next = 18;break;}
-                                console.log("Hash Mismatch");return _context5.abrupt('return',
-                                "User already present.");case 18:
-
-
-
-                                /*
-                                                                    Creating New Block
-                                                                  */
-                                block_no = len + 1;
-                                date = (0, _moment2.default)(Date.now()).format();
-                                date = date.toString(); //making date string
-
-                                new_block = {};
-
-                                new_block[len + 1] = {
-                                    "uuid": publickey,
-                                    "timestamp": date,
-                                    "ref": this.createSpine(previous_block.uuid, previous_block.body, previous_block.timestamp),
-                                    "hash": this.createSpine(publickey, body_data, date),
-                                    "body": body_data,
-                                    "signatue": "null" };
-
-                                Object.assign(data, new_block); //Join with old block
-                                this.updateSpine(data); //Update source file
-                                return _context5.abrupt('return', data);case 28:_context5.prev = 28;_context5.t0 = _context5['catch'](0);
-                                console.log(_context5.t0);case 31:case 'end':return _context5.stop();}}}, _callee5, this, [[0, 28]]);}));function addSpine(_x3, _x4) {return _ref5.apply(this, arguments);}return addSpine;}() }, { key: 'pushSpine', value: function pushSpine(
+                                "Success");case 12:case 'end':return _context3.stop();}}}, _callee3, this, [[4, 8]]);}));function createSpine() {return _ref3.apply(this, arguments);}return createSpine;}() }, { key: 'getSpine', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {var _spine, data;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
 
 
 
 
 
+                                    fs.readFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data' + 'spine.aura', 'utf8'));case 2:_spine = _context4.sent;
+                                data = JSON.parse(_spine);_context4.next = 6;return (
+                                    (0, _security.decrypt)(data));case 6:data = _context4.sent;
+                                data = JSON.parse(data);return _context4.abrupt('return',
+                                data);case 9:case 'end':return _context4.stop();}}}, _callee4, this);}));function getSpine() {return _ref4.apply(this, arguments);}return getSpine;}() }, { key: 'pushSpine', value: function pushSpine(
+
+
+
+        publickey, body_data) {var _this2 = this;
+
+            return new Promise(function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(resolve, reject) {var data, len, previous_block, temp_hash, _len_ref_block, previous_ref_block, _hash, block_no, date, new_block;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
+
+
+                                    if (!publickey) reject("Null value found.");
+                                    if (!body_data) reject("Body cannot be null.");
+
+                                    /*
+                                                                                     Load Spine
+                                                                                    */_context5.next = 4;return (
+                                        _this2.getSpine());case 4:data = _context5.sent;
+                                    /* Spine Length */
+                                    len = Object.keys(data);
+                                    len = len.length - 1;
+                                    /* 
+                                                               Working with previous block
+                                                           */
+                                    previous_block = data[len];
+
+                                    // Security
+                                    if (!(len != 0)) {_context5.next = 17;break;}
+                                    temp_hash = previous_block.ref;
+                                    _len_ref_block = len - 1;
+                                    previous_ref_block = data[_len_ref_block];_context5.next = 14;return (
+                                        _this2.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch(function (err) {
+                                            reject(err);
+                                        }));case 14:_hash = _context5.sent;
+                                    if (_hash != temp_hash) {
+                                        reject({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+                                    }
+                                    if (previous_block.uuid === publickey) {
+                                        reject("User already present.");
+                                    }case 17:
+
+
+                                    /*
+                                                Creating New Block
+                                              */
+                                    block_no = len + 1;
+                                    date = (0, _moment2.default)(Date.now()).format();
+                                    date = date.toString(); //making date string
+
+                                    new_block = {};_context5.t0 =
+
+
+                                    publickey;_context5.t1 =
+                                    date;_context5.next = 25;return (
+                                        _this2.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch(function (err) {
+                                            reject(err);
+                                        }));case 25:_context5.t2 = _context5.sent;_context5.next = 28;return (
+                                        _this2.calculateHash(publickey, body_data, date).catch(function (err) {
+                                            reject(err);
+                                        }));case 28:_context5.t3 = _context5.sent;_context5.t4 =
+                                    body_data;new_block[len + 1] = { "uuid": _context5.t0, "timestamp": _context5.t1, "ref": _context5.t2, "hash": _context5.t3, "body": _context5.t4,
+                                        "status": "1",
+                                        "signatue": "null" };
+
+                                    Object.assign(data, new_block); //Join with old block
+                                    _this2.updateSpine(data); //Update source file
+                                    resolve(data);case 34:case 'end':return _context5.stop();}}}, _callee5, _this2);}));return function (_x4, _x5) {return _ref5.apply(this, arguments);};}()).
+
+            catch(function (err) {return err;});
+        } }, { key: 'search', value: function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(
+
+
+            param) {var data;return regeneratorRuntime.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:_context6.next = 2;return (
+
+                                    this.getSpine());case 2:data = _context6.sent;
+                                data = Object.values(data).find(function (obj) {return obj.uuid == param;});return _context6.abrupt('return',
+
+                                data);case 5:case 'end':return _context6.stop();}}}, _callee6, this);}));function search(_x6) {return _ref6.apply(this, arguments);}return search;}()
 
 
 
 
+        // addChild(params) {
+        //     console.log("hi");
+        // }
 
-        params) {
-            console.log("hi");
-        } }, { key: 'getSpine', value: function getSpine(
-        params) {
-            // let spine = JSON.stringify(spine)
-            // return spine
-            console.log("hi");
-        } }, { key: 'addChild', value: function addChild(
-        params) {
-            console.log("hi");
-        } }, { key: 'pushChild', value: function pushChild(
-        publickey, privatekey, data) {
-            console.log("hi");
-        } }]);return Hive;}();exports.default =
-
+        // pushChild(publickey, privatekey, data) {
+        //     console.log("hi");
+        // }
+    }]);return Hive;}();exports.default =
 
 
 Hive;
@@ -44290,6 +44305,49 @@ webpackContext.keys = function webpackContextKeys() {
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = 279;
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(200);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
 
 /***/ })
 /******/ ]);
