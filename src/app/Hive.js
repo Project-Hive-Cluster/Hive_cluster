@@ -82,7 +82,7 @@ class Hive {
              */
             let previous_block = data[len]
 
-            // veryfying hash 
+            // Security
             if (len != 0) {
                 let temp_hash = previous_block.ref
                 const _len_ref_block = len - 1
@@ -92,9 +92,11 @@ class Hive {
                     console.log("Hash Mismatch");
                     return "Hash Mismatch"
                 }
+                if (previous_block.uuid === publickey) {
+                    console.log("Hash Mismatch");
+                    return "User already present."
+                }
             }
-            // previous_block = JSON.stringify(previous_block)
-            // const encrypt_data = encrypt(previous_block) //sign block
 
             /*
               Creating New Block

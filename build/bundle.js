@@ -43848,23 +43848,25 @@ Hive = function () {
                                                        */
                                 previous_block = data[len];
 
-                                // veryfying hash 
-                                if (!(len != 0)) {_context4.next = 15;break;}
+                                // Security
+                                if (!(len != 0)) {_context4.next = 18;break;}
                                 temp_hash = previous_block.ref;
                                 _len_ref_block = len - 1;
                                 previous_ref_block = data[_len_ref_block];
                                 _hash = this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp);if (!(
                                 _hash != temp_hash)) {_context4.next = 15;break;}
                                 console.log("Hash Mismatch");return _context4.abrupt('return',
-                                "Hash Mismatch");case 15:
+                                "Hash Mismatch");case 15:if (!(
+
+                                previous_block.uuid === publickey)) {_context4.next = 18;break;}
+                                console.log("Hash Mismatch");return _context4.abrupt('return',
+                                "User already present.");case 18:
 
 
-                                // previous_block = JSON.stringify(previous_block)
-                                // const encrypt_data = encrypt(previous_block) //sign block
 
                                 /*
-                                  Creating New Block
-                                */
+                                                                    Creating New Block
+                                                                  */
                                 block_no = len + 1;
                                 date = (0, _moment2.default)(Date.now()).format();
                                 date = date.toString(); //making date string
@@ -43887,8 +43889,8 @@ Hive = function () {
 
                                 Object.assign(data, new_block); //Join with old block
                                 this.updateSpine(data); //Update source file
-                                return _context4.abrupt('return', data);case 25:_context4.prev = 25;_context4.t0 = _context4['catch'](0);
-                                console.log(_context4.t0);case 28:case 'end':return _context4.stop();}}}, _callee4, this, [[0, 25]]);}));function addSpine(_x2, _x3) {return _ref4.apply(this, arguments);}return addSpine;}() }, { key: 'pushSpine', value: function pushSpine(
+                                return _context4.abrupt('return', data);case 28:_context4.prev = 28;_context4.t0 = _context4['catch'](0);
+                                console.log(_context4.t0);case 31:case 'end':return _context4.stop();}}}, _callee4, this, [[0, 28]]);}));function addSpine(_x2, _x3) {return _ref4.apply(this, arguments);}return addSpine;}() }, { key: 'pushSpine', value: function pushSpine(
 
 
 
