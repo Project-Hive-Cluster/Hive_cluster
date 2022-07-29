@@ -16,16 +16,28 @@ class Hive {
     }
     async updateSpine(data) {
 
-        try {
-            data = JSON.stringify(data)
-            let encrypt_data = encrypt(data)
-            encrypt_data = JSON.stringify(encrypt_data)
-            fs.writeFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data' + 'spine.aura', encrypt_data, 'utf8')
-        } catch (err) {
-            return err
-        }
-        return "Success"
-
+        return new Promise((resolve,reject) => {
+            // (fs.existsSync(dir)
+            fs.mkdir((process.env.APPDATA)+'\\Hive Cluster',(err)=>{
+                if(err){
+                    reject("Error Creating Hive Cluster folder: " +err)
+                }
+                fs.mkdir((process.env.APPDATA)+'\\Hive Cluster\\data',(err)=>{
+                    if(err){
+                         reject("Error Creating data folder: " +err)
+                    }
+                    data = JSON.stringify(data)
+                    let encrypt_data = encrypt(data)
+                    encrypt_data = JSON.stringify(encrypt_data)
+                    fs.writeFile(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data' + 'spine.aura', encrypt_data, 'utf8',(err)=>{
+                        if(err){
+                            reject("Error Creating data folder: " +err)
+                       }
+                       resolve("Success")
+                    })
+                })
+            })
+        })
     }
 
     calculateHash(uuid, data, timestamp) {
