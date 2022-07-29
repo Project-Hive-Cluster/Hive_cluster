@@ -114,35 +114,35 @@ class Hive {
                     console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
                     rejects("User already present.")
                 }
-            } else {
-                /*
-                  Creating New Block
-                */
-                let block_no = len + 1
-                let date = moment(Date.now()).format()
-                date = date.toString() //making date string
-
-                let new_block = {}
-
-                new_block[len + 1] = {
-                    "uuid": publickey,
-                    "timestamp": date,
-                    "ref": await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
-                        rejects(err)
-                    }),
-                    "hash": await this.calculateHash(publickey, body_data, date).catch((err) => {
-                        rejects(err)
-                    }),
-                    "body": body_data,
-                    "amount": amount,
-                    "status": "1",
-                    "signatue": "null"
-                }
-                Object.assign(data, new_block) //Join with old block
-                data = this.updateSpine(data) //Update source file
-                resolve(data)
-
             }
+            /*
+              Creating New Block
+            */
+            let block_no = len + 1
+            let date = moment(Date.now()).format()
+            date = date.toString() //making date string
+
+            let new_block = {}
+
+            new_block[len + 1] = {
+                "uuid": publickey,
+                "timestamp": date,
+                "ref": await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+                    rejects(err)
+                }),
+                "hash": await this.calculateHash(publickey, body_data, date).catch((err) => {
+                    rejects(err)
+                }),
+                "body": body_data,
+                "amount": amount,
+                "status": "1",
+                "signatue": "null"
+            }
+            Object.assign(data, new_block) //Join with old block
+            data = this.updateSpine(data) //Update source file
+            resolve(data)
+
+
         }).catch((err) => { return err })
         console.log(await pro);
         return pro

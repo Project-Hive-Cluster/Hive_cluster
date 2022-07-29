@@ -44289,7 +44289,7 @@ Hive = function () {
                                                         previous_block = data[len];
 
                                                         // Security
-                                                        if (!(len != 0)) {_context5.next = 19;break;}
+                                                        if (!(len != 0)) {_context5.next = 17;break;}
                                                         temp_hash = previous_block.ref;
                                                         _len_ref_block = len - 1;
                                                         previous_ref_block = data[_len_ref_block];_context5.next = 14;return (
@@ -44304,11 +44304,11 @@ Hive = function () {
                                                         if (previous_block.uuid === publickey) {
                                                             console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
                                                             rejects("User already present.");
-                                                        }_context5.next = 37;break;case 19:
+                                                        }case 17:
 
                                                         /*
-                                                                                              Creating New Block
-                                                                                            */
+                                                                    Creating New Block
+                                                                  */
                                                         block_no = len + 1;
                                                         date = (0, _moment2.default)(Date.now()).format();
                                                         date = date.toString(); //making date string
@@ -44317,13 +44317,13 @@ Hive = function () {
 
 
                                                         publickey;_context5.t1 =
-                                                        date;_context5.next = 27;return (
+                                                        date;_context5.next = 25;return (
                                                             _this4.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch(function (err) {
                                                                 rejects(err);
-                                                            }));case 27:_context5.t2 = _context5.sent;_context5.next = 30;return (
+                                                            }));case 25:_context5.t2 = _context5.sent;_context5.next = 28;return (
                                                             _this4.calculateHash(publickey, body_data, date).catch(function (err) {
                                                                 rejects(err);
-                                                            }));case 30:_context5.t3 = _context5.sent;_context5.t4 =
+                                                            }));case 28:_context5.t3 = _context5.sent;_context5.t4 =
                                                         body_data;_context5.t5 =
                                                         amount;new_block[len + 1] = { "uuid": _context5.t0, "timestamp": _context5.t1, "ref": _context5.t2, "hash": _context5.t3, "body": _context5.t4, "amount": _context5.t5,
                                                             "status": "1",
@@ -44331,7 +44331,7 @@ Hive = function () {
 
                                                         Object.assign(data, new_block); //Join with old block
                                                         data = _this4.updateSpine(data); //Update source file
-                                                        resolve(data);case 37:case 'end':return _context5.stop();}}}, _callee5, _this4);}));return function (_x10, _x11) {return _ref6.apply(this, arguments);};}()).
+                                                        resolve(data);case 35:case 'end':return _context5.stop();}}}, _callee5, _this4);}));return function (_x10, _x11) {return _ref6.apply(this, arguments);};}()).
 
 
                                 catch(function (err) {return err;});_context6.t0 =
