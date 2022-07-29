@@ -4,7 +4,7 @@ const path = require('path');
 import { encrypt, decrypt } from './security'
 import crypto from 'crypto'
 import moment from 'moment';
-import Hive from './Hive';
+import Hive from './hive/Hive';
 const secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
 const hash_size = 2
 

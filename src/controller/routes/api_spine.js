@@ -1,6 +1,6 @@
 import { Router } from "express"
 const api = Router()
-import Hive from '../../app/Hive'
+import Hive from '../../app/hive/Hive'
 const hive = new Hive
 
 api.get("/get", async (req, res) => {
@@ -9,7 +9,7 @@ api.get("/get", async (req, res) => {
 })
 
 api.post('/push', async (req, res) => {
-    let data = await hive.pushSpine(req.body.waletid, req.body.content)
+    let data = await hive.pushSpine(req.body.waletid, req.body.content, req.body.amount)
     res.send(data)
 })
 api.post("/search", async (req, res) => {
