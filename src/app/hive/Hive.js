@@ -15,7 +15,7 @@ class Hive {
     updateSpine(data) {
         return new Promise(async (resolve, rejects) => {
             try {
-                storage.saveData((data), () => {
+                storage.saveData((data), 'data', 'spine', () => {
                     resolve(data)
                 })
             } catch (err) {
@@ -123,7 +123,6 @@ class Hive {
             date = date.toString() //making date string
 
             let new_block = {}
-
             new_block[len + 1] = {
                 "uuid": publickey,
                 "timestamp": date,
@@ -136,8 +135,10 @@ class Hive {
                 "body": body_data,
                 "amount": amount,
                 "status": "1",
-                "signatue": "null"
+                "signatue": "null",
+                "key": "00000"
             }
+
             Object.assign(data, new_block) //Join with old block
             data = this.updateSpine(data) //Update source file
             resolve(data)
@@ -147,7 +148,6 @@ class Hive {
         console.log(await pro);
         return pro
     }
-
 
     async search(param) {
         // const user = `"uuid": "${param}"`

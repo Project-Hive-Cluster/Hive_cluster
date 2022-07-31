@@ -13,6 +13,10 @@ api.post('/push', async (req, res) => {
     res.send(data)
 })
 api.post("/search", async (req, res) => {
+    await hive.search(req.body.user).then((payload) => { res.send(payload) })
+        .catch((err) => { res.status(404).json({ "error": err }) })
+
+
     let data = await hive.search(req.body.user)
     if (data === undefined) {
         res.status(404).json("Not Found ")
@@ -21,8 +25,12 @@ api.post("/search", async (req, res) => {
     }
 })
 
-api.patch("/genarate", async (req, res) => {
-    res.send(await hive.createSpine())
+api.post("/init", async (req, res) => {
+
+    await hive.createSpine().then((payload) => { res.send(payload) })
+        .catch((err) => { res.status(404).json({ "error": err }) })
+
+
 })
 
 

@@ -26,10 +26,10 @@ api.use((req, res, next) => {
     next()
 })
 /*And Every apis path here*/
+const user = require("./routes/api_user")
+api.use("/user", user)
 const Spine = require("./routes/api_spine")
 api.use("/spine", Spine)
-
-
 
 
 
