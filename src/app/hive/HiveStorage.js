@@ -1,49 +1,78 @@
 const fs = require('fs');
-import { rejects } from 'assert';
+import { rejectss } from 'assert';
 import { encrypt, decrypt } from '../security'
 
 
 
 export class GenesisFolder {
 
-    constructor(_payload) {
+    constructor() {
+
 
     }
 
-    createDataFolder() {
+    createDataFolder(callback) {
         return new Promise((resolve, rejects) => {
-            fs.mkdirSync((process.env.APPDATA) + '\\Hive Cluster\\data', { recursive: true });
-            fs.mkdirSync((process.env.APPDATA) + '\\Hive Cluster\\auth', { recursive: true });
-            resolve()
+            fs.mkdir((process.env.APPDATA) + '\\Hive Cluster\\data', { recursive: true }, (err) => {
+                if (err) {
+                    console.error(err)
+                    rejects(err)
+                }
+                fs.mkdir((process.env.APPDATA) + '\\Hive Cluster\\auth', { recursive: true }, (err) => {
+                    if (err) {
+                        console.error(err)
+                        rejects(err)
+                    }
+                    const replay = 'Hive Cluster Directory created successfully!'
+                    resolve(callback(replay))
+                })
+            })
         }).catch((err) => {
+            console.error(err)
             rejects("Failed to create Folder" + err)
         })
 
     }
 
-    createDataFile(payload = this.payload) {
+    createDataFile(_payload, callback) {
         return new Promise((resolve) => {
-            payload = JSON.stringify(payload)
-            let encrypt_data = encrypt(payload)
-            encrypt_data = JSON.stringify(encrypt_data)
+            _payload = encrypt(JSON.stringify(_payload))
+            encrypt_data = JSON.stringify(_payload)
             let buff = new Buffer.from(encrypt_data);
             encrypt_data = buff.toString('base64')
             console.log("Writing Genesis Data. " + encrypt_data)
-            fs.writeFileSync((process.env.APPDATA) + `\\Hive Cluster\\data\\spine.clu`, encrypt_data, 'utf8')
-            resolve(data)
+            fs.writeFile((process.env.APPDATA) + `\\Hive Cluster\\data\\spine.clu`, encrypt_data, 'utf8', (err, data) => {
+                if (err) {
+                    console.error(err)
+                    rejects(err)
+                }
+                console.log('Hive Cluster File created successfully!')
+                resolve(callback(data))
+            })
         })
     }
 
-    initialization() {
-
-        this.createDataFolder().then(() => {
-            this.createDataFolder(this.payload)
-        }).catch((err) => {
-            console.log("Error initialization. " + err);
+    initialization(payload, callback) {
+        return new Promise((resolve, rejects) => {
+            this.createDataFolder((data) => {
+                console.log("createDataFolder replay: " + data);
+            }).then(() => {
+                this.createDataFolder(payload, (err, _payload) => {
+                    if (err) {
+                        console.error(err)
+                        rejects(err)
+                    }
+                    console.log("====>" + payload);
+                    console.log("createDataFolder replay: " + _payload);
+                    return _payload
+                })
+            }).finally((_payload) => {
+                console.log("createDataFoldsdsder replay: " + _payload);
+                resolve(callback(_payload))
+            }).catch((err) => {
+                console.log("Error initialization. " + err);
+            })
         })
-
-        return this.payload
-
 
     }
 }
@@ -57,10 +86,10 @@ export default class HiveStorage {
     }
 
     getData(folder, file) {
-        return new Promise((resolve, rejects) => {
+        return new Promise((resolve, rejectss) => {
             const payload = fs.readFileSync((process.env.APPDATA) + `\\Hive Cluster\\${folder}\\` + file + '.clu', 'utf8')
                 .then((data, err) => {
-                    if (err) { rejects("Error Genarated in getdata. " + err) }
+                    if (err) { rejectss("Error Genarated in getdata. " + err) }
                     let buff = new Buffer.from(data, 'base64');
                     data = buff.toString('ascii')
                     data = JSON.parse(data)
@@ -69,7 +98,7 @@ export default class HiveStorage {
                 }).finally(() => {
                     resolve(payload)
                 }).catch((err) => {
-                    rejects("Error Genarated in getdata. " + err)
+                    rejectss("Error Genarated in getdata. " + err)
                 })
         })
 
@@ -77,7 +106,7 @@ export default class HiveStorage {
 
     saveData(payload, location = 'data', file) {
 
-        return new Promise(async (resolve, rejects) => {
+        return new Promise(async (resolve, rejectss) => {
             payload = JSON.stringify(payload)
             let encrypt_data = encrypt(payload)
             encrypt_data = JSON.stringify(encrypt_data)
@@ -86,20 +115,20 @@ export default class HiveStorage {
 
             fs.writeFile((process.env.APPDATA) + `\\Hive Cluster\\${location}\\` + file + '.clu', encrypt_data, 'utf8', ((data, err) => {
                 if (err) {
-                    rejects("Error Creating data folder: " + err)
+                    rejectss("Error Creating data folder: " + err)
                 } else {
                     resolve(data)
                 }
             })
             )
         }).catch((err) => {
-            rejects("Failed to create data. Error: " + err)
+            rejectss("Failed to create data. Error: " + err)
         })
     }
 
 
     init(payload) {
-        return new Promise(async (resolve, rejects) => {
+        return new Promise(async (resolve, rejectss) => {
             try {
                 console.log("Progress 5% Checking existence of Hive Cluster. Status " + fs.existsSync((process.env.APPDATA) + '\\Hive Cluster'))
                 CreateGenisisFolder.mkhive()
@@ -114,7 +143,7 @@ export default class HiveStorage {
                 CreateGenisisFolder.check()
 
 
-            } catch (err) { rejects("Failed to create data.: " + err) }
+            } catch (err) { rejectss("Failed to create data.: " + err) }
 
             resolve(true)
         }).catch((err) => { return ("Failed to init Hive Storage. error: " + err) })

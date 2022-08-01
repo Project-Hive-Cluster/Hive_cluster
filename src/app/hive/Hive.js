@@ -58,9 +58,14 @@ class Hive {
                 }
             }
             console.log("Genius Block Genarated");
-            console.log(genesis_data);
-
-            resolve(gFolder.initialization(genesis_data))
+            gFolder.initialization(genesis_data, (error, data) => {
+                if (error) {
+                    rejects(error)
+                }
+                console.log("initialization replay with ");
+                console.log(data);
+                resolve(data)
+            })
         })
     }
 

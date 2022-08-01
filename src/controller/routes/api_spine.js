@@ -24,12 +24,6 @@ api.post("/init", async (req, res) => {
 
 
 
-
-
-
-
-
-
 /************** Middelware **************/
 api.get("/*", async (req, res) => {
     res.status(404).json({ Error: "Invalid Address" })
