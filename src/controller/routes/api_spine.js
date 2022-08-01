@@ -15,22 +15,11 @@ api.post('/push', async (req, res) => {
 api.post("/search", async (req, res) => {
     await hive.search(req.body.user).then((payload) => { res.send(payload) })
         .catch((err) => { res.status(404).json({ "error": err }) })
-
-
-    let data = await hive.search(req.body.user)
-    if (data === undefined) {
-        res.status(404).json("Not Found ")
-    } else {
-        res.send(data)
-    }
 })
 
 api.post("/init", async (req, res) => {
-
-    await hive.createSpine().then((payload) => { res.send(payload) })
-        .catch((err) => { res.status(404).json({ "error": err }) })
-
-
+    setTimeout(await hive.createSpine().then((payload) => { res.send(payload) })
+        .catch((err) => { res.status(404).json({ "error": err }) }), 3000)
 })
 
 

@@ -1,8 +1,10 @@
 import crypto from 'crypto'
-import { access } from 'fs';
+const fs = require('fs');
 import moment from 'moment';
 import HiveStorage from './HiveStorage';
+import { GenesisFolder } from './HiveStorage';
 const storage = new HiveStorage
+const gFolder = new GenesisFolder
 
 
 
@@ -40,27 +42,25 @@ class Hive {
     }
 
     createSpine() {
+
         return new Promise(async (resolve, rejects) => {
             let date = moment(Date.now()).format()
             date = date.toString()
-            const genius_block = {
+            const genesis_data = {
                 0: {
-                    "uuid": "genius",
+                    "uuid": "genesis ",
                     "timestamp": date,
-                    "body": [
-                        { "Data": "Genius Block", 'Auther': "Tanbin Hassan Bappi" }
-                    ],
+                    "body":
+                        { "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" }
+                    ,
                     "amount": "0",
                     "signatue": "null"
                 }
             }
-            await storage.init(genius_block)
-                .then((data) => {
-                    resolve(data)
-                }).catch((err) => {
-                    rejects("Error create Spine " + err)
-                })
+            console.log("Genius Block Genarated");
+            console.log(genesis_data);
 
+            resolve(gFolder.initialization(genesis_data))
         })
     }
 
@@ -76,19 +76,26 @@ class Hive {
     }
 
 
-    async pushSpine(publickey, body_data, amount) {
+    async pushSpine(publickey, privateKey, body_data, amount = 0) {
 
 
         const pro = new Promise(async (resolve, rejects) => {
-
-
             if (!publickey) rejects("Null value found.")
-            if (!body_data) rejects("Body cannot be null.")
+            if (!privateKey) rejects("Null value found.")
+            body_data = JSON.stringify(body_data)
 
+            // privateKey = Buffer.from(privateKey)
+            console.log(typeof body_data);
+            let sign = crypto.sign("sha512", body_data, privateKey)
+            sign = sign.toString('base64')
+            sign = JSON.stringify(sign)
             /*
              Load Spine
             */
             let data = await this.getSpine()
+            if (!data) {
+                rejects("Unable to load Spine")
+            }
             /* Spine Length */
             let len = Object.keys(data)
             len = len.length - 1
@@ -124,7 +131,7 @@ class Hive {
 
             let new_block = {}
             new_block[len + 1] = {
-                "uuid": publickey,
+                "walletid": publickey,
                 "timestamp": date,
                 "ref": await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
                     rejects(err)
@@ -135,12 +142,18 @@ class Hive {
                 "body": body_data,
                 "amount": amount,
                 "status": "1",
-                "signatue": "null",
-                "key": "00000"
+                "signature": sign.toString('base64')
             }
 
+            console.log(new_block);
+            console.log(typeof new_block);
+            console.log(data);
+            console.log(typeof data);
+
             Object.assign(data, new_block) //Join with old block
+            console.log(data);
             data = this.updateSpine(data) //Update source file
+
             resolve(data)
 
 
