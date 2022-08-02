@@ -1,6 +1,10 @@
 import crypto from 'crypto'
 const fs = require('fs');
 import moment from 'moment';
+
+import Centroid from '../../Database/models/Centroid';
+
+
 import HiveStorage from '../storage/HiveStorage';
 const storage = new HiveStorage
 import initialization from '../storage/GenesisFolder'
@@ -13,14 +17,14 @@ class Hive {
     constructor() {
     }
 
-    updateSpine(data) {
+    updateCentroid(data) {
         return new Promise(async (resolve, rejects) => {
             try {
                 storage.saveData((data), 'data', 'spine', () => {
                     resolve(data)
                 })
             } catch (err) {
-                rejects("Failed to update Spine " + err)
+                rejects("Failed to update Centroid " + err)
             }
         })
     }
@@ -40,34 +44,42 @@ class Hive {
         }).catch((err) => { rejects(err) })
     }
 
-    createSpine() {
-
+    createCentroid() {
         return new Promise(async (resolve, rejects) => {
             let date = moment(Date.now()).format()
             date = date.toString()
             const genesis_data = {
                 0: {
-                    "uuid": "genesis ",
+                    "uuid": "0",
+                    "walletid": "genesis",
                     "timestamp": date,
+                    "ref": "root",
+                    "hash": "empty",
                     "body":
                         { "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" }
                     ,
                     "amount": "0",
-                    "signatue": "null"
+                    "signatue": "Genesis"
                 }
             }
             console.log("Genius Block Data Genarated");
             initialization(genesis_data, (data) => {
                 console.log("initialization replay with ");
-                resolve(data)
-            }).catch((err) => {
-                rejects(err)
+
+            }).then(() => {
+                console.log("Database Entry");
+                const { uuid, walletid, timestamp, ref, hash, body, amount, signatue } = genesis_data['0']
+                let _body = JSON.stringify(body)
+                Centroid.create({ uuid, walletid, timestamp, ref, hash, body: _body, amount, sign: signatue }, (data) => { resolve(data) })
             })
+                .catch((err) => {
+                    rejects(err)
+                })
         })
     }
 
 
-    async getSpine() {
+    async get_storage_data() {
         try {
             let _spine = await storage.getData()
             _spine = JSON.parse(_spine)
@@ -76,9 +88,21 @@ class Hive {
             return "Failed to get data. " + err
         }
     }
+    async get_db_data() {
+        return new Promise((resolve, reject) => {
+
+            Centroid.findAll().then(_spine => {
+                resolve(_spine)
+            }).catch(e => {
+                console.error(e)
+                reject(e)
+            })
+        })
+
+    }
 
 
-    async pushSpine(publickey, privateKey, body_data, amount = 0) {
+    async pushCentroid(publickey, privateKey, body_data, amount = 0) {
 
 
         const pro = new Promise(async (resolve, rejects) => {
@@ -92,13 +116,13 @@ class Hive {
             sign = sign.toString('base64')
             sign = JSON.stringify(sign)
             /*
-             Load Spine
+             Load Centroid
             */
-            let data = await this.getSpine()
+            let data = await this.getCentroid()
             if (!data) {
-                rejects("Unable to load Spine")
+                rejects("Unable to load Centroid")
             }
-            /* Spine Length */
+            /* Centroid Length */
             let len = Object.keys(data)
             len = len.length - 1
             /* 
@@ -133,6 +157,7 @@ class Hive {
 
             let new_block = {}
             new_block[len + 1] = {
+                "uuid": block_no,
                 "walletid": publickey,
                 "timestamp": date,
                 "ref": await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
@@ -146,15 +171,18 @@ class Hive {
                 "status": "1",
                 "signature": sign.toString('base64')
             }
-
-            console.log(new_block);
-            console.log(typeof new_block);
-            console.log(data);
-            console.log(typeof data);
+            const _body = JSON.stringify(body_data)
+            Centroid.create({
+                id: block_no, walletid: publickey, timestamp: date, ref: await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+                    rejects(err)
+                }), hash: await this.calculateHash(publickey, body_data, date).catch((err) => {
+                    rejects(err)
+                }), body: _body, amount: amount, sign: sign.toString('base64')
+            }, (data) => { resolve(data) })
 
             Object.assign(data, new_block) //Join with old block
             console.log(data);
-            data = this.updateSpine(data) //Update source file
+            data = this.updateCentroid(data) //Update source file
 
             resolve(data)
 
@@ -166,7 +194,7 @@ class Hive {
 
     async search(param) {
         // const user = `"uuid": "${param}"`
-        let data = await this.getSpine()
+        let data = await this.getCentroid()
         data = Object.values(data).find((obj) => { return obj.uuid == param })
         return data
     }

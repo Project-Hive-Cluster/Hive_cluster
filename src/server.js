@@ -3,6 +3,7 @@ const app = express()
 import cors from "cors"
 /*Environment Data*/
 import dotenv from "dotenv"
+import db from './Database/utils/database'
 dotenv.config()
 
 const corsOptions = {
@@ -11,7 +12,12 @@ const corsOptions = {
 }
 
 app.use(express.json())
-
+db.authenticate().then(() => {
+    // db.sync()
+    console.log('Connection has been established successfully.');
+}).catch((error) => {
+    console.error('Unable to connect to the database: ', error);
+});
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
