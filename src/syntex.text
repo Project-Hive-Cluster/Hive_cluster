@@ -1,0 +1,3 @@
+ npx sequelize migration:generate --name centroid --model-path ./models/centroid.js
+
+ npx sequelize db:migrate

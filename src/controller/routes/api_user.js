@@ -1,5 +1,5 @@
 import { Router } from "express"
-import User from "../../app/user/user"
+import User from "../../module/user/user"
 const user = new User
 const api = Router()
 

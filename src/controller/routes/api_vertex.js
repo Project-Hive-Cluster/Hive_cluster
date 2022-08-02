@@ -1,6 +1,6 @@
 import { Router } from "express"
 const api = Router()
-import v from '../../app/Vertix'
+import v from '../../module/Vertix'
 const hive = new Hive
 
 api.post("/get", async (req, res) => {

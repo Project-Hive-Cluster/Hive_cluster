@@ -1,6 +1,6 @@
 import { Router } from "express"
 const api = Router()
-import Hive from '../../app/hive/Hive'
+import Hive from '../../module/hive/Hive'
 const hive = new Hive
 
 api.get("/get", async (req, res) => {

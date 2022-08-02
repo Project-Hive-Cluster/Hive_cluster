@@ -1,10 +1,9 @@
 import crypto from 'crypto'
 const fs = require('fs');
 import moment from 'moment';
-import HiveStorage from './HiveStorage';
-import { GenesisFolder } from './HiveStorage';
+import HiveStorage from '../storage/HiveStorage';
 const storage = new HiveStorage
-const gFolder = new GenesisFolder
+import initialization from '../storage/GenesisFolder'
 
 
 
@@ -57,14 +56,12 @@ class Hive {
                     "signatue": "null"
                 }
             }
-            console.log("Genius Block Genarated");
-            gFolder.initialization(genesis_data, (error, data) => {
-                if (error) {
-                    rejects(error)
-                }
+            console.log("Genius Block Data Genarated");
+            initialization(genesis_data, (data) => {
                 console.log("initialization replay with ");
-                console.log(data);
                 resolve(data)
+            }).catch((err) => {
+                rejects(err)
             })
         })
     }

@@ -30,6 +30,8 @@ const user = require("./routes/api_user")
 api.use("/user", user)
 const Spine = require("./routes/api_spine")
 api.use("/spine", Spine)
+const _test = require("./routes/api_test")
+api.use("/test", _test)
 
 
 

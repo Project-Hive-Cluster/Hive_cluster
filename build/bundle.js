@@ -15022,191 +15022,7 @@ function signedCookies (obj, secret) {
 module.exports = require("assert");
 
 /***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;};var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _crypto = __webpack_require__(13);var _crypto2 = _interopRequireDefault(_crypto);
-
-var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);
-var _HiveStorage = __webpack_require__(281);var _HiveStorage2 = _interopRequireDefault(_HiveStorage);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(4);
-
-var storage = new _HiveStorage2.default();
-var gFolder = new _HiveStorage.GenesisFolder();var
-
-
-
-
-Hive = function () {
-
-    function Hive() {_classCallCheck(this, Hive);
-    }_createClass(Hive, [{ key: 'updateSpine', value: function updateSpine(
-
-        data) {var _this = this;
-            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                                    try {
-                                        storage.saveData(data, 'data', 'spine', function () {
-                                            resolve(data);
-                                        });
-                                    } catch (err) {
-                                        rejects("Failed to update Spine " + err);
-                                    }case 1:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
-
-        } }, { key: 'calculateHash', value: function calculateHash(
-
-        uuid, data, timestamp) {var _this2 = this;
-            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                                    data = JSON.stringify(data);
-                                    if (!uuid) rejects("Missing data");
-                                    if (!data) rejects("Missing data");
-                                    if (!timestamp) rejects("Missing data");_context2.next = 6;return (
-                                        _crypto2.default.
-                                        createHash('sha256').
-                                        update(uuid + data + timestamp).
-                                        digest('hex'));case 6:hash = _context2.sent;
-                                    if (hash === undefined) rejects(null);
-                                    resolve(hash);case 9:case 'end':return _context2.stop();}}}, _callee2, _this2);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
-            catch(function (err) {rejects(err);});
-        } }, { key: 'createSpine', value: function createSpine()
-
-        {var _this3 = this;
-
-            return new Promise(function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(resolve, rejects) {var date, genesis_data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                                    date = (0, _moment2.default)(Date.now()).format();
-                                    date = date.toString();
-                                    genesis_data = {
-                                        0: {
-                                            "uuid": "genesis ",
-                                            "timestamp": date,
-                                            "body":
-                                            { "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" },
-
-                                            "amount": "0",
-                                            "signatue": "null" } };
-
-
-                                    console.log("Genius Block Genarated");
-                                    gFolder.initialization(genesis_data, function (error, data) {
-                                        if (error) {
-                                            rejects(error);
-                                        }
-                                        console.log("initialization replay with ");
-                                        console.log(data);
-                                        resolve(data);
-                                    });case 5:case 'end':return _context3.stop();}}}, _callee3, _this3);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
-
-        } }, { key: 'getSpine', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {var _spine;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.prev = 0;_context4.next = 3;return (
-
-
-
-
-                                    storage.getData());case 3:_spine = _context4.sent;
-                                _spine = JSON.parse(_spine);return _context4.abrupt('return',
-                                _spine);case 8:_context4.prev = 8;_context4.t0 = _context4['catch'](0);return _context4.abrupt('return',
-
-                                "Failed to get data. " + _context4.t0);case 11:case 'end':return _context4.stop();}}}, _callee4, this, [[0, 8]]);}));function getSpine() {return _ref4.apply(this, arguments);}return getSpine;}() }, { key: 'pushSpine', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(
-
-
-
-
-            publickey, privateKey, body_data) {var _this4 = this;var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var pro;return regeneratorRuntime.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
-
-
-                                pro = new Promise(function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(resolve, rejects) {var sign, data, len, previous_block, temp_hash, _len_ref_block, previous_ref_block, _hash, block_no, date, new_block;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
-                                                        if (!publickey) rejects("Null value found.");
-                                                        if (!privateKey) rejects("Null value found.");
-                                                        body_data = JSON.stringify(body_data);
-
-                                                        // privateKey = Buffer.from(privateKey)
-                                                        console.log(typeof body_data === 'undefined' ? 'undefined' : _typeof(body_data));
-                                                        sign = _crypto2.default.sign("sha512", body_data, privateKey);
-                                                        sign = sign.toString('base64');
-                                                        sign = JSON.stringify(sign);
-                                                        /*
-                                                                                      Load Spine
-                                                                                     */_context5.next = 9;return (
-                                                            _this4.getSpine());case 9:data = _context5.sent;
-                                                        if (!data) {
-                                                            rejects("Unable to load Spine");
-                                                        }
-                                                        /* Spine Length */
-                                                        len = Object.keys(data);
-                                                        len = len.length - 1;
-                                                        /* 
-                                                                                   Working with previous block
-                                                                               */
-                                                        previous_block = data[len];
-
-                                                        // Security
-                                                        if (!(len != 0)) {_context5.next = 23;break;}
-                                                        temp_hash = previous_block.ref;
-                                                        _len_ref_block = len - 1;
-                                                        previous_ref_block = data[_len_ref_block];_context5.next = 20;return (
-                                                            _this4.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch(function (err) {
-                                                                rejects(err);
-                                                            }));case 20:_hash = _context5.sent;
-                                                        if (_hash != temp_hash) {
-                                                            console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                                                            rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                                                        }
-
-                                                        if (previous_block.uuid === publickey) {
-                                                            console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                                                            rejects("User already present.");
-                                                        }case 23:
-
-                                                        /*
-                                                                    Creating New Block
-                                                                  */
-                                                        block_no = len + 1;
-                                                        date = (0, _moment2.default)(Date.now()).format();
-                                                        date = date.toString(); //making date string
-
-                                                        new_block = {};_context5.t0 =
-
-                                                        publickey;_context5.t1 =
-                                                        date;_context5.next = 31;return (
-                                                            _this4.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch(function (err) {
-                                                                rejects(err);
-                                                            }));case 31:_context5.t2 = _context5.sent;_context5.next = 34;return (
-                                                            _this4.calculateHash(publickey, body_data, date).catch(function (err) {
-                                                                rejects(err);
-                                                            }));case 34:_context5.t3 = _context5.sent;_context5.t4 =
-                                                        body_data;_context5.t5 =
-                                                        amount;_context5.t6 =
-
-                                                        sign.toString('base64');new_block[len + 1] = { "walletid": _context5.t0, "timestamp": _context5.t1, "ref": _context5.t2, "hash": _context5.t3, "body": _context5.t4, "amount": _context5.t5, "status": "1", "signature": _context5.t6 };
-
-
-                                                        console.log(new_block);
-                                                        console.log(typeof new_block === 'undefined' ? 'undefined' : _typeof(new_block));
-                                                        console.log(data);
-                                                        console.log(typeof data === 'undefined' ? 'undefined' : _typeof(data));
-
-                                                        Object.assign(data, new_block); //Join with old block
-                                                        console.log(data);
-                                                        data = _this4.updateSpine(data); //Update source file
-
-                                                        resolve(data);case 47:case 'end':return _context5.stop();}}}, _callee5, _this4);}));return function (_x11, _x12) {return _ref6.apply(this, arguments);};}()).
-
-
-                                catch(function (err) {return err;});_context6.t0 =
-                                console;_context6.next = 4;return pro;case 4:_context6.t1 = _context6.sent;_context6.t0.log.call(_context6.t0, _context6.t1);return _context6.abrupt('return',
-                                pro);case 7:case 'end':return _context6.stop();}}}, _callee6, this);}));function pushSpine(_x8, _x9, _x10) {return _ref5.apply(this, arguments);}return pushSpine;}() }, { key: 'search', value: function () {var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(
-
-
-            param) {var data;return regeneratorRuntime.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:_context7.next = 2;return (
-
-                                    this.getSpine());case 2:data = _context7.sent;
-                                data = Object.values(data).find(function (obj) {return obj.uuid == param;});return _context7.abrupt('return',
-                                data);case 5:case 'end':return _context7.stop();}}}, _callee7, this);}));function search(_x13) {return _ref7.apply(this, arguments);}return search;}() }]);return Hive;}();exports.default =
-
-
-
-
-Hive;
-
-/***/ }),
+/* 65 */,
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43734,6 +43550,8 @@ var user = __webpack_require__(278);
 api.use("/user", user);
 var Spine = __webpack_require__(283);
 api.use("/spine", Spine);
+var _test = __webpack_require__(309);
+api.use("/test", _test);
 
 
 
@@ -43961,7 +43779,7 @@ function tryDecode(str, decode) {
 
 "use strict";
 var _express = __webpack_require__(14);
-var _user = __webpack_require__(279);var _user2 = _interopRequireDefault(_user);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}
+var _user = __webpack_require__(291);var _user2 = _interopRequireDefault(_user);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}
 var user = new _user2.default();
 var api = (0, _express.Router)();
 
@@ -43984,82 +43802,7 @@ api.post("/adduser", function () {var _ref = _asyncToGenerator( /*#__PURE__*/reg
 module.exports = api;
 
 /***/ }),
-/* 279 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _assert = __webpack_require__(64);
-var _crypto = __webpack_require__(13);var _crypto2 = _interopRequireDefault(_crypto);
-var _path = __webpack_require__(1);
-var _Hive = __webpack_require__(65);var _Hive2 = _interopRequireDefault(_Hive);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}
-var hive = new _Hive2.default();var
-User = function () {
-    function User() {_classCallCheck(this, User);
-
-    }_createClass(User, [{ key: 'saveuser', value: function saveuser(
-
-
-        user, key) {
-
-        } }, { key: 'add', value: function add(
-
-        param) {var _this = this;
-
-            return new Promise(function (resolve, rejects) {
-
-                var password = Math.random().toString(36).slice(-8);
-                password = password.replace(/o/g, 't');
-                password = password.replace(/O/g, 'x');
-                password = password.replace(/0/g, 'c');
-                password = password.replace(/l/g, 'r');
-                password = password.replace(/I/g, 't');
-                password = password.replace(/1/g, 'a');
-                console.log("password: " + password);
-
-                // crypto.generateKeyPair('rsa', {
-                //     modulusLength: 4096,    // options
-                //     publicExponent: 0x10101,
-                //     publicKeyEncoding: {
-                //         type: 'spki',
-                //         format: 'pem'
-                //     },
-                //     privateKeyEncoding: {
-                //         type: 'pkcs8',
-                //         format: 'pem',
-                //         cipher: 'aes-256-cbc',
-                //         passphrase: param
-                //     }
-                // }, async (err, publicKey, privateKey) => {
-                _crypto2.default.generateKeyPair('rsa', { modulusLength: 4096 }, function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(
-                    function _callee(err, publicKey, privateKey) {var user;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                                        // Callback function
-                                        user = [];if (
-                                        err) {_context.next = 11;break;}
-                                        publicKey = Buffer.from('publicKey');
-                                        // publicKey = publicKey.toString('hex');
-                                        _context.next = 5;return (
-                                            hive.pushSpine(publicKey, privateKey, '{"Login_ID":' + param + '}'));case 5:user = _context.sent;
-                                        // Prints new asymmetric key pair
-                                        console.log("Public Key is : ", publicKey);
-                                        console.log("Private Key is: ", privateKey);
-                                        resolve(user);_context.next = 13;break;case 11:
-
-
-                                        // Prints error
-                                        console.log("Errr is: ", err);
-                                        rejects("Errr is: ", err);case 13:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2, _x3) {return _ref.apply(this, arguments);};}());
-
-
-
-            });
-
-        } }]);return User;}();exports.default =
-
-
-
-User;
-
-/***/ }),
+/* 279 */,
 /* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44352,167 +44095,52 @@ module.exports = webpackContext;
 webpackContext.id = 280;
 
 /***/ }),
-/* 281 */
+/* 281 */,
+/* 282 */,
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.GenesisFolder = undefined;var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();
-var _assert = __webpack_require__(64);
-var _security = __webpack_require__(282);function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(4);var
+var _express = __webpack_require__(14);
+
+var _Hive = __webpack_require__(288);var _Hive2 = _interopRequireDefault(_Hive);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
+var hive = new _Hive2.default();
+
+api.get("/get", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {var data;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                            hive.getSpine());case 2:data = _context.sent;
+                        res.send(data);case 4:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
 
 
+api.post('/push', function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                            hive.pushSpine(req.body.waletid, req.body.content, req.body.amount));case 2:data = _context2.sent;
+                        res.send(data);case 4:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
 
-GenesisFolder = exports.GenesisFolder = function () {
+api.post("/search", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                            hive.search(req.body.user).then(function (payload) {res.send(payload);}).
+                            catch(function (err) {res.status(404).json({ "error": err });}));case 2:case "end":return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
 
-    function GenesisFolder() {_classCallCheck(this, GenesisFolder);
 
-
-    }_createClass(GenesisFolder, [{ key: 'createDataFolder', value: function createDataFolder(
-
-        callback) {
-            return new Promise(function (resolve, rejects) {
-                fs.mkdir(process.env.APPDATA + '\\Hive Cluster\\data', { recursive: true }, function (err) {
-                    if (err) {
-                        console.error(err);
-                        rejects(err);
-                    }
-                    fs.mkdir(process.env.APPDATA + '\\Hive Cluster\\auth', { recursive: true }, function (err) {
-                        if (err) {
-                            console.error(err);
-                            rejects(err);
-                        }
-                        var replay = 'Hive Cluster Directory created successfully!';
-                        resolve(callback(replay));
-                    });
-                });
-            }).catch(function (err) {
-                console.error(err);
-                rejects("Failed to create Folder" + err);
-            });
-
-        } }, { key: 'createDataFile', value: function createDataFile(
-
-        _payload, callback) {
-            return new Promise(function (resolve) {
-                _payload = (0, _security.encrypt)(JSON.stringify(_payload));
-                encrypt_data = JSON.stringify(_payload);
-                var buff = new Buffer.from(encrypt_data);
-                encrypt_data = buff.toString('base64');
-                console.log("Writing Genesis Data. " + encrypt_data);
-                fs.writeFile(process.env.APPDATA + '\\Hive Cluster\\data\\spine.clu', encrypt_data, 'utf8', function (err, data) {
-                    if (err) {
-                        console.error(err);
-                        rejects(err);
-                    }
-                    console.log('Hive Cluster File created successfully!');
-                    resolve(callback(data));
-                });
-            });
-        } }, { key: 'initialization', value: function initialization(
-
-        payload, callback) {var _this = this;
-            return new Promise(function (resolve, rejects) {
-                _this.createDataFolder(function (data) {
-                    console.log("createDataFolder replay: " + data);
-                }).then(function () {
-                    _this.createDataFolder(payload, function (err, _payload) {
-                        if (err) {
-                            console.error(err);
-                            rejects(err);
-                        }
-                        console.log("====>" + payload);
-                        console.log("createDataFolder replay: " + _payload);
-                        return _payload;
-                    });
-                }).finally(function (_payload) {
-                    console.log("createDataFoldsdsder replay: " + _payload);
-                    resolve(callback(_payload));
-                }).catch(function (err) {
-                    console.log("Error initialization. " + err);
-                });
-            });
-
-        } }]);return GenesisFolder;}();var
+api.post("/init", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.t0 =
+                        setTimeout;_context4.next = 3;return hive.createSpine().then(function (payload) {res.send(payload);}).
+                        catch(function (err) {res.status(404).json({ "error": err });});case 3:_context4.t1 = _context4.sent;(0, _context4.t0)(_context4.t1, 3000);case 5:case "end":return _context4.stop();}}}, _callee4, undefined);}));return function (_x7, _x8) {return _ref4.apply(this, arguments);};}());
 
 
 
 
-HiveStorage = function () {
-
-    function HiveStorage() {_classCallCheck(this, HiveStorage);
-
-    }_createClass(HiveStorage, [{ key: 'getData', value: function getData(
-
-        folder, file) {
-            return new Promise(function (resolve, rejectss) {
-                var payload = fs.readFileSync(process.env.APPDATA + ('\\Hive Cluster\\' + folder + '\\') + file + '.clu', 'utf8').
-                then(function (data, err) {
-                    if (err) {rejectss("Error Genarated in getdata. " + err);}
-                    var buff = new Buffer.from(data, 'base64');
-                    data = buff.toString('ascii');
-                    data = JSON.parse(data);
-                    data = (0, _security.decrypt)(data);
-                    return payload;
-                }).finally(function () {
-                    resolve(payload);
-                }).catch(function (err) {
-                    rejectss("Error Genarated in getdata. " + err);
-                });
-            });
-
-        } }, { key: 'saveData', value: function saveData(
-
-        payload) {var _this2 = this;var location = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'data';var file = arguments[2];
-
-            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejectss) {var encrypt_data, buff;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                                    payload = JSON.stringify(payload);
-                                    encrypt_data = (0, _security.encrypt)(payload);
-                                    encrypt_data = JSON.stringify(encrypt_data);
-                                    buff = new Buffer.from(encrypt_data);
-                                    encrypt_data = buff.toString('base64');
-
-                                    fs.writeFile(process.env.APPDATA + ('\\Hive Cluster\\' + location + '\\') + file + '.clu', encrypt_data, 'utf8', function (data, err) {
-                                        if (err) {
-                                            rejectss("Error Creating data folder: " + err);
-                                        } else {
-                                            resolve(data);
-                                        }
-                                    });case 6:case 'end':return _context.stop();}}}, _callee, _this2);}));return function (_x2, _x3) {return _ref.apply(this, arguments);};}()).
-
-            catch(function (err) {
-                (0, _assert.rejectss)("Failed to create data. Error: " + err);
-            });
-        } }, { key: 'init', value: function init(
+/************** Middelware **************/
+api.get("/*", function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
+                        res.status(404).json({ Error: "Invalid Address" });case 1:case "end":return _context5.stop();}}}, _callee5, undefined);}));return function (_x9, _x10) {return _ref5.apply(this, arguments);};}());
 
 
-        payload) {var _this3 = this;
-            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejectss) {return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                                    try {
-                                        console.log("Progress 5% Checking existence of Hive Cluster. Status " + fs.existsSync(process.env.APPDATA + '\\Hive Cluster'));
-                                        CreateGenisisFolder.mkhive();
-
-                                        console.log("Progress 50% Checking existence of Hive Cluster Data Folder. Status " + fs.existsSync(process.env.APPDATA + '\\Hive Cluster\\data'));
-                                        CreateGenisisFolder.mkhivedata(payload);
-
-                                        console.log("Progress 75% Checking existence of Hive Cluster Auth. Status " + fs.existsSync(process.env.APPDATA + '\\Hive Cluster\\auth'));
-                                        CreateGenisisFolder.mkhiveauth();
-
-                                        console.log("Progress 90% Checking");
-                                        CreateGenisisFolder.check();
 
 
-                                    } catch (err) {rejectss("Failed to create data.: " + err);}
-
-                                    resolve(true);case 2:case 'end':return _context2.stop();}}}, _callee2, _this3);}));return function (_x4, _x5) {return _ref2.apply(this, arguments);};}()).
-            catch(function (err) {return "Failed to init Hive Storage. error: " + err;});
-        } }]);return HiveStorage;}();
-
-
-// export { HiveStorage, GenesisFolder }
-exports.default = HiveStorage;
+module.exports = api;
 
 /***/ }),
-/* 282 */
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44548,44 +44176,863 @@ module.exports = {
     decrypt: decrypt };
 
 /***/ }),
-/* 283 */
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {return typeof obj;} : function (obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;};var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _crypto = __webpack_require__(13);var _crypto2 = _interopRequireDefault(_crypto);
+
+var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);
+var _HiveStorage = __webpack_require__(289);var _HiveStorage2 = _interopRequireDefault(_HiveStorage);
+
+var _GenesisFolder = __webpack_require__(290);var _GenesisFolder2 = _interopRequireDefault(_GenesisFolder);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(4);var storage = new _HiveStorage2.default();var
+
+
+
+
+Hive = function () {
+
+    function Hive() {_classCallCheck(this, Hive);
+    }_createClass(Hive, [{ key: 'updateSpine', value: function updateSpine(
+
+        data) {var _this = this;
+            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                                    try {
+                                        storage.saveData(data, 'data', 'spine', function () {
+                                            resolve(data);
+                                        });
+                                    } catch (err) {
+                                        rejects("Failed to update Spine " + err);
+                                    }case 1:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+
+        } }, { key: 'calculateHash', value: function calculateHash(
+
+        uuid, data, timestamp) {var _this2 = this;
+            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                    data = JSON.stringify(data);
+                                    if (!uuid) rejects("Missing data");
+                                    if (!data) rejects("Missing data");
+                                    if (!timestamp) rejects("Missing data");_context2.next = 6;return (
+                                        _crypto2.default.
+                                        createHash('sha256').
+                                        update(uuid + data + timestamp).
+                                        digest('hex'));case 6:hash = _context2.sent;
+                                    if (hash === undefined) rejects(null);
+                                    resolve(hash);case 9:case 'end':return _context2.stop();}}}, _callee2, _this2);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
+            catch(function (err) {rejects(err);});
+        } }, { key: 'createSpine', value: function createSpine()
+
+        {var _this3 = this;
+
+            return new Promise(function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(resolve, rejects) {var date, genesis_data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                                    date = (0, _moment2.default)(Date.now()).format();
+                                    date = date.toString();
+                                    genesis_data = {
+                                        0: {
+                                            "uuid": "genesis ",
+                                            "timestamp": date,
+                                            "body":
+                                            { "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" },
+
+                                            "amount": "0",
+                                            "signatue": "null" } };
+
+
+                                    console.log("Genius Block Data Genarated");
+                                    (0, _GenesisFolder2.default)(genesis_data, function (data) {
+                                        console.log("initialization replay with ");
+                                        resolve(data);
+                                    }).catch(function (err) {
+                                        rejects(err);
+                                    });case 5:case 'end':return _context3.stop();}}}, _callee3, _this3);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
+
+        } }, { key: 'getSpine', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {var _spine;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.prev = 0;_context4.next = 3;return (
+
+
+
+
+                                    storage.getData());case 3:_spine = _context4.sent;
+                                _spine = JSON.parse(_spine);return _context4.abrupt('return',
+                                _spine);case 8:_context4.prev = 8;_context4.t0 = _context4['catch'](0);return _context4.abrupt('return',
+
+                                "Failed to get data. " + _context4.t0);case 11:case 'end':return _context4.stop();}}}, _callee4, this, [[0, 8]]);}));function getSpine() {return _ref4.apply(this, arguments);}return getSpine;}() }, { key: 'pushSpine', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(
+
+
+
+
+            publickey, privateKey, body_data) {var _this4 = this;var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var pro;return regeneratorRuntime.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
+
+
+                                pro = new Promise(function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(resolve, rejects) {var sign, data, len, previous_block, temp_hash, _len_ref_block, previous_ref_block, _hash, block_no, date, new_block;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
+                                                        if (!publickey) rejects("Null value found.");
+                                                        if (!privateKey) rejects("Null value found.");
+                                                        body_data = JSON.stringify(body_data);
+
+                                                        // privateKey = Buffer.from(privateKey)
+                                                        console.log(typeof body_data === 'undefined' ? 'undefined' : _typeof(body_data));
+                                                        sign = _crypto2.default.sign("sha512", body_data, privateKey);
+                                                        sign = sign.toString('base64');
+                                                        sign = JSON.stringify(sign);
+                                                        /*
+                                                                                      Load Spine
+                                                                                     */_context5.next = 9;return (
+                                                            _this4.getSpine());case 9:data = _context5.sent;
+                                                        if (!data) {
+                                                            rejects("Unable to load Spine");
+                                                        }
+                                                        /* Spine Length */
+                                                        len = Object.keys(data);
+                                                        len = len.length - 1;
+                                                        /* 
+                                                                                   Working with previous block
+                                                                               */
+                                                        previous_block = data[len];
+
+                                                        // Security
+                                                        if (!(len != 0)) {_context5.next = 23;break;}
+                                                        temp_hash = previous_block.ref;
+                                                        _len_ref_block = len - 1;
+                                                        previous_ref_block = data[_len_ref_block];_context5.next = 20;return (
+                                                            _this4.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch(function (err) {
+                                                                rejects(err);
+                                                            }));case 20:_hash = _context5.sent;
+                                                        if (_hash != temp_hash) {
+                                                            console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+                                                            rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+                                                        }
+
+                                                        if (previous_block.uuid === publickey) {
+                                                            console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+                                                            rejects("User already present.");
+                                                        }case 23:
+
+                                                        /*
+                                                                    Creating New Block
+                                                                  */
+                                                        block_no = len + 1;
+                                                        date = (0, _moment2.default)(Date.now()).format();
+                                                        date = date.toString(); //making date string
+
+                                                        new_block = {};_context5.t0 =
+
+                                                        publickey;_context5.t1 =
+                                                        date;_context5.next = 31;return (
+                                                            _this4.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch(function (err) {
+                                                                rejects(err);
+                                                            }));case 31:_context5.t2 = _context5.sent;_context5.next = 34;return (
+                                                            _this4.calculateHash(publickey, body_data, date).catch(function (err) {
+                                                                rejects(err);
+                                                            }));case 34:_context5.t3 = _context5.sent;_context5.t4 =
+                                                        body_data;_context5.t5 =
+                                                        amount;_context5.t6 =
+
+                                                        sign.toString('base64');new_block[len + 1] = { "walletid": _context5.t0, "timestamp": _context5.t1, "ref": _context5.t2, "hash": _context5.t3, "body": _context5.t4, "amount": _context5.t5, "status": "1", "signature": _context5.t6 };
+
+
+                                                        console.log(new_block);
+                                                        console.log(typeof new_block === 'undefined' ? 'undefined' : _typeof(new_block));
+                                                        console.log(data);
+                                                        console.log(typeof data === 'undefined' ? 'undefined' : _typeof(data));
+
+                                                        Object.assign(data, new_block); //Join with old block
+                                                        console.log(data);
+                                                        data = _this4.updateSpine(data); //Update source file
+
+                                                        resolve(data);case 47:case 'end':return _context5.stop();}}}, _callee5, _this4);}));return function (_x11, _x12) {return _ref6.apply(this, arguments);};}()).
+
+
+                                catch(function (err) {return err;});_context6.t0 =
+                                console;_context6.next = 4;return pro;case 4:_context6.t1 = _context6.sent;_context6.t0.log.call(_context6.t0, _context6.t1);return _context6.abrupt('return',
+                                pro);case 7:case 'end':return _context6.stop();}}}, _callee6, this);}));function pushSpine(_x8, _x9, _x10) {return _ref5.apply(this, arguments);}return pushSpine;}() }, { key: 'search', value: function () {var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(
+
+
+            param) {var data;return regeneratorRuntime.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:_context7.next = 2;return (
+
+                                    this.getSpine());case 2:data = _context7.sent;
+                                data = Object.values(data).find(function (obj) {return obj.uuid == param;});return _context7.abrupt('return',
+                                data);case 5:case 'end':return _context7.stop();}}}, _callee7, this);}));function search(_x13) {return _ref7.apply(this, arguments);}return search;}() }]);return Hive;}();exports.default =
+
+
+
+
+Hive;
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();
+var _assert = __webpack_require__(64);
+var _security = __webpack_require__(287);function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(4);var
+
+HiveStorage = function () {
+
+    function HiveStorage() {_classCallCheck(this, HiveStorage);
+
+    }_createClass(HiveStorage, [{ key: 'getData', value: function getData(
+
+        folder, file) {
+            return new Promise(function (resolve, rejectss) {
+                var payload = fs.readFileSync(process.env.APPDATA + ('\\Hive Cluster\\' + folder + '\\') + file + '.clu', 'utf8').
+                then(function (data, err) {
+                    if (err) {rejectss("Error Genarated in getdata. " + err);}
+                    var buff = new Buffer.from(data, 'base64');
+                    data = buff.toString('ascii');
+                    data = JSON.parse(data);
+                    data = (0, _security.decrypt)(data);
+                    return payload;
+                }).finally(function () {
+                    resolve(payload);
+                }).catch(function (err) {
+                    rejectss("Error Genarated in getdata. " + err);
+                });
+            });
+
+        } }, { key: 'saveData', value: function saveData()
+
+        {var _this = this;var location = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'data';var file = arguments[1];
+
+            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejectss) {var data, encrypt_data, buff;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                                    data = JSON.stringify(_this._payload);
+                                    encrypt_data = (0, _security.encrypt)(data);
+                                    encrypt_data = JSON.stringify(encrypt_data);
+                                    buff = new Buffer.from(encrypt_data);
+                                    encrypt_data = buff.toString('base64');
+
+                                    fs.writeFile(process.env.APPDATA + ('\\Hive Cluster\\' + location + '\\') + file + '.clu', encrypt_data, 'utf8', function (data, err) {
+                                        if (err) {
+                                            rejectss("Error Creating data folder: " + err);
+                                        } else {
+                                            resolve(data);
+                                        }
+                                    });case 6:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x2, _x3) {return _ref.apply(this, arguments);};}()).
+
+            catch(function (err) {
+                (0, _assert.rejectss)("Failed to create data. Error: " + err);
+            });
+        } }, { key: 'init', value: function init(
+
+
+        payload) {var _this2 = this;
+            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejectss) {return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                    try {
+                                        console.log("Progress 5% Checking existence of Hive Cluster. Status " + fs.existsSync(process.env.APPDATA + '\\Hive Cluster'));
+                                        CreateGenisisFolder.mkhive();
+
+                                        console.log("Progress 50% Checking existence of Hive Cluster Data Folder. Status " + fs.existsSync(process.env.APPDATA + '\\Hive Cluster\\data'));
+                                        CreateGenisisFolder.mkhivedata(payload);
+
+                                        console.log("Progress 75% Checking existence of Hive Cluster Auth. Status " + fs.existsSync(process.env.APPDATA + '\\Hive Cluster\\auth'));
+                                        CreateGenisisFolder.mkhiveauth();
+
+                                        console.log("Progress 90% Checking");
+                                        CreateGenisisFolder.check();
+
+
+                                    } catch (err) {rejectss("Failed to create data.: " + err);}
+
+                                    resolve(true);case 2:case 'end':return _context2.stop();}}}, _callee2, _this2);}));return function (_x4, _x5) {return _ref2.apply(this, arguments);};}()).
+            catch(function (err) {return "Failed to init Hive Storage. error: " + err;});
+        } }]);return HiveStorage;}();
+
+
+// export { HiveStorage, GenesisFolder }
+exports.default = HiveStorage;
+
+/***/ }),
+/* 290 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var _security = __webpack_require__(287);function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var fs = __webpack_require__(4);
+
+var createDataFolder = function createDataFolder() {
+    return new Promise(function (resolve, rejects) {
+        fs.mkdir(process.env.APPDATA + '\\Hive Cluster\\data', { recursive: true }, function (err) {
+            if (err) {
+                console.error(err);
+                rejects(err);
+            }
+            fs.mkdir(process.env.APPDATA + '\\Hive Cluster\\auth', { recursive: true }, function (err) {
+                if (err) {
+                    console.error(err);
+                    rejects(err);
+                }
+                var replay = 'Hive Cluster Directory created successfully!';
+                resolve(replay);
+            });
+        });
+    }).catch(function (err) {
+        console.error(err);
+        rejects("Failed to create Folder" + err);
+    });
+
+};
+
+var createDataFile = function createDataFile(_payload) {
+    return new Promise(function (resolve) {
+        _payload = (0, _security.encrypt)(JSON.stringify(_payload));
+        var encrypt_data = JSON.stringify(_payload);
+        var buff = new Buffer.from(encrypt_data);
+        encrypt_data = buff.toString('base64');
+        console.log("Writing Genesis Data. " + encrypt_data);
+        fs.writeFile(process.env.APPDATA + '\\Hive Cluster\\data\\spine.clu', encrypt_data, 'utf8', function (err) {
+            if (err) {
+                console.error("Create Data File run into Error: " + err);
+                rejects(err);
+            }
+            console.log('Hive Cluster File created successfully!');
+            resolve("Data Genarated Successfully");
+        });
+    });
+};
+
+var initialization = function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(payload, callback) {var reply, error;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.prev = 0;_context.next = 3;return (
+
+
+
+                            createDataFile(payload));case 3:_context.next = 5;return (
+                            createDataFolder(payload));case 5:reply = _context.sent;
+                        callback(reply);_context.next = 14;break;case 9:_context.prev = 9;_context.t0 = _context['catch'](0);
+
+                        console.error(_context.t0);
+                        error = new Error("Error while creating folder" + _context.t0);return _context.abrupt('return',
+                        error);case 14:case 'end':return _context.stop();}}}, _callee, undefined, [[0, 9]]);}));return function initialization(_x, _x2) {return _ref.apply(this, arguments);};}();
+
+
+
+
+module.exports = initialization;
+
+/***/ }),
+/* 291 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _assert = __webpack_require__(64);
+var _crypto = __webpack_require__(13);var _crypto2 = _interopRequireDefault(_crypto);
+var _path = __webpack_require__(1);
+var _Hive = __webpack_require__(288);var _Hive2 = _interopRequireDefault(_Hive);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}
+var hive = new _Hive2.default();var
+User = function () {
+    function User() {_classCallCheck(this, User);
+
+    }_createClass(User, [{ key: 'saveuser', value: function saveuser(
+
+
+        user, key) {
+
+        } }, { key: 'add', value: function add(
+
+        param) {var _this = this;
+
+            return new Promise(function (resolve, rejects) {
+
+                var password = Math.random().toString(36).slice(-8);
+                password = password.replace(/o/g, 't');
+                password = password.replace(/O/g, 'x');
+                password = password.replace(/0/g, 'c');
+                password = password.replace(/l/g, 'r');
+                password = password.replace(/I/g, 't');
+                password = password.replace(/1/g, 'a');
+                console.log("password: " + password);
+
+                // crypto.generateKeyPair('rsa', {
+                //     modulusLength: 4096,    // options
+                //     publicExponent: 0x10101,
+                //     publicKeyEncoding: {
+                //         type: 'spki',
+                //         format: 'pem'
+                //     },
+                //     privateKeyEncoding: {
+                //         type: 'pkcs8',
+                //         format: 'pem',
+                //         cipher: 'aes-256-cbc',
+                //         passphrase: param
+                //     }
+                // }, async (err, publicKey, privateKey) => {
+                _crypto2.default.generateKeyPair('rsa', { modulusLength: 4096 }, function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(
+                    function _callee(err, publicKey, privateKey) {var user;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                                        // Callback function
+                                        user = [];if (
+                                        err) {_context.next = 11;break;}
+                                        publicKey = Buffer.from('publicKey');
+                                        // publicKey = publicKey.toString('hex');
+                                        _context.next = 5;return (
+                                            hive.pushSpine(publicKey, privateKey, '{"Login_ID":' + param + '}'));case 5:user = _context.sent;
+                                        // Prints new asymmetric key pair
+                                        console.log("Public Key is : ", publicKey);
+                                        console.log("Private Key is: ", privateKey);
+                                        resolve(user);_context.next = 13;break;case 11:
+
+
+                                        // Prints error
+                                        console.log("Errr is: ", err);
+                                        rejects("Errr is: ", err);case 13:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2, _x3) {return _ref.apply(this, arguments);};}());
+
+
+
+            });
+
+        } }]);return User;}();exports.default =
+
+
+
+User;
+
+/***/ }),
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var _express = __webpack_require__(14);
 
-var _Hive = __webpack_require__(65);var _Hive2 = _interopRequireDefault(_Hive);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
-var hive = new _Hive2.default();
 
-api.get("/get", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {var data;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                            hive.getSpine());case 2:data = _context.sent;
-                        res.send(data);case 4:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+var _index = __webpack_require__(714);var _index2 = _interopRequireDefault(_index);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
 
-
-api.post('/push', function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                            hive.pushSpine(req.body.waletid, req.body.content, req.body.amount));case 2:data = _context2.sent;
-                        res.send(data);case 4:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
-
-api.post("/search", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-                            hive.search(req.body.user).then(function (payload) {res.send(payload);}).
-                            catch(function (err) {res.status(404).json({ "error": err });}));case 2:case "end":return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
-
-
-api.post("/init", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.t0 =
-                        setTimeout;_context4.next = 3;return hive.createSpine().then(function (payload) {res.send(payload);}).
-                        catch(function (err) {res.status(404).json({ "error": err });});case 3:_context4.t1 = _context4.sent;(0, _context4.t0)(_context4.t1, 3000);case 5:case "end":return _context4.stop();}}}, _callee4, undefined);}));return function (_x7, _x8) {return _ref4.apply(this, arguments);};}());
+api.get("/test", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.t0 =
+                        res;_context.next = 3;return (0, _index2.default)();case 3:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);case 5:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
 
 
 
 
 /************** Middelware **************/
-api.get("/*", function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
-                        res.status(404).json({ Error: "Invalid Address" });case 1:case "end":return _context5.stop();}}}, _callee5, undefined);}));return function (_x9, _x10) {return _ref5.apply(this, arguments);};}());
-
+api.get("/*", function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                        res.status(404).json({ Error: "Invalid Address" });case 1:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
 
 
 
 module.exports = api;
+
+/***/ }),
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */,
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */,
+/* 471 */,
+/* 472 */,
+/* 473 */,
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */,
+/* 572 */,
+/* 573 */,
+/* 574 */,
+/* 575 */,
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */,
+/* 587 */,
+/* 588 */,
+/* 589 */,
+/* 590 */,
+/* 591 */,
+/* 592 */,
+/* 593 */,
+/* 594 */,
+/* 595 */,
+/* 596 */,
+/* 597 */,
+/* 598 */,
+/* 599 */,
+/* 600 */,
+/* 601 */,
+/* 602 */,
+/* 603 */,
+/* 604 */,
+/* 605 */,
+/* 606 */,
+/* 607 */,
+/* 608 */,
+/* 609 */,
+/* 610 */,
+/* 611 */,
+/* 612 */,
+/* 613 */,
+/* 614 */,
+/* 615 */,
+/* 616 */,
+/* 617 */,
+/* 618 */,
+/* 619 */,
+/* 620 */,
+/* 621 */,
+/* 622 */,
+/* 623 */,
+/* 624 */,
+/* 625 */,
+/* 626 */,
+/* 627 */,
+/* 628 */,
+/* 629 */,
+/* 630 */,
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */,
+/* 636 */,
+/* 637 */,
+/* 638 */,
+/* 639 */,
+/* 640 */,
+/* 641 */,
+/* 642 */,
+/* 643 */,
+/* 644 */,
+/* 645 */,
+/* 646 */,
+/* 647 */,
+/* 648 */,
+/* 649 */,
+/* 650 */,
+/* 651 */,
+/* 652 */,
+/* 653 */,
+/* 654 */,
+/* 655 */,
+/* 656 */,
+/* 657 */,
+/* 658 */,
+/* 659 */,
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */,
+/* 674 */,
+/* 675 */,
+/* 676 */,
+/* 677 */,
+/* 678 */,
+/* 679 */,
+/* 680 */,
+/* 681 */,
+/* 682 */,
+/* 683 */,
+/* 684 */,
+/* 685 */,
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */,
+/* 690 */,
+/* 691 */,
+/* 692 */,
+/* 693 */,
+/* 694 */,
+/* 695 */,
+/* 696 */,
+/* 697 */,
+/* 698 */,
+/* 699 */,
+/* 700 */,
+/* 701 */,
+/* 702 */,
+/* 703 */,
+/* 704 */,
+/* 705 */,
+/* 706 */,
+/* 707 */,
+/* 708 */,
+/* 709 */,
+/* 710 */,
+/* 711 */,
+/* 712 */,
+/* 713 */,
+/* 714 */
+/***/ (function(module, exports) {
+
+"use strict";
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'E:\\Users\\tanbin.3341\\Desktop\\Hive_cluster\\src\\models\\index.js'");
 
 /***/ })
 /******/ ]);
