@@ -4,6 +4,7 @@ import cors from "cors"
 /*Environment Data*/
 import dotenv from "dotenv"
 import db from './Database/utils/database'
+
 dotenv.config()
 
 const corsOptions = {
@@ -12,8 +13,9 @@ const corsOptions = {
 }
 
 app.use(express.json())
-db.authenticate().then(() => {
-    // db.sync()
+db.authenticate().then(async () => {
+    // await db.sync({ force: true });
+    // await db.sync();
     console.log('Connection has been established successfully.');
 }).catch((error) => {
     console.error('Unable to connect to the database: ', error);
@@ -24,7 +26,6 @@ app.set('view engine', 'ejs');
 
 // Middelwears
 app.use(cors(corsOptions))
-
 
 /*And Every apis path here*/
 const routes = require("./controller/index")

@@ -1,7 +1,7 @@
 import { rejects } from 'assert';
 import crypto from 'crypto'
 import { resolve } from 'path';
-import Hive from '../hive/Hive';
+import Hive from '../Hive/Centroid';
 const hive = new Hive
 class User {
     constructor() {
