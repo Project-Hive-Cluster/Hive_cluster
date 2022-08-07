@@ -1,6 +1,7 @@
-import crypto from 'crypto'
+
 import moment from 'moment';
 import db from '../../Database/models/Centroid';
+import { calculateHash } from './Mine'
 
 
 class Centroid {
@@ -8,50 +9,31 @@ class Centroid {
     constructor() {
     }
 
-    calculateHash(uuid, data, timestamp) {
-        return new Promise(async (resolve, rejects) => {
-            data = JSON.stringify(data)
-            if (!uuid) rejects("Missing data")
-            if (!data) rejects("Missing data")
-            if (!timestamp) rejects("Missing data")
-            const hash = await crypto
-                .createHash('sha256')
-                .update(uuid + data + timestamp)
-                .digest('hex')
-            if (hash === undefined) rejects(null)
-            resolve(hash)
-        }).catch((err) => { return err })
-    }
+
 
     create() {
         return new Promise(async (resolve, rejects) => {
+            console.log("Genius Block Data Genarated");
+            // Date
             let date = moment(Date.now()).format()
             date = date.toString()
-            const genesis_data = {
-                0: {
-                    "walletid": "genesis",
-                    "timestamp": date,
-                    "ref": "root",
-                    "hash": "empty",
-                    "body":
-                        { "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" }
-                    ,
-                    "amount": "0"
-                }
-            }
-
-            console.log("Genius Block Data Genarated");
-            const { uuid, walletid, timestamp, ref, hash, body, amount } = genesis_data['0']
-            console.log("Init Database Entry");
-            let _body = JSON.stringify(body)
+            // Body
+            let body = { "Titel": "Genesis", "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" }
+            body = JSON.stringify(body)
             try {
-                const data = await db.create({ uuid, walletid, timestamp, ref, hash, body: _body, amount })
-                // console.log(data);
-                resolve(data)
-            } catch (err) {
-                if (error.name === 'SequelizeUniqueConstraintError') {
-                    rejects("Genesis Block Already ")
-                }
+
+                await db.create({ titel: 'Genesis', walletid: '0000000000000000', walletkey: 'genesis', timestamp: date, ref: 'this_root', hash: 'root', body, amount: 0 })
+                await this.push('0000000000000001', 'assects', { "Titel": "Assets", "Data": "Assets Block", 'Owner': "Genesis" }, 0)
+                await this.push('0000000000000002', 'liabilities', { "Titel": "Liabilities", "Data": "Assets Block", 'Owner': "Genesis" }, 0)
+                await this.push('0000000000000003', 'income', { "Titel": "Income", "Data": "Income Block", 'Owner': "Genesis" }, 0)
+                await this.push('0000000000000004', 'expense', { "Titel": "Expense", "Data": "Expense Block", 'Owner': "Genesis" }, 0)
+
+                resolve('Success')
+            } catch (error) {
+                console.error(error)
+                // if (error.name === 'SequelizeUniqueConstraintError') {
+                // rejects("Genesis Block Already ")
+                // }
             }
         })
             .catch((err) => {
@@ -79,11 +61,11 @@ class Centroid {
      * 
      * ************************************************/
 
-    async push(walletid, body_data, amount = 0) {
+    async push(walletid, walletkey, body_data, amount = 0) {
         console.log("walletid " + walletid);
 
         try {
-            let date = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a')
+            let date = moment(Date.now()).format()
             date = JSON.stringify(date)
 
 
@@ -94,11 +76,11 @@ class Centroid {
             previous_block = JSON.stringify(previous_block)
 
             // Hash Ref Block 
-            let ref = await this.calculateHash(walletid, previous_block, date)
+            let ref = await calculateHash(walletid, previous_block, date)
 
 
             // Hash Block 
-            let hash = await this.calculateHash(walletid, body_data, date)
+            let hash = await calculateHash(walletid, body_data, date)
 
 
             //Stringify Data
@@ -107,7 +89,7 @@ class Centroid {
             const timestamp = date
 
             // Input To Database
-            await db.create({ new_block_id, walletid, timestamp, ref, hash, body, amount })
+            await db.create({ walletid, walletkey, timestamp, ref, hash, body, amount })
             return await db.findOne({
                 attributes: ['walletid', 'timestamp'],
                 order: [['id', 'DESC']]
@@ -146,7 +128,7 @@ class Centroid {
     //             let temp_hash = previous_block.ref
     //             const _len_ref_block = len - 1
     //             let previous_ref_block = data[_len_ref_block]
-    //             let _hash = await this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
+    //             let _hash = await calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
     //                 rejects(err)
     //             })
     //             if (_hash != temp_hash) {
@@ -165,10 +147,10 @@ class Centroid {
     //         let block_no = len + 1
 
     //         date = date.toString() //making date string
-    //         const ref = await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+    //         const ref = await calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
     //             rejects(err)
     //         })
-    //         const hash = await this.calculateHash(walletid, body_data, date).catch((err) => {
+    //         const hash = await calculateHash(walletid, body_data, date).catch((err) => {
     //             rejects(err)
     //         })
     //         const _body = JSON.stringify(body_data)
