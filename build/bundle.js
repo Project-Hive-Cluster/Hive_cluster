@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "build/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 327);
+/******/ 	return __webpack_require__(__webpack_require__.s = 326);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -23016,7 +23016,7 @@ const util = __webpack_require__(3);
 const _ = __webpack_require__(2);
 const wkx = __webpack_require__(68);
 const sequelizeErrors = __webpack_require__(5);
-const Validator = __webpack_require__(95).validator;
+const Validator = __webpack_require__(94).validator;
 const momentTz = __webpack_require__(27);
 const moment = __webpack_require__(0);
 const { logger } = __webpack_require__(7);
@@ -23740,7 +23740,7 @@ __export(exports, {
   ValidationErrorItemType: () => import_validation_error.ValidationErrorItemType
 });
 var import_base_error = __toModule(__webpack_require__(11));
-var import_database_error = __toModule(__webpack_require__(48));
+var import_database_error = __toModule(__webpack_require__(49));
 var import_aggregate_error = __toModule(__webpack_require__(428));
 var import_association_error = __toModule(__webpack_require__(429));
 var import_bulk_record_error = __toModule(__webpack_require__(430));
@@ -23794,9 +23794,9 @@ const DataTypes = __webpack_require__(4);
 const SqlString = __webpack_require__(70);
 const _ = __webpack_require__(2);
 const baseIsNative = __webpack_require__(546);
-const uuidv1 = __webpack_require__(50).v1;
-const uuidv4 = __webpack_require__(50).v4;
-const operators = __webpack_require__(9);
+const uuidv1 = __webpack_require__(51).v1;
+const uuidv4 = __webpack_require__(51).v4;
+const operators = __webpack_require__(8);
 const operatorsSet = new Set(Object.values(operators));
 let inflection = __webpack_require__(563);
 exports.classToInvokable = __webpack_require__(303).classToInvokable;
@@ -24303,12 +24303,6 @@ const logger = new Logger();
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
 var __defProp = Object.defineProperty;
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
@@ -24368,7 +24362,7 @@ module.exports = Op;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const debug = __webpack_require__(76)
@@ -24376,7 +24370,7 @@ const { MAX_LENGTH, MAX_SAFE_INTEGER } = __webpack_require__(75)
 const { re, t } = __webpack_require__(40)
 
 const parseOptions = __webpack_require__(77)
-const { compareIdentifiers } = __webpack_require__(101)
+const { compareIdentifiers } = __webpack_require__(100)
 class SemVer {
   constructor (version, options) {
     options = parseOptions(options)
@@ -24661,6 +24655,12 @@ module.exports = SemVer
 
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
@@ -24757,19 +24757,13 @@ if (typeof process !== 'undefined' && process.type === 'renderer') {
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs");
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
 module.exports = require("crypto");
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const compare = (a, b, loose) =>
   new SemVer(a, loose).compare(new SemVer(b, loose))
 
@@ -24777,7 +24771,7 @@ module.exports = compare
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // hoisted class for cyclic dependency
@@ -24980,7 +24974,7 @@ const cache = new LRU({ max: 1000 })
 const parseOptions = __webpack_require__(77)
 const Comparator = __webpack_require__(79)
 const debug = __webpack_require__(76)
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const {
   re,
   t,
@@ -25302,6 +25296,12 @@ const testSet = (set, version, options) => {
 
 
 /***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
@@ -25350,7 +25350,7 @@ module.exports = {
  * Module dependencies.
  */
 
-var relative = __webpack_require__(8).relative
+var relative = __webpack_require__(10).relative
 
 /**
  * Module exports.
@@ -25972,8 +25972,8 @@ module.exports = Geometry;
 
 var Types = __webpack_require__(19);
 var Point = __webpack_require__(25);
-var LineString = __webpack_require__(93);
-var Polygon = __webpack_require__(94);
+var LineString = __webpack_require__(92);
+var Polygon = __webpack_require__(93);
 var MultiPoint = __webpack_require__(148);
 var MultiLineString = __webpack_require__(149);
 var MultiPolygon = __webpack_require__(150);
@@ -26687,16 +26687,16 @@ module.exports = require("buffer");
  * @api private
  */
 
-var Buffer = __webpack_require__(127).Buffer
-var contentDisposition = __webpack_require__(128);
-var contentType = __webpack_require__(54);
+var Buffer = __webpack_require__(126).Buffer
+var contentDisposition = __webpack_require__(127);
+var contentType = __webpack_require__(55);
 var deprecate = __webpack_require__(20)('express');
-var flatten = __webpack_require__(62);
+var flatten = __webpack_require__(63);
 var mime = __webpack_require__(89).mime;
-var etag = __webpack_require__(129);
-var proxyaddr = __webpack_require__(132);
+var etag = __webpack_require__(128);
+var proxyaddr = __webpack_require__(131);
 var qs = __webpack_require__(84);
-var querystring = __webpack_require__(122);
+var querystring = __webpack_require__(121);
 
 /**
  * Return strong ETag for `body`.
@@ -27005,7 +27005,7 @@ const Utils = __webpack_require__(6);
 const Helpers = __webpack_require__(73);
 const _ = __webpack_require__(2);
 const Association = __webpack_require__(32);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 class BelongsTo extends Association {
   constructor(source, target, options) {
     super(source, target, options);
@@ -27226,7 +27226,7 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
 const DataTypes = __webpack_require__(4);
-const Transaction = __webpack_require__(100);
+const Transaction = __webpack_require__(99);
 const QueryTypes = __webpack_require__(13);
 class QueryInterface {
   constructor(sequelize, queryGenerator) {
@@ -27852,10 +27852,10 @@ module.exports.default = AbstractDialect;
 
 const { Pool, TimeoutError } = __webpack_require__(604);
 const _ = __webpack_require__(2);
-const semver = __webpack_require__(53);
+const semver = __webpack_require__(54);
 const errors = __webpack_require__(5);
 const { logger } = __webpack_require__(7);
-const deprecations = __webpack_require__(52);
+const deprecations = __webpack_require__(53);
 const debug = logger.debugContext("pool");
 class ConnectionManager {
   constructor(dialect, sequelize) {
@@ -28116,8 +28116,8 @@ const _ = __webpack_require__(2);
 const SqlString = __webpack_require__(70);
 const QueryTypes = __webpack_require__(13);
 const Dot = __webpack_require__(313);
-const deprecations = __webpack_require__(52);
-const uuid = __webpack_require__(50).v4;
+const deprecations = __webpack_require__(53);
+const uuid = __webpack_require__(51).v4;
 const { safeStringifyJson } = __webpack_require__(6);
 class AbstractQuery {
   constructor(connection, sequelize, options) {
@@ -28663,8 +28663,8 @@ module.exports.default = AbstractQuery;
  */
 
 var deprecate = __webpack_require__(20)('http-errors')
-var setPrototypeOf = __webpack_require__(55)
-var statuses = __webpack_require__(56)
+var setPrototypeOf = __webpack_require__(56)
+var statuses = __webpack_require__(57)
 var inherits = __webpack_require__(332)
 var toIdentifier = __webpack_require__(334)
 
@@ -29052,7 +29052,7 @@ const Utils = __webpack_require__(6);
 const Helpers = __webpack_require__(73);
 const _ = __webpack_require__(2);
 const Association = __webpack_require__(32);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 class HasMany extends Association {
   constructor(source, target, options) {
     super(source, target, options);
@@ -29540,7 +29540,7 @@ createToken('GTE0PRE', '^\\s*>=\\s*0\\.0\\.0-0\\s*$')
 
 const { MAX_LENGTH } = __webpack_require__(75)
 const { re, t } = __webpack_require__(40)
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 
 const parseOptions = __webpack_require__(77)
 const parse = (version, options) => {
@@ -29600,17 +29600,17 @@ var __spreadValues = (a, b) => {
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 const util = __webpack_require__(3);
 const _ = __webpack_require__(2);
-const uuidv4 = __webpack_require__(50).v4;
+const uuidv4 = __webpack_require__(51).v4;
 const Utils = __webpack_require__(6);
-const deprecations = __webpack_require__(52);
+const deprecations = __webpack_require__(53);
 const SqlString = __webpack_require__(70);
 const DataTypes = __webpack_require__(4);
 const Model = __webpack_require__(312);
 const Association = __webpack_require__(32);
 const BelongsTo = __webpack_require__(31);
-const BelongsToMany = __webpack_require__(51);
+const BelongsToMany = __webpack_require__(52);
 const HasMany = __webpack_require__(39);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 const sequelizeError = __webpack_require__(5);
 const IndexHints = __webpack_require__(317);
 class QueryGenerator {
@@ -31844,7 +31844,7 @@ function parse(val) {
  */
 
 var typer = __webpack_require__(357)
-var mime = __webpack_require__(120)
+var mime = __webpack_require__(119)
 
 /**
  * Module exports.
@@ -32116,7 +32116,7 @@ function tryNormalizeType (value) {
  * @private
  */
 
-var url = __webpack_require__(61)
+var url = __webpack_require__(62)
 var parse = url.parse
 var Url = url.Url
 
@@ -32267,8 +32267,8 @@ function fresh (url, parsedUrl) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var _pg = __webpack_require__(137);var pg = _interopRequireWildcard(_pg);
-var _sequelize = __webpack_require__(67);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}
+var _pg = __webpack_require__(136);var pg = _interopRequireWildcard(_pg);
+var _sequelize = __webpack_require__(48);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}
 
 // module.exports = new Sequelize('postgres://hornet:hornet@127.0.0.1:5432/HIVE_CLUSTER_DEV', {
 //     dialectModule: pg
@@ -32287,6 +32287,16 @@ module.exports = new _sequelize.Sequelize('HIVE_CLUSTER_DEV', 'hornet', 'hornet'
 
 /***/ }),
 /* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = __webpack_require__(424);
+//# sourceMappingURL=index.js.map
+
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __create = Object.create;
@@ -32344,7 +32354,7 @@ var database_error_default = DatabaseError;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32487,7 +32497,7 @@ decimal['pl-Pl'] = decimal['pl-PL']; // see #1455
 alpha['fa-AF'] = alpha.fa;
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -32521,7 +32531,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32554,7 +32564,7 @@ const HasMany = __webpack_require__(39);
 const HasOne = __webpack_require__(74);
 const AssociationError = __webpack_require__(5).AssociationError;
 const EmptyResultError = __webpack_require__(5).EmptyResultError;
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 class BelongsToMany extends Association {
   constructor(source, target, options) {
     super(source, target, options);
@@ -33094,7 +33104,7 @@ module.exports.default = BelongsToMany;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __create = Object.create;
@@ -33141,7 +33151,7 @@ const unsupportedEngine = (0, import_util.deprecate)(noop, "This database engine
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // just pre-load all the stuff that index.js lazily exports
@@ -33151,9 +33161,9 @@ module.exports = {
   src: internalRe.src,
   tokens: internalRe.t,
   SEMVER_SPEC_VERSION: __webpack_require__(75).SEMVER_SPEC_VERSION,
-  SemVer: __webpack_require__(10),
-  compareIdentifiers: __webpack_require__(101).compareIdentifiers,
-  rcompareIdentifiers: __webpack_require__(101).rcompareIdentifiers,
+  SemVer: __webpack_require__(9),
+  compareIdentifiers: __webpack_require__(100).compareIdentifiers,
+  rcompareIdentifiers: __webpack_require__(100).rcompareIdentifiers,
   parse: __webpack_require__(41),
   valid: __webpack_require__(578),
   clean: __webpack_require__(579),
@@ -33163,29 +33173,29 @@ module.exports = {
   minor: __webpack_require__(583),
   patch: __webpack_require__(584),
   prerelease: __webpack_require__(585),
-  compare: __webpack_require__(17),
+  compare: __webpack_require__(16),
   rcompare: __webpack_require__(586),
   compareLoose: __webpack_require__(587),
-  compareBuild: __webpack_require__(103),
+  compareBuild: __webpack_require__(102),
   sort: __webpack_require__(588),
   rsort: __webpack_require__(589),
   gt: __webpack_require__(78),
-  lt: __webpack_require__(104),
-  eq: __webpack_require__(102),
+  lt: __webpack_require__(103),
+  eq: __webpack_require__(101),
   neq: __webpack_require__(318),
-  gte: __webpack_require__(105),
-  lte: __webpack_require__(106),
+  gte: __webpack_require__(104),
+  lte: __webpack_require__(105),
   cmp: __webpack_require__(319),
   coerce: __webpack_require__(590),
   Comparator: __webpack_require__(79),
-  Range: __webpack_require__(18),
+  Range: __webpack_require__(17),
   satisfies: __webpack_require__(80),
   toComparators: __webpack_require__(594),
   maxSatisfying: __webpack_require__(595),
   minSatisfying: __webpack_require__(596),
   minVersion: __webpack_require__(597),
   validRange: __webpack_require__(598),
-  outside: __webpack_require__(107),
+  outside: __webpack_require__(106),
   gtr: __webpack_require__(599),
   ltr: __webpack_require__(600),
   intersects: __webpack_require__(601),
@@ -33195,7 +33205,7 @@ module.exports = {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33424,7 +33434,7 @@ function ContentType (type) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33448,7 +33458,7 @@ function mixinProperties (obj, proto) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33601,7 +33611,7 @@ function status (code) {
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33619,12 +33629,12 @@ function status (code) {
  */
 
 var createError = __webpack_require__(37)
-var destroy = __webpack_require__(113)
+var destroy = __webpack_require__(112)
 var getBody = __webpack_require__(338)
-var iconv = __webpack_require__(115)
-var onFinished = __webpack_require__(58)
+var iconv = __webpack_require__(114)
+var onFinished = __webpack_require__(59)
 var unpipe = __webpack_require__(83)
-var zlib = __webpack_require__(114)
+var zlib = __webpack_require__(113)
 
 /**
  * Module exports.
@@ -33813,7 +33823,7 @@ function dump (req, callback) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34023,7 +34033,7 @@ function patchAssignSocket (res, callback) {
 
 function tryRequireAsyncHooks () {
   try {
-    return __webpack_require__(119)
+    return __webpack_require__(118)
   } catch (e) {
     return {}
   }
@@ -34054,7 +34064,7 @@ function wrap (fn) {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34121,7 +34131,7 @@ function encodeUrl (url) {
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34206,13 +34216,13 @@ function escapeHtml(string) {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34283,13 +34293,13 @@ function arrayFlatten (array, depth) {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports) {
 
 /**
@@ -34318,7 +34328,7 @@ exports = module.exports = function(a, b){
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34392,7 +34402,7 @@ module.exports = {
   keepalives_idle: 0,
 }
 
-var pgTypes = __webpack_require__(66)
+var pgTypes = __webpack_require__(67)
 // save default parsers
 var parseBigInteger = pgTypes.getTypeParser(20, 'text')
 var parseBigIntegerArray = pgTypes.getTypeParser(1016, 'text')
@@ -34405,12 +34415,12 @@ module.exports.__defineSetter__('parseInt8', function (val) {
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var textParsers = __webpack_require__(400);
 var binaryParsers = __webpack_require__(405);
-var arrayParser = __webpack_require__(139);
+var arrayParser = __webpack_require__(138);
 var builtinTypes = __webpack_require__(407);
 
 exports.getTypeParser = getTypeParser;
@@ -34458,24 +34468,14 @@ binaryParsers.init(function(oid, converter) {
 
 
 /***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = __webpack_require__(424);
-//# sourceMappingURL=index.js.map
-
-
-/***/ }),
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.Types = __webpack_require__(19);
 exports.Geometry = __webpack_require__(24);
 exports.Point = __webpack_require__(25);
-exports.LineString = __webpack_require__(93);
-exports.Polygon = __webpack_require__(94);
+exports.LineString = __webpack_require__(92);
+exports.Polygon = __webpack_require__(93);
 exports.MultiPoint = __webpack_require__(148);
 exports.MultiLineString = __webpack_require__(149);
 exports.MultiPolygon = __webpack_require__(150);
@@ -34796,7 +34796,7 @@ const Utils = __webpack_require__(6);
 const Helpers = __webpack_require__(73);
 const _ = __webpack_require__(2);
 const Association = __webpack_require__(32);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 class HasOne extends Association {
   constructor(source, target, options) {
     super(source, target, options);
@@ -35024,7 +35024,7 @@ module.exports = parseOptions
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 const gt = (a, b, loose) => compare(a, b, loose) > 0
 module.exports = gt
 
@@ -35167,15 +35167,15 @@ const parseOptions = __webpack_require__(77)
 const { re, t } = __webpack_require__(40)
 const cmp = __webpack_require__(319)
 const debug = __webpack_require__(76)
-const SemVer = __webpack_require__(10)
-const Range = __webpack_require__(18)
+const SemVer = __webpack_require__(9)
+const Range = __webpack_require__(17)
 
 
 /***/ }),
 /* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Range = __webpack_require__(18)
+const Range = __webpack_require__(17)
 const satisfies = (version, range, options) => {
   try {
     range = new Range(range, options)
@@ -35695,7 +35695,7 @@ module.exports = {
  * @private
  */
 
-var http = __webpack_require__(63);
+var http = __webpack_require__(64);
 
 /**
  * Module exports.
@@ -35774,18 +35774,18 @@ function getBasicNodeMethods() {
 var createError = __webpack_require__(37)
 var debug = __webpack_require__(14)('send')
 var deprecate = __webpack_require__(20)('send')
-var destroy = __webpack_require__(113)
-var encodeUrl = __webpack_require__(59)
-var escapeHtml = __webpack_require__(60)
-var etag = __webpack_require__(129)
-var fresh = __webpack_require__(130)
-var fs = __webpack_require__(15)
+var destroy = __webpack_require__(112)
+var encodeUrl = __webpack_require__(60)
+var escapeHtml = __webpack_require__(61)
+var etag = __webpack_require__(128)
+var fresh = __webpack_require__(129)
+var fs = __webpack_require__(18)
 var mime = __webpack_require__(382)
 var ms = __webpack_require__(384)
-var onFinished = __webpack_require__(58)
-var parseRange = __webpack_require__(131)
-var path = __webpack_require__(8)
-var statuses = __webpack_require__(56)
+var onFinished = __webpack_require__(59)
+var parseRange = __webpack_require__(130)
+var path = __webpack_require__(10)
+var statuses = __webpack_require__(57)
 var Stream = __webpack_require__(28)
 var util = __webpack_require__(3)
 
@@ -36937,9 +36937,9 @@ module.exports = function(module) {
 "use strict";
 
 
-const crypto = __webpack_require__(16)
+const crypto = __webpack_require__(15)
 
-const defaults = __webpack_require__(65)
+const defaults = __webpack_require__(66)
 
 function escapeElement(elementRepresentation) {
   var escaped = elementRepresentation.replace(/\\/g, '\\\\').replace(/"/g, '\\"')
@@ -37126,12 +37126,6 @@ module.exports = {
 
 /***/ }),
 /* 92 */
-/***/ (function(module, exports) {
-
-module.exports = require("assert");
-
-/***/ }),
-/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = LineString;
@@ -37315,7 +37309,7 @@ LineString.prototype.toGeoJSON = function (options) {
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = Polygon;
@@ -37609,7 +37603,7 @@ Polygon.prototype.toGeoJSON = function (options) {
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37698,7 +37692,7 @@ exports.validator = validator;
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37723,7 +37717,7 @@ module.exports = exports.default;
 module.exports.default = exports.default;
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37818,7 +37812,7 @@ module.exports = exports.default;
 module.exports.default = exports.default;
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37854,7 +37848,7 @@ module.exports = exports.default;
 module.exports.default = exports.default;
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37876,7 +37870,7 @@ exports.parse = parse;
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38060,7 +38054,7 @@ module.exports.default = Transaction;
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports) {
 
 const numeric = /^[0-9]+$/
@@ -38089,19 +38083,19 @@ module.exports = {
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 const eq = (a, b, loose) => compare(a, b, loose) === 0
 module.exports = eq
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const compareBuild = (a, b, loose) => {
   const versionA = new SemVer(a, loose)
   const versionB = new SemVer(b, loose)
@@ -38111,45 +38105,45 @@ module.exports = compareBuild
 
 
 /***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const compare = __webpack_require__(16)
+const lt = (a, b, loose) => compare(a, b, loose) < 0
+module.exports = lt
+
+
+/***/ }),
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
-const lt = (a, b, loose) => compare(a, b, loose) < 0
-module.exports = lt
+const compare = __webpack_require__(16)
+const gte = (a, b, loose) => compare(a, b, loose) >= 0
+module.exports = gte
 
 
 /***/ }),
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
-const gte = (a, b, loose) => compare(a, b, loose) >= 0
-module.exports = gte
+const compare = __webpack_require__(16)
+const lte = (a, b, loose) => compare(a, b, loose) <= 0
+module.exports = lte
 
 
 /***/ }),
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
-const lte = (a, b, loose) => compare(a, b, loose) <= 0
-module.exports = lte
-
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const Comparator = __webpack_require__(79)
 const { ANY } = Comparator
-const Range = __webpack_require__(18)
+const Range = __webpack_require__(17)
 const satisfies = __webpack_require__(80)
 const gt = __webpack_require__(78)
-const lt = __webpack_require__(104)
-const lte = __webpack_require__(106)
-const gte = __webpack_require__(105)
+const lt = __webpack_require__(103)
+const lte = __webpack_require__(105)
+const gte = __webpack_require__(104)
 
 const outside = (version, range, hilo, options) => {
   version = new SemVer(version, options)
@@ -38224,7 +38218,7 @@ module.exports = outside
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38252,7 +38246,7 @@ const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
 const AbstractQueryGenerator = __webpack_require__(42);
 const util = __webpack_require__(3);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 const JSON_FUNCTION_REGEX = /^\s*((?:[a-z]+_){0,2}jsonb?(?:_[a-z]+){0,2})\([^)]*\)/i;
 const JSON_OPERATOR_REGEX = /^\s*(->>?|@>|<@|\?[|&]?|\|{2}|#-)/i;
 const TOKEN_CAPTURE_REGEX = /^\s*((?:([`"'])(?:(?!\2).|\2{2})*\2)|[\w\d\s]+|[().,;+-])/i;
@@ -38701,734 +38695,27 @@ module.exports = MySQLQueryGenerator;
 
 
 /***/ }),
-/* 109 */
-/***/ (function(module, exports) {
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = __webpack_require__(48);
+var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
-!(function(global) {
-  "use strict";
 
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+var Centroid = _database2.default.define('CENTROID', {
+    walletid: { type: _sequelize.DataTypes.STRING, allowNull: true, unique: true },
+    timestamp: { type: _sequelize.DataTypes.STRING, allowNull: true },
+    ref: { type: _sequelize.DataTypes.STRING, allowNull: true },
+    hash: { type: _sequelize.DataTypes.STRING, allowNull: true },
+    body: _sequelize.DataTypes.STRING,
+    amount: { type: _sequelize.DataTypes.FLOAT } });exports.default =
 
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
 
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  runtime.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
-        return this._invoke(method, arg);
-      };
-    });
-  }
-
-  runtime.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  runtime.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  runtime.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return Promise.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  runtime.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
-    );
-
-    return runtime.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        if (delegate.iterator.return) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  Gp[toStringTagSymbol] = "Generator";
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  runtime.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  runtime.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() {
-    return this || (typeof self === "object" && self);
-  })() || Function("return this")()
-);
-
+Centroid;
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39592,7 +38879,7 @@ function loadParser (parserName) {
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -39800,13 +39087,13 @@ function coerce(val) {
 
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports) {
 
 module.exports = require("tty");
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39825,9 +39112,9 @@ module.exports = require("tty");
  */
 
 var EventEmitter = __webpack_require__(23).EventEmitter
-var ReadStream = __webpack_require__(15).ReadStream
+var ReadStream = __webpack_require__(18).ReadStream
 var Stream = __webpack_require__(28)
-var Zlib = __webpack_require__(114)
+var Zlib = __webpack_require__(113)
 
 /**
  * Module exports.
@@ -40022,13 +39309,13 @@ function onOpenClose () {
 
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports) {
 
 module.exports = require("zlib");
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40188,31 +39475,31 @@ if (false) {
 
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports) {
 
 module.exports = require("string_decoder");
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports) {
 
 module.exports = [["a140","",62],["a180","",32],["a240","",62],["a280","",32],["a2ab","",5],["a2e3","€"],["a2ef",""],["a2fd",""],["a340","",62],["a380","",31,"　"],["a440","",62],["a480","",32],["a4f4","",10],["a540","",62],["a580","",32],["a5f7","",7],["a640","",62],["a680","",32],["a6b9","",7],["a6d9","",6],["a6ec",""],["a6f3",""],["a6f6","",8],["a740","",62],["a780","",32],["a7c2","",14],["a7f2","",12],["a896","",10],["a8bc",""],["a8bf","ǹ"],["a8c1",""],["a8ea","",20],["a958",""],["a95b",""],["a95d",""],["a989","〾⿰",11],["a997","",12],["a9f0","",14],["aaa1","",93],["aba1","",93],["aca1","",93],["ada1","",93],["aea1","",93],["afa1","",93],["d7fa","",4],["f8a1","",93],["f9a1","",93],["faa1","",93],["fba1","",93],["fca1","",93],["fda1","",93],["fe50","⺁⺄㑳㑇⺈⺋㖞㘚㘎⺌⺗㥮㤘㧏㧟㩳㧐㭎㱮㳠⺧⺪䁖䅟⺮䌷⺳⺶⺷䎱䎬⺻䏝䓖䙡䙌"],["fe80","䜣䜩䝼䞍⻊䥇䥺䥽䦂䦃䦅䦆䦟䦛䦷䦶䲣䲟䲠䲡䱷䲢䴓",6,"䶮",93]]
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports) {
 
 module.exports = [["0","\u0000",127],["a140","　，、。．‧；：？！︰…‥﹐﹑﹒·﹔﹕﹖﹗｜–︱—︳╴︴﹏（）︵︶｛｝︷︸〔〕︹︺【】︻︼《》︽︾〈〉︿﹀「」﹁﹂『』﹃﹄﹙﹚"],["a1a1","﹛﹜﹝﹞‘’“”〝〞‵′＃＆＊※§〃○●△▲◎☆★◇◆□■▽▼㊣℅¯￣＿ˍ﹉﹊﹍﹎﹋﹌﹟﹠﹡＋－×÷±√＜＞＝≦≧≠∞≒≡﹢",4,"～∩∪⊥∠∟⊿㏒㏑∫∮∵∴♀♂⊕⊙↑↓←→↖↗↙↘∥∣／"],["a240","＼∕﹨＄￥〒￠￡％＠℃℉﹩﹪﹫㏕㎜㎝㎞㏎㎡㎎㎏㏄°兙兛兞兝兡兣嗧瓩糎▁",7,"▏▎▍▌▋▊▉┼┴┬┤├▔─│▕┌┐└┘╭"],["a2a1","╮╰╯═╞╪╡◢◣◥◤╱╲╳０",9,"Ⅰ",9,"〡",8,"十卄卅Ａ",25,"ａ",21],["a340","ｗｘｙｚΑ",16,"Σ",6,"α",16,"σ",6,"ㄅ",10],["a3a1","ㄐ",25,"˙ˉˊˇˋ"],["a3e1","€"],["a440","一乙丁七乃九了二人儿入八几刀刁力匕十卜又三下丈上丫丸凡久么也乞于亡兀刃勺千叉口土士夕大女子孑孓寸小尢尸山川工己已巳巾干廾弋弓才"],["a4a1","丑丐不中丰丹之尹予云井互五亢仁什仃仆仇仍今介仄元允內六兮公冗凶分切刈勻勾勿化匹午升卅卞厄友及反壬天夫太夭孔少尤尺屯巴幻廿弔引心戈戶手扎支文斗斤方日曰月木欠止歹毋比毛氏水火爪父爻片牙牛犬王丙"],["a540","世丕且丘主乍乏乎以付仔仕他仗代令仙仞充兄冉冊冬凹出凸刊加功包匆北匝仟半卉卡占卯卮去可古右召叮叩叨叼司叵叫另只史叱台句叭叻四囚外"],["a5a1","央失奴奶孕它尼巨巧左市布平幼弁弘弗必戊打扔扒扑斥旦朮本未末札正母民氐永汁汀氾犯玄玉瓜瓦甘生用甩田由甲申疋白皮皿目矛矢石示禾穴立丞丟乒乓乩亙交亦亥仿伉伙伊伕伍伐休伏仲件任仰仳份企伋光兇兆先全"],["a640","共再冰列刑划刎刖劣匈匡匠印危吉吏同吊吐吁吋各向名合吃后吆吒因回囝圳地在圭圬圯圩夙多夷夸妄奸妃好她如妁字存宇守宅安寺尖屹州帆并年"],["a6a1","式弛忙忖戎戌戍成扣扛托收早旨旬旭曲曳有朽朴朱朵次此死氖汝汗汙江池汐汕污汛汍汎灰牟牝百竹米糸缶羊羽老考而耒耳聿肉肋肌臣自至臼舌舛舟艮色艾虫血行衣西阡串亨位住佇佗佞伴佛何估佐佑伽伺伸佃佔似但佣"],["a740","作你伯低伶余佝佈佚兌克免兵冶冷別判利刪刨劫助努劬匣即卵吝吭吞吾否呎吧呆呃吳呈呂君吩告吹吻吸吮吵吶吠吼呀吱含吟听囪困囤囫坊坑址坍"],["a7a1","均坎圾坐坏圻壯夾妝妒妨妞妣妙妖妍妤妓妊妥孝孜孚孛完宋宏尬局屁尿尾岐岑岔岌巫希序庇床廷弄弟彤形彷役忘忌志忍忱快忸忪戒我抄抗抖技扶抉扭把扼找批扳抒扯折扮投抓抑抆改攻攸旱更束李杏材村杜杖杞杉杆杠"],["a840","杓杗步每求汞沙沁沈沉沅沛汪決沐汰沌汨沖沒汽沃汲汾汴沆汶沍沔沘沂灶灼災灸牢牡牠狄狂玖甬甫男甸皂盯矣私秀禿究系罕肖肓肝肘肛肚育良芒"],["a8a1","芋芍見角言谷豆豕貝赤走足身車辛辰迂迆迅迄巡邑邢邪邦那酉釆里防阮阱阪阬並乖乳事些亞享京佯依侍佳使佬供例來侃佰併侈佩佻侖佾侏侑佺兔兒兕兩具其典冽函刻券刷刺到刮制剁劾劻卒協卓卑卦卷卸卹取叔受味呵"],["a940","咖呸咕咀呻呷咄咒咆呼咐呱呶和咚呢周咋命咎固垃坷坪坩坡坦坤坼夜奉奇奈奄奔妾妻委妹妮姑姆姐姍始姓姊妯妳姒姅孟孤季宗定官宜宙宛尚屈居"],["a9a1","屆岷岡岸岩岫岱岳帘帚帖帕帛帑幸庚店府底庖延弦弧弩往征彿彼忝忠忽念忿怏怔怯怵怖怪怕怡性怩怫怛或戕房戾所承拉拌拄抿拂抹拒招披拓拔拋拈抨抽押拐拙拇拍抵拚抱拘拖拗拆抬拎放斧於旺昔易昌昆昂明昀昏昕昊"],["aa40","昇服朋杭枋枕東果杳杷枇枝林杯杰板枉松析杵枚枓杼杪杲欣武歧歿氓氛泣注泳沱泌泥河沽沾沼波沫法泓沸泄油況沮泗泅泱沿治泡泛泊沬泯泜泖泠"],["aaa1","炕炎炒炊炙爬爭爸版牧物狀狎狙狗狐玩玨玟玫玥甽疝疙疚的盂盲直知矽社祀祁秉秈空穹竺糾罔羌羋者肺肥肢肱股肫肩肴肪肯臥臾舍芳芝芙芭芽芟芹花芬芥芯芸芣芰芾芷虎虱初表軋迎返近邵邸邱邶采金長門阜陀阿阻附"],["ab40","陂隹雨青非亟亭亮信侵侯便俠俑俏保促侶俘俟俊俗侮俐俄係俚俎俞侷兗冒冑冠剎剃削前剌剋則勇勉勃勁匍南卻厚叛咬哀咨哎哉咸咦咳哇哂咽咪品"],["aba1","哄哈咯咫咱咻咩咧咿囿垂型垠垣垢城垮垓奕契奏奎奐姜姘姿姣姨娃姥姪姚姦威姻孩宣宦室客宥封屎屏屍屋峙峒巷帝帥帟幽庠度建弈弭彥很待徊律徇後徉怒思怠急怎怨恍恰恨恢恆恃恬恫恪恤扁拜挖按拼拭持拮拽指拱拷"],["ac40","拯括拾拴挑挂政故斫施既春昭映昧是星昨昱昤曷柿染柱柔某柬架枯柵柩柯柄柑枴柚查枸柏柞柳枰柙柢柝柒歪殃殆段毒毗氟泉洋洲洪流津洌洱洞洗"],["aca1","活洽派洶洛泵洹洧洸洩洮洵洎洫炫為炳炬炯炭炸炮炤爰牲牯牴狩狠狡玷珊玻玲珍珀玳甚甭畏界畎畋疫疤疥疢疣癸皆皇皈盈盆盃盅省盹相眉看盾盼眇矜砂研砌砍祆祉祈祇禹禺科秒秋穿突竿竽籽紂紅紀紉紇約紆缸美羿耄"],["ad40","耐耍耑耶胖胥胚胃胄背胡胛胎胞胤胝致舢苧范茅苣苛苦茄若茂茉苒苗英茁苜苔苑苞苓苟苯茆虐虹虻虺衍衫要觔計訂訃貞負赴赳趴軍軌述迦迢迪迥"],["ada1","迭迫迤迨郊郎郁郃酋酊重閂限陋陌降面革韋韭音頁風飛食首香乘亳倌倍倣俯倦倥俸倩倖倆值借倚倒們俺倀倔倨俱倡個候倘俳修倭倪俾倫倉兼冤冥冢凍凌准凋剖剜剔剛剝匪卿原厝叟哨唐唁唷哼哥哲唆哺唔哩哭員唉哮哪"],["ae40","哦唧唇哽唏圃圄埂埔埋埃堉夏套奘奚娑娘娜娟娛娓姬娠娣娩娥娌娉孫屘宰害家宴宮宵容宸射屑展屐峭峽峻峪峨峰島崁峴差席師庫庭座弱徒徑徐恙"],["aea1","恣恥恐恕恭恩息悄悟悚悍悔悌悅悖扇拳挈拿捎挾振捕捂捆捏捉挺捐挽挪挫挨捍捌效敉料旁旅時晉晏晃晒晌晅晁書朔朕朗校核案框桓根桂桔栩梳栗桌桑栽柴桐桀格桃株桅栓栘桁殊殉殷氣氧氨氦氤泰浪涕消涇浦浸海浙涓"],["af40","浬涉浮浚浴浩涌涊浹涅浥涔烊烘烤烙烈烏爹特狼狹狽狸狷玆班琉珮珠珪珞畔畝畜畚留疾病症疲疳疽疼疹痂疸皋皰益盍盎眩真眠眨矩砰砧砸砝破砷"],["afa1","砥砭砠砟砲祕祐祠祟祖神祝祗祚秤秣秧租秦秩秘窄窈站笆笑粉紡紗紋紊素索純紐紕級紜納紙紛缺罟羔翅翁耆耘耕耙耗耽耿胱脂胰脅胭胴脆胸胳脈能脊胼胯臭臬舀舐航舫舨般芻茫荒荔荊茸荐草茵茴荏茲茹茶茗荀茱茨荃"],["b040","虔蚊蚪蚓蚤蚩蚌蚣蚜衰衷袁袂衽衹記訐討訌訕訊託訓訖訏訑豈豺豹財貢起躬軒軔軏辱送逆迷退迺迴逃追逅迸邕郡郝郢酒配酌釘針釗釜釙閃院陣陡"],["b0a1","陛陝除陘陞隻飢馬骨高鬥鬲鬼乾偺偽停假偃偌做偉健偶偎偕偵側偷偏倏偯偭兜冕凰剪副勒務勘動匐匏匙匿區匾參曼商啪啦啄啞啡啃啊唱啖問啕唯啤唸售啜唬啣唳啁啗圈國圉域堅堊堆埠埤基堂堵執培夠奢娶婁婉婦婪婀"],["b140","娼婢婚婆婊孰寇寅寄寂宿密尉專將屠屜屝崇崆崎崛崖崢崑崩崔崙崤崧崗巢常帶帳帷康庸庶庵庾張強彗彬彩彫得徙從徘御徠徜恿患悉悠您惋悴惦悽"],["b1a1","情悻悵惜悼惘惕惆惟悸惚惇戚戛扈掠控捲掖探接捷捧掘措捱掩掉掃掛捫推掄授掙採掬排掏掀捻捩捨捺敝敖救教敗啟敏敘敕敔斜斛斬族旋旌旎晝晚晤晨晦晞曹勗望梁梯梢梓梵桿桶梱梧梗械梃棄梭梆梅梔條梨梟梡梂欲殺"],["b240","毫毬氫涎涼淳淙液淡淌淤添淺清淇淋涯淑涮淞淹涸混淵淅淒渚涵淚淫淘淪深淮淨淆淄涪淬涿淦烹焉焊烽烯爽牽犁猜猛猖猓猙率琅琊球理現琍瓠瓶"],["b2a1","瓷甜產略畦畢異疏痔痕疵痊痍皎盔盒盛眷眾眼眶眸眺硫硃硎祥票祭移窒窕笠笨笛第符笙笞笮粒粗粕絆絃統紮紹紼絀細紳組累終紲紱缽羞羚翌翎習耜聊聆脯脖脣脫脩脰脤舂舵舷舶船莎莞莘荸莢莖莽莫莒莊莓莉莠荷荻荼"],["b340","莆莧處彪蛇蛀蚶蛄蚵蛆蛋蚱蚯蛉術袞袈被袒袖袍袋覓規訪訝訣訥許設訟訛訢豉豚販責貫貨貪貧赧赦趾趺軛軟這逍通逗連速逝逐逕逞造透逢逖逛途"],["b3a1","部郭都酗野釵釦釣釧釭釩閉陪陵陳陸陰陴陶陷陬雀雪雩章竟頂頃魚鳥鹵鹿麥麻傢傍傅備傑傀傖傘傚最凱割剴創剩勞勝勛博厥啻喀喧啼喊喝喘喂喜喪喔喇喋喃喳單喟唾喲喚喻喬喱啾喉喫喙圍堯堪場堤堰報堡堝堠壹壺奠"],["b440","婷媚婿媒媛媧孳孱寒富寓寐尊尋就嵌嵐崴嵇巽幅帽幀幃幾廊廁廂廄弼彭復循徨惑惡悲悶惠愜愣惺愕惰惻惴慨惱愎惶愉愀愒戟扉掣掌描揀揩揉揆揍"],["b4a1","插揣提握揖揭揮捶援揪換摒揚揹敞敦敢散斑斐斯普晰晴晶景暑智晾晷曾替期朝棺棕棠棘棗椅棟棵森棧棹棒棲棣棋棍植椒椎棉棚楮棻款欺欽殘殖殼毯氮氯氬港游湔渡渲湧湊渠渥渣減湛湘渤湖湮渭渦湯渴湍渺測湃渝渾滋"],["b540","溉渙湎湣湄湲湩湟焙焚焦焰無然煮焜牌犄犀猶猥猴猩琺琪琳琢琥琵琶琴琯琛琦琨甥甦畫番痢痛痣痙痘痞痠登發皖皓皴盜睏短硝硬硯稍稈程稅稀窘"],["b5a1","窗窖童竣等策筆筐筒答筍筋筏筑粟粥絞結絨絕紫絮絲絡給絢絰絳善翔翕耋聒肅腕腔腋腑腎脹腆脾腌腓腴舒舜菩萃菸萍菠菅萋菁華菱菴著萊菰萌菌菽菲菊萸萎萄菜萇菔菟虛蛟蛙蛭蛔蛛蛤蛐蛞街裁裂袱覃視註詠評詞証詁"],["b640","詔詛詐詆訴診訶詖象貂貯貼貳貽賁費賀貴買貶貿貸越超趁跎距跋跚跑跌跛跆軻軸軼辜逮逵週逸進逶鄂郵鄉郾酣酥量鈔鈕鈣鈉鈞鈍鈐鈇鈑閔閏開閑"],["b6a1","間閒閎隊階隋陽隅隆隍陲隄雁雅雄集雇雯雲韌項順須飧飪飯飩飲飭馮馭黃黍黑亂傭債傲傳僅傾催傷傻傯僇剿剷剽募勦勤勢勣匯嗟嗨嗓嗦嗎嗜嗇嗑嗣嗤嗯嗚嗡嗅嗆嗥嗉園圓塞塑塘塗塚塔填塌塭塊塢塒塋奧嫁嫉嫌媾媽媼"],["b740","媳嫂媲嵩嵯幌幹廉廈弒彙徬微愚意慈感想愛惹愁愈慎慌慄慍愾愴愧愍愆愷戡戢搓搾搞搪搭搽搬搏搜搔損搶搖搗搆敬斟新暗暉暇暈暖暄暘暍會榔業"],["b7a1","楚楷楠楔極椰概楊楨楫楞楓楹榆楝楣楛歇歲毀殿毓毽溢溯滓溶滂源溝滇滅溥溘溼溺溫滑準溜滄滔溪溧溴煎煙煩煤煉照煜煬煦煌煥煞煆煨煖爺牒猷獅猿猾瑯瑚瑕瑟瑞瑁琿瑙瑛瑜當畸瘀痰瘁痲痱痺痿痴痳盞盟睛睫睦睞督"],["b840","睹睪睬睜睥睨睢矮碎碰碗碘碌碉硼碑碓硿祺祿禁萬禽稜稚稠稔稟稞窟窠筷節筠筮筧粱粳粵經絹綑綁綏絛置罩罪署義羨群聖聘肆肄腱腰腸腥腮腳腫"],["b8a1","腹腺腦舅艇蒂葷落萱葵葦葫葉葬葛萼萵葡董葩葭葆虞虜號蛹蜓蜈蜇蜀蛾蛻蜂蜃蜆蜊衙裟裔裙補裘裝裡裊裕裒覜解詫該詳試詩詰誇詼詣誠話誅詭詢詮詬詹詻訾詨豢貊貉賊資賈賄貲賃賂賅跡跟跨路跳跺跪跤跦躲較載軾輊"],["b940","辟農運遊道遂達逼違遐遇遏過遍遑逾遁鄒鄗酬酪酩釉鈷鉗鈸鈽鉀鈾鉛鉋鉤鉑鈴鉉鉍鉅鈹鈿鉚閘隘隔隕雍雋雉雊雷電雹零靖靴靶預頑頓頊頒頌飼飴"],["b9a1","飽飾馳馱馴髡鳩麂鼎鼓鼠僧僮僥僖僭僚僕像僑僱僎僩兢凳劃劂匱厭嗾嘀嘛嘗嗽嘔嘆嘉嘍嘎嗷嘖嘟嘈嘐嗶團圖塵塾境墓墊塹墅塽壽夥夢夤奪奩嫡嫦嫩嫗嫖嫘嫣孵寞寧寡寥實寨寢寤察對屢嶄嶇幛幣幕幗幔廓廖弊彆彰徹慇"],["ba40","愿態慷慢慣慟慚慘慵截撇摘摔撤摸摟摺摑摧搴摭摻敲斡旗旖暢暨暝榜榨榕槁榮槓構榛榷榻榫榴槐槍榭槌榦槃榣歉歌氳漳演滾漓滴漩漾漠漬漏漂漢"],["baa1","滿滯漆漱漸漲漣漕漫漯澈漪滬漁滲滌滷熔熙煽熊熄熒爾犒犖獄獐瑤瑣瑪瑰瑭甄疑瘧瘍瘋瘉瘓盡監瞄睽睿睡磁碟碧碳碩碣禎福禍種稱窪窩竭端管箕箋筵算箝箔箏箸箇箄粹粽精綻綰綜綽綾綠緊綴網綱綺綢綿綵綸維緒緇綬"],["bb40","罰翠翡翟聞聚肇腐膀膏膈膊腿膂臧臺與舔舞艋蓉蒿蓆蓄蒙蒞蒲蒜蓋蒸蓀蓓蒐蒼蓑蓊蜿蜜蜻蜢蜥蜴蜘蝕蜷蜩裳褂裴裹裸製裨褚裯誦誌語誣認誡誓誤"],["bba1","說誥誨誘誑誚誧豪貍貌賓賑賒赫趙趕跼輔輒輕輓辣遠遘遜遣遙遞遢遝遛鄙鄘鄞酵酸酷酴鉸銀銅銘銖鉻銓銜銨鉼銑閡閨閩閣閥閤隙障際雌雒需靼鞅韶頗領颯颱餃餅餌餉駁骯骰髦魁魂鳴鳶鳳麼鼻齊億儀僻僵價儂儈儉儅凜"],["bc40","劇劈劉劍劊勰厲嘮嘻嘹嘲嘿嘴嘩噓噎噗噴嘶嘯嘰墀墟增墳墜墮墩墦奭嬉嫻嬋嫵嬌嬈寮寬審寫層履嶝嶔幢幟幡廢廚廟廝廣廠彈影德徵慶慧慮慝慕憂"],["bca1","慼慰慫慾憧憐憫憎憬憚憤憔憮戮摩摯摹撞撲撈撐撰撥撓撕撩撒撮播撫撚撬撙撢撳敵敷數暮暫暴暱樣樟槨樁樞標槽模樓樊槳樂樅槭樑歐歎殤毅毆漿潼澄潑潦潔澆潭潛潸潮澎潺潰潤澗潘滕潯潠潟熟熬熱熨牖犛獎獗瑩璋璃"],["bd40","瑾璀畿瘠瘩瘟瘤瘦瘡瘢皚皺盤瞎瞇瞌瞑瞋磋磅確磊碾磕碼磐稿稼穀稽稷稻窯窮箭箱範箴篆篇篁箠篌糊締練緯緻緘緬緝編緣線緞緩綞緙緲緹罵罷羯"],["bda1","翩耦膛膜膝膠膚膘蔗蔽蔚蓮蔬蔭蔓蔑蔣蔡蔔蓬蔥蓿蔆螂蝴蝶蝠蝦蝸蝨蝙蝗蝌蝓衛衝褐複褒褓褕褊誼諒談諄誕請諸課諉諂調誰論諍誶誹諛豌豎豬賠賞賦賤賬賭賢賣賜質賡赭趟趣踫踐踝踢踏踩踟踡踞躺輝輛輟輩輦輪輜輞"],["be40","輥適遮遨遭遷鄰鄭鄧鄱醇醉醋醃鋅銻銷鋪銬鋤鋁銳銼鋒鋇鋰銲閭閱霄霆震霉靠鞍鞋鞏頡頫頜颳養餓餒餘駝駐駟駛駑駕駒駙骷髮髯鬧魅魄魷魯鴆鴉"],["bea1","鴃麩麾黎墨齒儒儘儔儐儕冀冪凝劑劓勳噙噫噹噩噤噸噪器噥噱噯噬噢噶壁墾壇壅奮嬝嬴學寰導彊憲憑憩憊懍憶憾懊懈戰擅擁擋撻撼據擄擇擂操撿擒擔撾整曆曉暹曄曇暸樽樸樺橙橫橘樹橄橢橡橋橇樵機橈歙歷氅濂澱澡"],["bf40","濃澤濁澧澳激澹澶澦澠澴熾燉燐燒燈燕熹燎燙燜燃燄獨璜璣璘璟璞瓢甌甍瘴瘸瘺盧盥瞠瞞瞟瞥磨磚磬磧禦積穎穆穌穋窺篙簑築篤篛篡篩篦糕糖縊"],["bfa1","縑縈縛縣縞縝縉縐罹羲翰翱翮耨膳膩膨臻興艘艙蕊蕙蕈蕨蕩蕃蕉蕭蕪蕞螃螟螞螢融衡褪褲褥褫褡親覦諦諺諫諱謀諜諧諮諾謁謂諷諭諳諶諼豫豭貓賴蹄踱踴蹂踹踵輻輯輸輳辨辦遵遴選遲遼遺鄴醒錠錶鋸錳錯錢鋼錫錄錚"],["c040","錐錦錡錕錮錙閻隧隨險雕霎霑霖霍霓霏靛靜靦鞘頰頸頻頷頭頹頤餐館餞餛餡餚駭駢駱骸骼髻髭鬨鮑鴕鴣鴦鴨鴒鴛默黔龍龜優償儡儲勵嚎嚀嚐嚅嚇"],["c0a1","嚏壕壓壑壎嬰嬪嬤孺尷屨嶼嶺嶽嶸幫彌徽應懂懇懦懋戲戴擎擊擘擠擰擦擬擱擢擭斂斃曙曖檀檔檄檢檜櫛檣橾檗檐檠歜殮毚氈濘濱濟濠濛濤濫濯澀濬濡濩濕濮濰燧營燮燦燥燭燬燴燠爵牆獰獲璩環璦璨癆療癌盪瞳瞪瞰瞬"],["c140","瞧瞭矯磷磺磴磯礁禧禪穗窿簇簍篾篷簌篠糠糜糞糢糟糙糝縮績繆縷縲繃縫總縱繅繁縴縹繈縵縿縯罄翳翼聱聲聰聯聳臆臃膺臂臀膿膽臉膾臨舉艱薪"],["c1a1","薄蕾薜薑薔薯薛薇薨薊虧蟀蟑螳蟒蟆螫螻螺蟈蟋褻褶襄褸褽覬謎謗謙講謊謠謝謄謐豁谿豳賺賽購賸賻趨蹉蹋蹈蹊轄輾轂轅輿避遽還邁邂邀鄹醣醞醜鍍鎂錨鍵鍊鍥鍋錘鍾鍬鍛鍰鍚鍔闊闋闌闈闆隱隸雖霜霞鞠韓顆颶餵騁"],["c240","駿鮮鮫鮪鮭鴻鴿麋黏點黜黝黛鼾齋叢嚕嚮壙壘嬸彝懣戳擴擲擾攆擺擻擷斷曜朦檳檬櫃檻檸櫂檮檯歟歸殯瀉瀋濾瀆濺瀑瀏燻燼燾燸獷獵璧璿甕癖癘"],["c2a1","癒瞽瞿瞻瞼礎禮穡穢穠竄竅簫簧簪簞簣簡糧織繕繞繚繡繒繙罈翹翻職聶臍臏舊藏薩藍藐藉薰薺薹薦蟯蟬蟲蟠覆覲觴謨謹謬謫豐贅蹙蹣蹦蹤蹟蹕軀轉轍邇邃邈醫醬釐鎔鎊鎖鎢鎳鎮鎬鎰鎘鎚鎗闔闖闐闕離雜雙雛雞霤鞣鞦"],["c340","鞭韹額顏題顎顓颺餾餿餽餮馥騎髁鬃鬆魏魎魍鯊鯉鯽鯈鯀鵑鵝鵠黠鼕鼬儳嚥壞壟壢寵龐廬懲懷懶懵攀攏曠曝櫥櫝櫚櫓瀛瀟瀨瀚瀝瀕瀘爆爍牘犢獸"],["c3a1","獺璽瓊瓣疇疆癟癡矇礙禱穫穩簾簿簸簽簷籀繫繭繹繩繪羅繳羶羹羸臘藩藝藪藕藤藥藷蟻蠅蠍蟹蟾襠襟襖襞譁譜識證譚譎譏譆譙贈贊蹼蹲躇蹶蹬蹺蹴轔轎辭邊邋醱醮鏡鏑鏟鏃鏈鏜鏝鏖鏢鏍鏘鏤鏗鏨關隴難霪霧靡韜韻類"],["c440","願顛颼饅饉騖騙鬍鯨鯧鯖鯛鶉鵡鵲鵪鵬麒麗麓麴勸嚨嚷嚶嚴嚼壤孀孃孽寶巉懸懺攘攔攙曦朧櫬瀾瀰瀲爐獻瓏癢癥礦礪礬礫竇競籌籃籍糯糰辮繽繼"],["c4a1","纂罌耀臚艦藻藹蘑藺蘆蘋蘇蘊蠔蠕襤覺觸議譬警譯譟譫贏贍躉躁躅躂醴釋鐘鐃鏽闡霰飄饒饑馨騫騰騷騵鰓鰍鹹麵黨鼯齟齣齡儷儸囁囀囂夔屬巍懼懾攝攜斕曩櫻欄櫺殲灌爛犧瓖瓔癩矓籐纏續羼蘗蘭蘚蠣蠢蠡蠟襪襬覽譴"],["c540","護譽贓躊躍躋轟辯醺鐮鐳鐵鐺鐸鐲鐫闢霸霹露響顧顥饗驅驃驀騾髏魔魑鰭鰥鶯鶴鷂鶸麝黯鼙齜齦齧儼儻囈囊囉孿巔巒彎懿攤權歡灑灘玀瓤疊癮癬"],["c5a1","禳籠籟聾聽臟襲襯觼讀贖贗躑躓轡酈鑄鑑鑒霽霾韃韁顫饕驕驍髒鬚鱉鰱鰾鰻鷓鷗鼴齬齪龔囌巖戀攣攫攪曬欐瓚竊籤籣籥纓纖纔臢蘸蘿蠱變邐邏鑣鑠鑤靨顯饜驚驛驗髓體髑鱔鱗鱖鷥麟黴囑壩攬灞癱癲矗罐羈蠶蠹衢讓讒"],["c640","讖艷贛釀鑪靂靈靄韆顰驟鬢魘鱟鷹鷺鹼鹽鼇齷齲廳欖灣籬籮蠻觀躡釁鑲鑰顱饞髖鬣黌灤矚讚鑷韉驢驥纜讜躪釅鑽鑾鑼鱷鱸黷豔鑿鸚爨驪鬱鸛鸞籲"],["c940","乂乜凵匚厂万丌乇亍囗兀屮彳丏冇与丮亓仂仉仈冘勼卬厹圠夃夬尐巿旡殳毌气爿丱丼仨仜仩仡仝仚刌匜卌圢圣夗夯宁宄尒尻屴屳帄庀庂忉戉扐氕"],["c9a1","氶汃氿氻犮犰玊禸肊阞伎优伬仵伔仱伀价伈伝伂伅伢伓伄仴伒冱刓刉刐劦匢匟卍厊吇囡囟圮圪圴夼妀奼妅奻奾奷奿孖尕尥屼屺屻屾巟幵庄异弚彴忕忔忏扜扞扤扡扦扢扙扠扚扥旯旮朾朹朸朻机朿朼朳氘汆汒汜汏汊汔汋"],["ca40","汌灱牞犴犵玎甪癿穵网艸艼芀艽艿虍襾邙邗邘邛邔阢阤阠阣佖伻佢佉体佤伾佧佒佟佁佘伭伳伿佡冏冹刜刞刡劭劮匉卣卲厎厏吰吷吪呔呅吙吜吥吘"],["caa1","吽呏呁吨吤呇囮囧囥坁坅坌坉坋坒夆奀妦妘妠妗妎妢妐妏妧妡宎宒尨尪岍岏岈岋岉岒岊岆岓岕巠帊帎庋庉庌庈庍弅弝彸彶忒忑忐忭忨忮忳忡忤忣忺忯忷忻怀忴戺抃抌抎抏抔抇扱扻扺扰抁抈扷扽扲扴攷旰旴旳旲旵杅杇"],["cb40","杙杕杌杈杝杍杚杋毐氙氚汸汧汫沄沋沏汱汯汩沚汭沇沕沜汦汳汥汻沎灴灺牣犿犽狃狆狁犺狅玕玗玓玔玒町甹疔疕皁礽耴肕肙肐肒肜芐芏芅芎芑芓"],["cba1","芊芃芄豸迉辿邟邡邥邞邧邠阰阨阯阭丳侘佼侅佽侀侇佶佴侉侄佷佌侗佪侚佹侁佸侐侜侔侞侒侂侕佫佮冞冼冾刵刲刳剆刱劼匊匋匼厒厔咇呿咁咑咂咈呫呺呾呥呬呴呦咍呯呡呠咘呣呧呤囷囹坯坲坭坫坱坰坶垀坵坻坳坴坢"],["cc40","坨坽夌奅妵妺姏姎妲姌姁妶妼姃姖妱妽姀姈妴姇孢孥宓宕屄屇岮岤岠岵岯岨岬岟岣岭岢岪岧岝岥岶岰岦帗帔帙弨弢弣弤彔徂彾彽忞忥怭怦怙怲怋"],["cca1","怴怊怗怳怚怞怬怢怍怐怮怓怑怌怉怜戔戽抭抴拑抾抪抶拊抮抳抯抻抩抰抸攽斨斻昉旼昄昒昈旻昃昋昍昅旽昑昐曶朊枅杬枎枒杶杻枘枆构杴枍枌杺枟枑枙枃杽极杸杹枔欥殀歾毞氝沓泬泫泮泙沶泔沭泧沷泐泂沺泃泆泭泲"],["cd40","泒泝沴沊沝沀泞泀洰泍泇沰泹泏泩泑炔炘炅炓炆炄炑炖炂炚炃牪狖狋狘狉狜狒狔狚狌狑玤玡玭玦玢玠玬玝瓝瓨甿畀甾疌疘皯盳盱盰盵矸矼矹矻矺"],["cda1","矷祂礿秅穸穻竻籵糽耵肏肮肣肸肵肭舠芠苀芫芚芘芛芵芧芮芼芞芺芴芨芡芩苂芤苃芶芢虰虯虭虮豖迒迋迓迍迖迕迗邲邴邯邳邰阹阽阼阺陃俍俅俓侲俉俋俁俔俜俙侻侳俛俇俖侺俀侹俬剄剉勀勂匽卼厗厖厙厘咺咡咭咥哏"],["ce40","哃茍咷咮哖咶哅哆咠呰咼咢咾呲哞咰垵垞垟垤垌垗垝垛垔垘垏垙垥垚垕壴复奓姡姞姮娀姱姝姺姽姼姶姤姲姷姛姩姳姵姠姾姴姭宨屌峐峘峌峗峋峛"],["cea1","峞峚峉峇峊峖峓峔峏峈峆峎峟峸巹帡帢帣帠帤庰庤庢庛庣庥弇弮彖徆怷怹恔恲恞恅恓恇恉恛恌恀恂恟怤恄恘恦恮扂扃拏挍挋拵挎挃拫拹挏挌拸拶挀挓挔拺挕拻拰敁敃斪斿昶昡昲昵昜昦昢昳昫昺昝昴昹昮朏朐柁柲柈枺"],["cf40","柜枻柸柘柀枷柅柫柤柟枵柍枳柷柶柮柣柂枹柎柧柰枲柼柆柭柌枮柦柛柺柉柊柃柪柋欨殂殄殶毖毘毠氠氡洨洴洭洟洼洿洒洊泚洳洄洙洺洚洑洀洝浂"],["cfa1","洁洘洷洃洏浀洇洠洬洈洢洉洐炷炟炾炱炰炡炴炵炩牁牉牊牬牰牳牮狊狤狨狫狟狪狦狣玅珌珂珈珅玹玶玵玴珫玿珇玾珃珆玸珋瓬瓮甮畇畈疧疪癹盄眈眃眄眅眊盷盻盺矧矨砆砑砒砅砐砏砎砉砃砓祊祌祋祅祄秕种秏秖秎窀"],["d040","穾竑笀笁籺籸籹籿粀粁紃紈紁罘羑羍羾耇耎耏耔耷胘胇胠胑胈胂胐胅胣胙胜胊胕胉胏胗胦胍臿舡芔苙苾苹茇苨茀苕茺苫苖苴苬苡苲苵茌苻苶苰苪"],["d0a1","苤苠苺苳苭虷虴虼虳衁衎衧衪衩觓訄訇赲迣迡迮迠郱邽邿郕郅邾郇郋郈釔釓陔陏陑陓陊陎倞倅倇倓倢倰倛俵俴倳倷倬俶俷倗倜倠倧倵倯倱倎党冔冓凊凄凅凈凎剡剚剒剞剟剕剢勍匎厞唦哢唗唒哧哳哤唚哿唄唈哫唑唅哱"],["d140","唊哻哷哸哠唎唃唋圁圂埌堲埕埒垺埆垽垼垸垶垿埇埐垹埁夎奊娙娖娭娮娕娏娗娊娞娳孬宧宭宬尃屖屔峬峿峮峱峷崀峹帩帨庨庮庪庬弳弰彧恝恚恧"],["d1a1","恁悢悈悀悒悁悝悃悕悛悗悇悜悎戙扆拲挐捖挬捄捅挶捃揤挹捋捊挼挩捁挴捘捔捙挭捇挳捚捑挸捗捀捈敊敆旆旃旄旂晊晟晇晑朒朓栟栚桉栲栳栻桋桏栖栱栜栵栫栭栯桎桄栴栝栒栔栦栨栮桍栺栥栠欬欯欭欱欴歭肂殈毦毤"],["d240","毨毣毢毧氥浺浣浤浶洍浡涒浘浢浭浯涑涍淯浿涆浞浧浠涗浰浼浟涂涘洯浨涋浾涀涄洖涃浻浽浵涐烜烓烑烝烋缹烢烗烒烞烠烔烍烅烆烇烚烎烡牂牸"],["d2a1","牷牶猀狺狴狾狶狳狻猁珓珙珥珖玼珧珣珩珜珒珛珔珝珚珗珘珨瓞瓟瓴瓵甡畛畟疰痁疻痄痀疿疶疺皊盉眝眛眐眓眒眣眑眕眙眚眢眧砣砬砢砵砯砨砮砫砡砩砳砪砱祔祛祏祜祓祒祑秫秬秠秮秭秪秜秞秝窆窉窅窋窌窊窇竘笐"],["d340","笄笓笅笏笈笊笎笉笒粄粑粊粌粈粍粅紞紝紑紎紘紖紓紟紒紏紌罜罡罞罠罝罛羖羒翃翂翀耖耾耹胺胲胹胵脁胻脀舁舯舥茳茭荄茙荑茥荖茿荁茦茜茢"],["d3a1","荂荎茛茪茈茼荍茖茤茠茷茯茩荇荅荌荓茞茬荋茧荈虓虒蚢蚨蚖蚍蚑蚞蚇蚗蚆蚋蚚蚅蚥蚙蚡蚧蚕蚘蚎蚝蚐蚔衃衄衭衵衶衲袀衱衿衯袃衾衴衼訒豇豗豻貤貣赶赸趵趷趶軑軓迾迵适迿迻逄迼迶郖郠郙郚郣郟郥郘郛郗郜郤酐"],["d440","酎酏釕釢釚陜陟隼飣髟鬯乿偰偪偡偞偠偓偋偝偲偈偍偁偛偊偢倕偅偟偩偫偣偤偆偀偮偳偗偑凐剫剭剬剮勖勓匭厜啵啶唼啍啐唴唪啑啢唶唵唰啒啅"],["d4a1","唌唲啥啎唹啈唭唻啀啋圊圇埻堔埢埶埜埴堀埭埽堈埸堋埳埏堇埮埣埲埥埬埡堎埼堐埧堁堌埱埩埰堍堄奜婠婘婕婧婞娸娵婭婐婟婥婬婓婤婗婃婝婒婄婛婈媎娾婍娹婌婰婩婇婑婖婂婜孲孮寁寀屙崞崋崝崚崠崌崨崍崦崥崏"],["d540","崰崒崣崟崮帾帴庱庴庹庲庳弶弸徛徖徟悊悐悆悾悰悺惓惔惏惤惙惝惈悱惛悷惊悿惃惍惀挲捥掊掂捽掽掞掭掝掗掫掎捯掇掐据掯捵掜捭掮捼掤挻掟"],["d5a1","捸掅掁掑掍捰敓旍晥晡晛晙晜晢朘桹梇梐梜桭桮梮梫楖桯梣梬梩桵桴梲梏桷梒桼桫桲梪梀桱桾梛梖梋梠梉梤桸桻梑梌梊桽欶欳欷欸殑殏殍殎殌氪淀涫涴涳湴涬淩淢涷淶淔渀淈淠淟淖涾淥淜淝淛淴淊涽淭淰涺淕淂淏淉"],["d640","淐淲淓淽淗淍淣涻烺焍烷焗烴焌烰焄烳焐烼烿焆焓焀烸烶焋焂焎牾牻牼牿猝猗猇猑猘猊猈狿猏猞玈珶珸珵琄琁珽琇琀珺珼珿琌琋珴琈畤畣痎痒痏"],["d6a1","痋痌痑痐皏皉盓眹眯眭眱眲眴眳眽眥眻眵硈硒硉硍硊硌砦硅硐祤祧祩祪祣祫祡离秺秸秶秷窏窔窐笵筇笴笥笰笢笤笳笘笪笝笱笫笭笯笲笸笚笣粔粘粖粣紵紽紸紶紺絅紬紩絁絇紾紿絊紻紨罣羕羜羝羛翊翋翍翐翑翇翏翉耟"],["d740","耞耛聇聃聈脘脥脙脛脭脟脬脞脡脕脧脝脢舑舸舳舺舴舲艴莐莣莨莍荺荳莤荴莏莁莕莙荵莔莩荽莃莌莝莛莪莋荾莥莯莈莗莰荿莦莇莮荶莚虙虖蚿蚷"],["d7a1","蛂蛁蛅蚺蚰蛈蚹蚳蚸蛌蚴蚻蚼蛃蚽蚾衒袉袕袨袢袪袚袑袡袟袘袧袙袛袗袤袬袌袓袎覂觖觙觕訰訧訬訞谹谻豜豝豽貥赽赻赹趼跂趹趿跁軘軞軝軜軗軠軡逤逋逑逜逌逡郯郪郰郴郲郳郔郫郬郩酖酘酚酓酕釬釴釱釳釸釤釹釪"],["d840","釫釷釨釮镺閆閈陼陭陫陱陯隿靪頄飥馗傛傕傔傞傋傣傃傌傎傝偨傜傒傂傇兟凔匒匑厤厧喑喨喥喭啷噅喢喓喈喏喵喁喣喒喤啽喌喦啿喕喡喎圌堩堷"],["d8a1","堙堞堧堣堨埵塈堥堜堛堳堿堶堮堹堸堭堬堻奡媯媔媟婺媢媞婸媦婼媥媬媕媮娷媄媊媗媃媋媩婻婽媌媜媏媓媝寪寍寋寔寑寊寎尌尰崷嵃嵫嵁嵋崿崵嵑嵎嵕崳崺嵒崽崱嵙嵂崹嵉崸崼崲崶嵀嵅幄幁彘徦徥徫惉悹惌惢惎惄愔"],["d940","惲愊愖愅惵愓惸惼惾惁愃愘愝愐惿愄愋扊掔掱掰揎揥揨揯揃撝揳揊揠揶揕揲揵摡揟掾揝揜揄揘揓揂揇揌揋揈揰揗揙攲敧敪敤敜敨敥斌斝斞斮旐旒"],["d9a1","晼晬晻暀晱晹晪晲朁椌棓椄棜椪棬棪棱椏棖棷棫棤棶椓椐棳棡椇棌椈楰梴椑棯棆椔棸棐棽棼棨椋椊椗棎棈棝棞棦棴棑椆棔棩椕椥棇欹欻欿欼殔殗殙殕殽毰毲毳氰淼湆湇渟湉溈渼渽湅湢渫渿湁湝湳渜渳湋湀湑渻渃渮湞"],["da40","湨湜湡渱渨湠湱湫渹渢渰湓湥渧湸湤湷湕湹湒湦渵渶湚焠焞焯烻焮焱焣焥焢焲焟焨焺焛牋牚犈犉犆犅犋猒猋猰猢猱猳猧猲猭猦猣猵猌琮琬琰琫琖"],["daa1","琚琡琭琱琤琣琝琩琠琲瓻甯畯畬痧痚痡痦痝痟痤痗皕皒盚睆睇睄睍睅睊睎睋睌矞矬硠硤硥硜硭硱硪确硰硩硨硞硢祴祳祲祰稂稊稃稌稄窙竦竤筊笻筄筈筌筎筀筘筅粢粞粨粡絘絯絣絓絖絧絪絏絭絜絫絒絔絩絑絟絎缾缿罥"],["db40","罦羢羠羡翗聑聏聐胾胔腃腊腒腏腇脽腍脺臦臮臷臸臹舄舼舽舿艵茻菏菹萣菀菨萒菧菤菼菶萐菆菈菫菣莿萁菝菥菘菿菡菋菎菖菵菉萉萏菞萑萆菂菳"],["dba1","菕菺菇菑菪萓菃菬菮菄菻菗菢萛菛菾蛘蛢蛦蛓蛣蛚蛪蛝蛫蛜蛬蛩蛗蛨蛑衈衖衕袺裗袹袸裀袾袶袼袷袽袲褁裉覕覘覗觝觚觛詎詍訹詙詀詗詘詄詅詒詈詑詊詌詏豟貁貀貺貾貰貹貵趄趀趉跘跓跍跇跖跜跏跕跙跈跗跅軯軷軺"],["dc40","軹軦軮軥軵軧軨軶軫軱軬軴軩逭逴逯鄆鄬鄄郿郼鄈郹郻鄁鄀鄇鄅鄃酡酤酟酢酠鈁鈊鈥鈃鈚鈦鈏鈌鈀鈒釿釽鈆鈄鈧鈂鈜鈤鈙鈗鈅鈖镻閍閌閐隇陾隈"],["dca1","隉隃隀雂雈雃雱雰靬靰靮頇颩飫鳦黹亃亄亶傽傿僆傮僄僊傴僈僂傰僁傺傱僋僉傶傸凗剺剸剻剼嗃嗛嗌嗐嗋嗊嗝嗀嗔嗄嗩喿嗒喍嗏嗕嗢嗖嗈嗲嗍嗙嗂圔塓塨塤塏塍塉塯塕塎塝塙塥塛堽塣塱壼嫇嫄嫋媺媸媱媵媰媿嫈媻嫆"],["dd40","媷嫀嫊媴媶嫍媹媐寖寘寙尟尳嵱嵣嵊嵥嵲嵬嵞嵨嵧嵢巰幏幎幊幍幋廅廌廆廋廇彀徯徭惷慉慊愫慅愶愲愮慆愯慏愩慀戠酨戣戥戤揅揱揫搐搒搉搠搤"],["dda1","搳摃搟搕搘搹搷搢搣搌搦搰搨摁搵搯搊搚摀搥搧搋揧搛搮搡搎敯斒旓暆暌暕暐暋暊暙暔晸朠楦楟椸楎楢楱椿楅楪椹楂楗楙楺楈楉椵楬椳椽楥棰楸椴楩楀楯楄楶楘楁楴楌椻楋椷楜楏楑椲楒椯楻椼歆歅歃歂歈歁殛嗀毻毼"],["de40","毹毷毸溛滖滈溏滀溟溓溔溠溱溹滆滒溽滁溞滉溷溰滍溦滏溲溾滃滜滘溙溒溎溍溤溡溿溳滐滊溗溮溣煇煔煒煣煠煁煝煢煲煸煪煡煂煘煃煋煰煟煐煓"],["dea1","煄煍煚牏犍犌犑犐犎猼獂猻猺獀獊獉瑄瑊瑋瑒瑑瑗瑀瑏瑐瑎瑂瑆瑍瑔瓡瓿瓾瓽甝畹畷榃痯瘏瘃痷痾痼痹痸瘐痻痶痭痵痽皙皵盝睕睟睠睒睖睚睩睧睔睙睭矠碇碚碔碏碄碕碅碆碡碃硹碙碀碖硻祼禂祽祹稑稘稙稒稗稕稢稓"],["df40","稛稐窣窢窞竫筦筤筭筴筩筲筥筳筱筰筡筸筶筣粲粴粯綈綆綀綍絿綅絺綎絻綃絼綌綔綄絽綒罭罫罧罨罬羦羥羧翛翜耡腤腠腷腜腩腛腢腲朡腞腶腧腯"],["dfa1","腄腡舝艉艄艀艂艅蓱萿葖葶葹蒏蒍葥葑葀蒆葧萰葍葽葚葙葴葳葝蔇葞萷萺萴葺葃葸萲葅萩菙葋萯葂萭葟葰萹葎葌葒葯蓅蒎萻葇萶萳葨葾葄萫葠葔葮葐蜋蜄蛷蜌蛺蛖蛵蝍蛸蜎蜉蜁蛶蜍蜅裖裋裍裎裞裛裚裌裐覅覛觟觥觤"],["e040","觡觠觢觜触詶誆詿詡訿詷誂誄詵誃誁詴詺谼豋豊豥豤豦貆貄貅賌赨赩趑趌趎趏趍趓趔趐趒跰跠跬跱跮跐跩跣跢跧跲跫跴輆軿輁輀輅輇輈輂輋遒逿"],["e0a1","遄遉逽鄐鄍鄏鄑鄖鄔鄋鄎酮酯鉈鉒鈰鈺鉦鈳鉥鉞銃鈮鉊鉆鉭鉬鉏鉠鉧鉯鈶鉡鉰鈱鉔鉣鉐鉲鉎鉓鉌鉖鈲閟閜閞閛隒隓隑隗雎雺雽雸雵靳靷靸靲頏頍頎颬飶飹馯馲馰馵骭骫魛鳪鳭鳧麀黽僦僔僗僨僳僛僪僝僤僓僬僰僯僣僠"],["e140","凘劀劁勩勫匰厬嘧嘕嘌嘒嗼嘏嘜嘁嘓嘂嗺嘝嘄嗿嗹墉塼墐墘墆墁塿塴墋塺墇墑墎塶墂墈塻墔墏壾奫嫜嫮嫥嫕嫪嫚嫭嫫嫳嫢嫠嫛嫬嫞嫝嫙嫨嫟孷寠"],["e1a1","寣屣嶂嶀嵽嶆嵺嶁嵷嶊嶉嶈嵾嵼嶍嵹嵿幘幙幓廘廑廗廎廜廕廙廒廔彄彃彯徶愬愨慁慞慱慳慒慓慲慬憀慴慔慺慛慥愻慪慡慖戩戧戫搫摍摛摝摴摶摲摳摽摵摦撦摎撂摞摜摋摓摠摐摿搿摬摫摙摥摷敳斠暡暠暟朅朄朢榱榶槉"],["e240","榠槎榖榰榬榼榑榙榎榧榍榩榾榯榿槄榽榤槔榹槊榚槏榳榓榪榡榞槙榗榐槂榵榥槆歊歍歋殞殟殠毃毄毾滎滵滱漃漥滸漷滻漮漉潎漙漚漧漘漻漒滭漊"],["e2a1","漶潳滹滮漭潀漰漼漵滫漇漎潃漅滽滶漹漜滼漺漟漍漞漈漡熇熐熉熀熅熂熏煻熆熁熗牄牓犗犕犓獃獍獑獌瑢瑳瑱瑵瑲瑧瑮甀甂甃畽疐瘖瘈瘌瘕瘑瘊瘔皸瞁睼瞅瞂睮瞀睯睾瞃碲碪碴碭碨硾碫碞碥碠碬碢碤禘禊禋禖禕禔禓"],["e340","禗禈禒禐稫穊稰稯稨稦窨窫窬竮箈箜箊箑箐箖箍箌箛箎箅箘劄箙箤箂粻粿粼粺綧綷緂綣綪緁緀緅綝緎緄緆緋緌綯綹綖綼綟綦綮綩綡緉罳翢翣翥翞"],["e3a1","耤聝聜膉膆膃膇膍膌膋舕蒗蒤蒡蒟蒺蓎蓂蒬蒮蒫蒹蒴蓁蓍蒪蒚蒱蓐蒝蒧蒻蒢蒔蓇蓌蒛蒩蒯蒨蓖蒘蒶蓏蒠蓗蓔蓒蓛蒰蒑虡蜳蜣蜨蝫蝀蜮蜞蜡蜙蜛蝃蜬蝁蜾蝆蜠蜲蜪蜭蜼蜒蜺蜱蜵蝂蜦蜧蜸蜤蜚蜰蜑裷裧裱裲裺裾裮裼裶裻"],["e440","裰裬裫覝覡覟覞觩觫觨誫誙誋誒誏誖谽豨豩賕賏賗趖踉踂跿踍跽踊踃踇踆踅跾踀踄輐輑輎輍鄣鄜鄠鄢鄟鄝鄚鄤鄡鄛酺酲酹酳銥銤鉶銛鉺銠銔銪銍"],["e4a1","銦銚銫鉹銗鉿銣鋮銎銂銕銢鉽銈銡銊銆銌銙銧鉾銇銩銝銋鈭隞隡雿靘靽靺靾鞃鞀鞂靻鞄鞁靿韎韍頖颭颮餂餀餇馝馜駃馹馻馺駂馽駇骱髣髧鬾鬿魠魡魟鳱鳲鳵麧僿儃儰僸儆儇僶僾儋儌僽儊劋劌勱勯噈噂噌嘵噁噊噉噆噘"],["e540","噚噀嘳嘽嘬嘾嘸嘪嘺圚墫墝墱墠墣墯墬墥墡壿嫿嫴嫽嫷嫶嬃嫸嬂嫹嬁嬇嬅嬏屧嶙嶗嶟嶒嶢嶓嶕嶠嶜嶡嶚嶞幩幝幠幜緳廛廞廡彉徲憋憃慹憱憰憢憉"],["e5a1","憛憓憯憭憟憒憪憡憍慦憳戭摮摰撖撠撅撗撜撏撋撊撌撣撟摨撱撘敶敺敹敻斲斳暵暰暩暲暷暪暯樀樆樗槥槸樕槱槤樠槿槬槢樛樝槾樧槲槮樔槷槧橀樈槦槻樍槼槫樉樄樘樥樏槶樦樇槴樖歑殥殣殢殦氁氀毿氂潁漦潾澇濆澒"],["e640","澍澉澌潢潏澅潚澖潶潬澂潕潲潒潐潗澔澓潝漀潡潫潽潧澐潓澋潩潿澕潣潷潪潻熲熯熛熰熠熚熩熵熝熥熞熤熡熪熜熧熳犘犚獘獒獞獟獠獝獛獡獚獙"],["e6a1","獢璇璉璊璆璁瑽璅璈瑼瑹甈甇畾瘥瘞瘙瘝瘜瘣瘚瘨瘛皜皝皞皛瞍瞏瞉瞈磍碻磏磌磑磎磔磈磃磄磉禚禡禠禜禢禛歶稹窲窴窳箷篋箾箬篎箯箹篊箵糅糈糌糋緷緛緪緧緗緡縃緺緦緶緱緰緮緟罶羬羰羭翭翫翪翬翦翨聤聧膣膟"],["e740","膞膕膢膙膗舖艏艓艒艐艎艑蔤蔻蔏蔀蔩蔎蔉蔍蔟蔊蔧蔜蓻蔫蓺蔈蔌蓴蔪蓲蔕蓷蓫蓳蓼蔒蓪蓩蔖蓾蔨蔝蔮蔂蓽蔞蓶蔱蔦蓧蓨蓰蓯蓹蔘蔠蔰蔋蔙蔯虢"],["e7a1","蝖蝣蝤蝷蟡蝳蝘蝔蝛蝒蝡蝚蝑蝞蝭蝪蝐蝎蝟蝝蝯蝬蝺蝮蝜蝥蝏蝻蝵蝢蝧蝩衚褅褌褔褋褗褘褙褆褖褑褎褉覢覤覣觭觰觬諏諆誸諓諑諔諕誻諗誾諀諅諘諃誺誽諙谾豍貏賥賟賙賨賚賝賧趠趜趡趛踠踣踥踤踮踕踛踖踑踙踦踧"],["e840","踔踒踘踓踜踗踚輬輤輘輚輠輣輖輗遳遰遯遧遫鄯鄫鄩鄪鄲鄦鄮醅醆醊醁醂醄醀鋐鋃鋄鋀鋙銶鋏鋱鋟鋘鋩鋗鋝鋌鋯鋂鋨鋊鋈鋎鋦鋍鋕鋉鋠鋞鋧鋑鋓"],["e8a1","銵鋡鋆銴镼閬閫閮閰隤隢雓霅霈霂靚鞊鞎鞈韐韏頞頝頦頩頨頠頛頧颲餈飺餑餔餖餗餕駜駍駏駓駔駎駉駖駘駋駗駌骳髬髫髳髲髱魆魃魧魴魱魦魶魵魰魨魤魬鳼鳺鳽鳿鳷鴇鴀鳹鳻鴈鴅鴄麃黓鼏鼐儜儓儗儚儑凞匴叡噰噠噮"],["e940","噳噦噣噭噲噞噷圜圛壈墽壉墿墺壂墼壆嬗嬙嬛嬡嬔嬓嬐嬖嬨嬚嬠嬞寯嶬嶱嶩嶧嶵嶰嶮嶪嶨嶲嶭嶯嶴幧幨幦幯廩廧廦廨廥彋徼憝憨憖懅憴懆懁懌憺"],["e9a1","憿憸憌擗擖擐擏擉撽撉擃擛擳擙攳敿敼斢曈暾曀曊曋曏暽暻暺曌朣樴橦橉橧樲橨樾橝橭橶橛橑樨橚樻樿橁橪橤橐橏橔橯橩橠樼橞橖橕橍橎橆歕歔歖殧殪殫毈毇氄氃氆澭濋澣濇澼濎濈潞濄澽澞濊澨瀄澥澮澺澬澪濏澿澸"],["ea40","澢濉澫濍澯澲澰燅燂熿熸燖燀燁燋燔燊燇燏熽燘熼燆燚燛犝犞獩獦獧獬獥獫獪瑿璚璠璔璒璕璡甋疀瘯瘭瘱瘽瘳瘼瘵瘲瘰皻盦瞚瞝瞡瞜瞛瞢瞣瞕瞙"],["eaa1","瞗磝磩磥磪磞磣磛磡磢磭磟磠禤穄穈穇窶窸窵窱窷篞篣篧篝篕篥篚篨篹篔篪篢篜篫篘篟糒糔糗糐糑縒縡縗縌縟縠縓縎縜縕縚縢縋縏縖縍縔縥縤罃罻罼罺羱翯耪耩聬膱膦膮膹膵膫膰膬膴膲膷膧臲艕艖艗蕖蕅蕫蕍蕓蕡蕘"],["eb40","蕀蕆蕤蕁蕢蕄蕑蕇蕣蔾蕛蕱蕎蕮蕵蕕蕧蕠薌蕦蕝蕔蕥蕬虣虥虤螛螏螗螓螒螈螁螖螘蝹螇螣螅螐螑螝螄螔螜螚螉褞褦褰褭褮褧褱褢褩褣褯褬褟觱諠"],["eba1","諢諲諴諵諝謔諤諟諰諈諞諡諨諿諯諻貑貒貐賵賮賱賰賳赬赮趥趧踳踾踸蹀蹅踶踼踽蹁踰踿躽輶輮輵輲輹輷輴遶遹遻邆郺鄳鄵鄶醓醐醑醍醏錧錞錈錟錆錏鍺錸錼錛錣錒錁鍆錭錎錍鋋錝鋺錥錓鋹鋷錴錂錤鋿錩錹錵錪錔錌"],["ec40","錋鋾錉錀鋻錖閼闍閾閹閺閶閿閵閽隩雔霋霒霐鞙鞗鞔韰韸頵頯頲餤餟餧餩馞駮駬駥駤駰駣駪駩駧骹骿骴骻髶髺髹髷鬳鮀鮅鮇魼魾魻鮂鮓鮒鮐魺鮕"],["eca1","魽鮈鴥鴗鴠鴞鴔鴩鴝鴘鴢鴐鴙鴟麈麆麇麮麭黕黖黺鼒鼽儦儥儢儤儠儩勴嚓嚌嚍嚆嚄嚃噾嚂噿嚁壖壔壏壒嬭嬥嬲嬣嬬嬧嬦嬯嬮孻寱寲嶷幬幪徾徻懃憵憼懧懠懥懤懨懞擯擩擣擫擤擨斁斀斶旚曒檍檖檁檥檉檟檛檡檞檇檓檎"],["ed40","檕檃檨檤檑橿檦檚檅檌檒歛殭氉濌澩濴濔濣濜濭濧濦濞濲濝濢濨燡燱燨燲燤燰燢獳獮獯璗璲璫璐璪璭璱璥璯甐甑甒甏疄癃癈癉癇皤盩瞵瞫瞲瞷瞶"],["eda1","瞴瞱瞨矰磳磽礂磻磼磲礅磹磾礄禫禨穜穛穖穘穔穚窾竀竁簅簏篲簀篿篻簎篴簋篳簂簉簃簁篸篽簆篰篱簐簊糨縭縼繂縳顈縸縪繉繀繇縩繌縰縻縶繄縺罅罿罾罽翴翲耬膻臄臌臊臅臇膼臩艛艚艜薃薀薏薧薕薠薋薣蕻薤薚薞"],["ee40","蕷蕼薉薡蕺蕸蕗薎薖薆薍薙薝薁薢薂薈薅蕹蕶薘薐薟虨螾螪螭蟅螰螬螹螵螼螮蟉蟃蟂蟌螷螯蟄蟊螴螶螿螸螽蟞螲褵褳褼褾襁襒褷襂覭覯覮觲觳謞"],["eea1","謘謖謑謅謋謢謏謒謕謇謍謈謆謜謓謚豏豰豲豱豯貕貔賹赯蹎蹍蹓蹐蹌蹇轃轀邅遾鄸醚醢醛醙醟醡醝醠鎡鎃鎯鍤鍖鍇鍼鍘鍜鍶鍉鍐鍑鍠鍭鎏鍌鍪鍹鍗鍕鍒鍏鍱鍷鍻鍡鍞鍣鍧鎀鍎鍙闇闀闉闃闅閷隮隰隬霠霟霘霝霙鞚鞡鞜"],["ef40","鞞鞝韕韔韱顁顄顊顉顅顃餥餫餬餪餳餲餯餭餱餰馘馣馡騂駺駴駷駹駸駶駻駽駾駼騃骾髾髽鬁髼魈鮚鮨鮞鮛鮦鮡鮥鮤鮆鮢鮠鮯鴳鵁鵧鴶鴮鴯鴱鴸鴰"],["efa1","鵅鵂鵃鴾鴷鵀鴽翵鴭麊麉麍麰黈黚黻黿鼤鼣鼢齔龠儱儭儮嚘嚜嚗嚚嚝嚙奰嬼屩屪巀幭幮懘懟懭懮懱懪懰懫懖懩擿攄擽擸攁攃擼斔旛曚曛曘櫅檹檽櫡櫆檺檶檷櫇檴檭歞毉氋瀇瀌瀍瀁瀅瀔瀎濿瀀濻瀦濼濷瀊爁燿燹爃燽獶"],["f040","璸瓀璵瓁璾璶璻瓂甔甓癜癤癙癐癓癗癚皦皽盬矂瞺磿礌礓礔礉礐礒礑禭禬穟簜簩簙簠簟簭簝簦簨簢簥簰繜繐繖繣繘繢繟繑繠繗繓羵羳翷翸聵臑臒"],["f0a1","臐艟艞薴藆藀藃藂薳薵薽藇藄薿藋藎藈藅薱薶藒蘤薸薷薾虩蟧蟦蟢蟛蟫蟪蟥蟟蟳蟤蟔蟜蟓蟭蟘蟣螤蟗蟙蠁蟴蟨蟝襓襋襏襌襆襐襑襉謪謧謣謳謰謵譇謯謼謾謱謥謷謦謶謮謤謻謽謺豂豵貙貘貗賾贄贂贀蹜蹢蹠蹗蹖蹞蹥蹧"],["f140","蹛蹚蹡蹝蹩蹔轆轇轈轋鄨鄺鄻鄾醨醥醧醯醪鎵鎌鎒鎷鎛鎝鎉鎧鎎鎪鎞鎦鎕鎈鎙鎟鎍鎱鎑鎲鎤鎨鎴鎣鎥闒闓闑隳雗雚巂雟雘雝霣霢霥鞬鞮鞨鞫鞤鞪"],["f1a1","鞢鞥韗韙韖韘韺顐顑顒颸饁餼餺騏騋騉騍騄騑騊騅騇騆髀髜鬈鬄鬅鬩鬵魊魌魋鯇鯆鯃鮿鯁鮵鮸鯓鮶鯄鮹鮽鵜鵓鵏鵊鵛鵋鵙鵖鵌鵗鵒鵔鵟鵘鵚麎麌黟鼁鼀鼖鼥鼫鼪鼩鼨齌齕儴儵劖勷厴嚫嚭嚦嚧嚪嚬壚壝壛夒嬽嬾嬿巃幰"],["f240","徿懻攇攐攍攉攌攎斄旞旝曞櫧櫠櫌櫑櫙櫋櫟櫜櫐櫫櫏櫍櫞歠殰氌瀙瀧瀠瀖瀫瀡瀢瀣瀩瀗瀤瀜瀪爌爊爇爂爅犥犦犤犣犡瓋瓅璷瓃甖癠矉矊矄矱礝礛"],["f2a1","礡礜礗礞禰穧穨簳簼簹簬簻糬糪繶繵繸繰繷繯繺繲繴繨罋罊羃羆羷翽翾聸臗臕艤艡艣藫藱藭藙藡藨藚藗藬藲藸藘藟藣藜藑藰藦藯藞藢蠀蟺蠃蟶蟷蠉蠌蠋蠆蟼蠈蟿蠊蠂襢襚襛襗襡襜襘襝襙覈覷覶觶譐譈譊譀譓譖譔譋譕"],["f340","譑譂譒譗豃豷豶貚贆贇贉趬趪趭趫蹭蹸蹳蹪蹯蹻軂轒轑轏轐轓辴酀鄿醰醭鏞鏇鏏鏂鏚鏐鏹鏬鏌鏙鎩鏦鏊鏔鏮鏣鏕鏄鏎鏀鏒鏧镽闚闛雡霩霫霬霨霦"],["f3a1","鞳鞷鞶韝韞韟顜顙顝顗颿颽颻颾饈饇饃馦馧騚騕騥騝騤騛騢騠騧騣騞騜騔髂鬋鬊鬎鬌鬷鯪鯫鯠鯞鯤鯦鯢鯰鯔鯗鯬鯜鯙鯥鯕鯡鯚鵷鶁鶊鶄鶈鵱鶀鵸鶆鶋鶌鵽鵫鵴鵵鵰鵩鶅鵳鵻鶂鵯鵹鵿鶇鵨麔麑黀黼鼭齀齁齍齖齗齘匷嚲"],["f440","嚵嚳壣孅巆巇廮廯忀忁懹攗攖攕攓旟曨曣曤櫳櫰櫪櫨櫹櫱櫮櫯瀼瀵瀯瀷瀴瀱灂瀸瀿瀺瀹灀瀻瀳灁爓爔犨獽獼璺皫皪皾盭矌矎矏矍矲礥礣礧礨礤礩"],["f4a1","禲穮穬穭竷籉籈籊籇籅糮繻繾纁纀羺翿聹臛臙舋艨艩蘢藿蘁藾蘛蘀藶蘄蘉蘅蘌藽蠙蠐蠑蠗蠓蠖襣襦覹觷譠譪譝譨譣譥譧譭趮躆躈躄轙轖轗轕轘轚邍酃酁醷醵醲醳鐋鐓鏻鐠鐏鐔鏾鐕鐐鐨鐙鐍鏵鐀鏷鐇鐎鐖鐒鏺鐉鏸鐊鏿"],["f540","鏼鐌鏶鐑鐆闞闠闟霮霯鞹鞻韽韾顠顢顣顟飁飂饐饎饙饌饋饓騲騴騱騬騪騶騩騮騸騭髇髊髆鬐鬒鬑鰋鰈鯷鰅鰒鯸鱀鰇鰎鰆鰗鰔鰉鶟鶙鶤鶝鶒鶘鶐鶛"],["f5a1","鶠鶔鶜鶪鶗鶡鶚鶢鶨鶞鶣鶿鶩鶖鶦鶧麙麛麚黥黤黧黦鼰鼮齛齠齞齝齙龑儺儹劘劗囃嚽嚾孈孇巋巏廱懽攛欂櫼欃櫸欀灃灄灊灈灉灅灆爝爚爙獾甗癪矐礭礱礯籔籓糲纊纇纈纋纆纍罍羻耰臝蘘蘪蘦蘟蘣蘜蘙蘧蘮蘡蘠蘩蘞蘥"],["f640","蠩蠝蠛蠠蠤蠜蠫衊襭襩襮襫觺譹譸譅譺譻贐贔趯躎躌轞轛轝酆酄酅醹鐿鐻鐶鐩鐽鐼鐰鐹鐪鐷鐬鑀鐱闥闤闣霵霺鞿韡顤飉飆飀饘饖騹騽驆驄驂驁騺"],["f6a1","騿髍鬕鬗鬘鬖鬺魒鰫鰝鰜鰬鰣鰨鰩鰤鰡鶷鶶鶼鷁鷇鷊鷏鶾鷅鷃鶻鶵鷎鶹鶺鶬鷈鶱鶭鷌鶳鷍鶲鹺麜黫黮黭鼛鼘鼚鼱齎齥齤龒亹囆囅囋奱孋孌巕巑廲攡攠攦攢欋欈欉氍灕灖灗灒爞爟犩獿瓘瓕瓙瓗癭皭礵禴穰穱籗籜籙籛籚"],["f740","糴糱纑罏羇臞艫蘴蘵蘳蘬蘲蘶蠬蠨蠦蠪蠥襱覿覾觻譾讄讂讆讅譿贕躕躔躚躒躐躖躗轠轢酇鑌鑐鑊鑋鑏鑇鑅鑈鑉鑆霿韣顪顩飋饔饛驎驓驔驌驏驈驊"],["f7a1","驉驒驐髐鬙鬫鬻魖魕鱆鱈鰿鱄鰹鰳鱁鰼鰷鰴鰲鰽鰶鷛鷒鷞鷚鷋鷐鷜鷑鷟鷩鷙鷘鷖鷵鷕鷝麶黰鼵鼳鼲齂齫龕龢儽劙壨壧奲孍巘蠯彏戁戃戄攩攥斖曫欑欒欏毊灛灚爢玂玁玃癰矔籧籦纕艬蘺虀蘹蘼蘱蘻蘾蠰蠲蠮蠳襶襴襳觾"],["f840","讌讎讋讈豅贙躘轤轣醼鑢鑕鑝鑗鑞韄韅頀驖驙鬞鬟鬠鱒鱘鱐鱊鱍鱋鱕鱙鱌鱎鷻鷷鷯鷣鷫鷸鷤鷶鷡鷮鷦鷲鷰鷢鷬鷴鷳鷨鷭黂黐黲黳鼆鼜鼸鼷鼶齃齏"],["f8a1","齱齰齮齯囓囍孎屭攭曭曮欓灟灡灝灠爣瓛瓥矕礸禷禶籪纗羉艭虃蠸蠷蠵衋讔讕躞躟躠躝醾醽釂鑫鑨鑩雥靆靃靇韇韥驞髕魙鱣鱧鱦鱢鱞鱠鸂鷾鸇鸃鸆鸅鸀鸁鸉鷿鷽鸄麠鼞齆齴齵齶囔攮斸欘欙欗欚灢爦犪矘矙礹籩籫糶纚"],["f940","纘纛纙臠臡虆虇虈襹襺襼襻觿讘讙躥躤躣鑮鑭鑯鑱鑳靉顲饟鱨鱮鱭鸋鸍鸐鸏鸒鸑麡黵鼉齇齸齻齺齹圞灦籯蠼趲躦釃鑴鑸鑶鑵驠鱴鱳鱱鱵鸔鸓黶鼊"],["f9a1","龤灨灥糷虪蠾蠽蠿讞貜躩軉靋顳顴飌饡馫驤驦驧鬤鸕鸗齈戇欞爧虌躨钂钀钁驩驨鬮鸙爩虋讟钃鱹麷癵驫鱺鸝灩灪麤齾齉龘碁銹裏墻恒粧嫺╔╦╗╠╬╣╚╩╝╒╤╕╞╪╡╘╧╛╓╥╖╟╫╢╙╨╜║═╭╮╰╯▓"]]
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports) {
 
 module.exports = require("async_hooks");
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40231,7 +39518,7 @@ module.exports = require("async_hooks");
  */
 
 var db = __webpack_require__(358)
-var extname = __webpack_require__(8).extname
+var extname = __webpack_require__(10).extname
 
 /**
  * Module variables.
@@ -40407,7 +39694,7 @@ function populateMaps (extensions, types) {
 
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40666,13 +39953,13 @@ module.exports = {
 
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports) {
 
 module.exports = require("querystring");
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40691,15 +39978,15 @@ module.exports = require("querystring");
  * @private
  */
 
-var Route = __webpack_require__(124);
-var Layer = __webpack_require__(125);
+var Route = __webpack_require__(123);
+var Layer = __webpack_require__(124);
 var methods = __webpack_require__(88);
-var mixin = __webpack_require__(64);
+var mixin = __webpack_require__(65);
 var debug = __webpack_require__(14)('express:router');
 var deprecate = __webpack_require__(20)('express');
-var flatten = __webpack_require__(62);
+var flatten = __webpack_require__(63);
 var parseUrl = __webpack_require__(46);
-var setPrototypeOf = __webpack_require__(55)
+var setPrototypeOf = __webpack_require__(56)
 
 /**
  * Module variables.
@@ -41352,7 +40639,7 @@ function wrap(old, fn) {
 
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41372,8 +40659,8 @@ function wrap(old, fn) {
  */
 
 var debug = __webpack_require__(14)('express:router:route');
-var flatten = __webpack_require__(62);
-var Layer = __webpack_require__(125);
+var flatten = __webpack_require__(63);
+var Layer = __webpack_require__(124);
 var methods = __webpack_require__(88);
 
 /**
@@ -41584,7 +40871,7 @@ methods.forEach(function(method){
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41772,7 +41059,7 @@ function decode_param(val) {
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41790,7 +41077,7 @@ function decode_param(val) {
  * Module dependencies.
  */
 
-var merge = __webpack_require__(64)
+var merge = __webpack_require__(65)
 var parseUrl = __webpack_require__(46);
 var qs = __webpack_require__(84);
 
@@ -41826,7 +41113,7 @@ module.exports = function query(options) {
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
@@ -41897,7 +41184,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41922,7 +41209,7 @@ module.exports.parse = parse
  * @private
  */
 
-var basename = __webpack_require__(8).basename
+var basename = __webpack_require__(10).basename
 var Buffer = __webpack_require__(381).Buffer
 
 /**
@@ -42362,7 +41649,7 @@ function ContentDisposition (type, parameters) {
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42386,8 +41673,8 @@ module.exports = etag
  * @private
  */
 
-var crypto = __webpack_require__(16)
-var Stats = __webpack_require__(15).Stats
+var crypto = __webpack_require__(15)
+var Stats = __webpack_require__(18).Stats
 
 /**
  * Module variables.
@@ -42500,7 +41787,7 @@ function stattag (stat) {
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42644,7 +41931,7 @@ function parseTokenList (str) {
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42813,7 +42100,7 @@ function sortByRangeStart (a, b) {
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43147,14 +42434,14 @@ function trustSingle (subnet) {
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Module dependencies.
  */
 
-var crypto = __webpack_require__(16);
+var crypto = __webpack_require__(15);
 
 /**
  * Sign the given `val` with `secret`.
@@ -43204,7 +42491,7 @@ function sha1(str){
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43360,7 +42647,7 @@ function vary (res, field) {
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function () {
@@ -43368,7 +42655,7 @@ function vary (res, field) {
   'use strict';
 
   var assign = __webpack_require__(397);
-  var vary = __webpack_require__(134);
+  var vary = __webpack_require__(133);
 
   var defaults = {
     origin: '*',
@@ -43604,11 +42891,11 @@ function vary (res, field) {
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const fs = __webpack_require__(15)
-const path = __webpack_require__(8)
+const fs = __webpack_require__(18)
+const path = __webpack_require__(10)
 const os = __webpack_require__(398)
 
 const LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg
@@ -43719,17 +43006,17 @@ module.exports = DotenvModule
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var Client = __webpack_require__(399)
-var defaults = __webpack_require__(65)
-var Connection = __webpack_require__(143)
+var defaults = __webpack_require__(66)
+var Connection = __webpack_require__(142)
 var Pool = __webpack_require__(420)
-const { DatabaseError } = __webpack_require__(144)
+const { DatabaseError } = __webpack_require__(143)
 
 const poolFactory = (Client) => {
   return class BoundPool extends Pool {
@@ -43746,7 +43033,7 @@ var PG = function (clientConstructor) {
   this.Pool = poolFactory(this.Client)
   this._pools = []
   this.Connection = Connection
-  this.types = __webpack_require__(66)
+  this.types = __webpack_require__(67)
   this.DatabaseError = DatabaseError
 }
 
@@ -43781,7 +43068,7 @@ if (typeof process.env.NODE_PG_FORCE_NATIVE !== 'undefined') {
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43885,10 +43172,10 @@ function identity (value) {
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var array = __webpack_require__(138);
+var array = __webpack_require__(137);
 
 module.exports = {
   create: function (source, transform) {
@@ -43902,13 +43189,13 @@ module.exports = {
 
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var types = __webpack_require__(66)
+var types = __webpack_require__(67)
 
 function TypeOverrides(userTypes) {
   this._types = userTypes || types
@@ -43944,7 +43231,7 @@ module.exports = TypeOverrides
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43952,9 +43239,9 @@ module.exports = TypeOverrides
 
 var dns = __webpack_require__(412)
 
-var defaults = __webpack_require__(65)
+var defaults = __webpack_require__(66)
 
-var parse = __webpack_require__(142).parse // parses a connection string
+var parse = __webpack_require__(141).parse // parses a connection string
 
 var val = function (key, config, envVar) {
   if (envVar === undefined) {
@@ -44117,14 +43404,14 @@ module.exports = ConnectionParameters
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var url = __webpack_require__(61)
-var fs = __webpack_require__(15)
+var url = __webpack_require__(62)
+var fs = __webpack_require__(18)
 
 //Parse method copied from https://github.com/brianc/node-postgres
 //Copyright (c) 2010-2014 Brian Carlson (brian.m.carlson@gmail.com)
@@ -44230,7 +43517,7 @@ parse.parse = parse
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44239,7 +43526,7 @@ parse.parse = parse
 var net = __webpack_require__(81)
 var EventEmitter = __webpack_require__(23).EventEmitter
 
-const { parse, serialize } = __webpack_require__(144)
+const { parse, serialize } = __webpack_require__(143)
 
 const flushBuffer = serialize.flush()
 const syncBuffer = serialize.sync()
@@ -44458,14 +43745,14 @@ module.exports = Connection
 
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseError = exports.serialize = exports.parse = void 0;
-const messages_1 = __webpack_require__(145);
+const messages_1 = __webpack_require__(144);
 Object.defineProperty(exports, "DatabaseError", { enumerable: true, get: function () { return messages_1.DatabaseError; } });
 const serializer_1 = __webpack_require__(415);
 Object.defineProperty(exports, "serialize", { enumerable: true, get: function () { return serializer_1.serialize; } });
@@ -44479,7 +43766,7 @@ exports.parse = parse;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44643,6 +43930,12 @@ class NoticeMessage {
 }
 exports.NoticeMessage = NoticeMessage;
 //# sourceMappingURL=messages.js.map
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports) {
+
+module.exports = require("assert");
 
 /***/ }),
 /* 146 */
@@ -44856,7 +44149,7 @@ var util = __webpack_require__(3);
 var Types = __webpack_require__(19);
 var Geometry = __webpack_require__(24);
 var Point = __webpack_require__(25);
-var LineString = __webpack_require__(93);
+var LineString = __webpack_require__(92);
 var BinaryWriter = __webpack_require__(26);
 
 function MultiLineString(lineStrings, srid) {
@@ -45051,7 +44344,7 @@ var util = __webpack_require__(3);
 var Types = __webpack_require__(19);
 var Geometry = __webpack_require__(24);
 var Point = __webpack_require__(25);
-var Polygon = __webpack_require__(94);
+var Polygon = __webpack_require__(93);
 var BinaryWriter = __webpack_require__(26);
 
 function MultiPolygon(polygons, srid) {
@@ -45697,7 +44990,7 @@ exports.locales = void 0;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _alpha = __webpack_require__(49);
+var _alpha = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -61803,7 +61096,7 @@ module.exports = isObject;
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = rng;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_crypto__);
 
 const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
@@ -61961,13 +61254,13 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-const assert = __webpack_require__(92);
+const assert = __webpack_require__(145);
 const _ = __webpack_require__(2);
 const Dottie = __webpack_require__(313);
 const Utils = __webpack_require__(6);
 const { logger } = __webpack_require__(7);
 const BelongsTo = __webpack_require__(31);
-const BelongsToMany = __webpack_require__(51);
+const BelongsToMany = __webpack_require__(52);
 const InstanceValidator = __webpack_require__(564);
 const QueryTypes = __webpack_require__(13);
 const sequelizeErrors = __webpack_require__(5);
@@ -61976,8 +61269,8 @@ const HasMany = __webpack_require__(39);
 const DataTypes = __webpack_require__(4);
 const Hooks = __webpack_require__(314);
 const associationsMixin = __webpack_require__(565);
-const Op = __webpack_require__(9);
-const { noDoubleNestedGroup } = __webpack_require__(52);
+const Op = __webpack_require__(8);
+const { noDoubleNestedGroup } = __webpack_require__(53);
 const validQueryKeywords = /* @__PURE__ */ new Set([
   "where",
   "attributes",
@@ -65104,7 +64397,7 @@ const IndexHints = module.exports = {
 /* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 const neq = (a, b, loose) => compare(a, b, loose) !== 0
 module.exports = neq
 
@@ -65113,12 +64406,12 @@ module.exports = neq
 /* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const eq = __webpack_require__(102)
+const eq = __webpack_require__(101)
 const neq = __webpack_require__(318)
 const gt = __webpack_require__(78)
-const gte = __webpack_require__(105)
-const lt = __webpack_require__(104)
-const lte = __webpack_require__(106)
+const gte = __webpack_require__(104)
+const lt = __webpack_require__(103)
+const lte = __webpack_require__(105)
 
 const cmp = (a, op, b, loose) => {
   switch (op) {
@@ -65317,8 +64610,8 @@ exports.MySQLQueryInterface = MySQLQueryInterface;
  * @private
  */
 
-var cookie = __webpack_require__(642)
-var signature = __webpack_require__(133)
+var cookie = __webpack_require__(641)
+var signature = __webpack_require__(132)
 
 /**
  * Module exports.
@@ -65492,45 +64785,33 @@ function signedCookies (obj, secret) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _crypto = __webpack_require__(16);var _crypto2 = _interopRequireDefault(_crypto);
-
+Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _crypto = __webpack_require__(15);var _crypto2 = _interopRequireDefault(_crypto);
 var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);
-var _Centroid = __webpack_require__(326);var _Centroid2 = _interopRequireDefault(_Centroid);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var fs = __webpack_require__(15);var
+var _Centroid = __webpack_require__(108);var _Centroid2 = _interopRequireDefault(_Centroid);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+
 
 Centroid = function () {
 
     function Centroid() {_classCallCheck(this, Centroid);
-    }_createClass(Centroid, [{ key: 'update', value: function update(
+    }_createClass(Centroid, [{ key: 'calculateHash', value: function calculateHash(
 
-        data) {var _this = this;
-            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                                    try {
-                                        storage.saveData(data, 'data', 'spine', function () {
-                                            resolve(data);
-                                        });
-                                    } catch (err) {
-                                        rejects("Failed to update Centroid " + err);
-                                    }case 1:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
-
-        } }, { key: 'calculateHash', value: function calculateHash(
-
-        uuid, data, timestamp) {var _this2 = this;
-            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+        uuid, data, timestamp) {var _this = this;
+            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                                     data = JSON.stringify(data);
                                     if (!uuid) rejects("Missing data");
                                     if (!data) rejects("Missing data");
-                                    if (!timestamp) rejects("Missing data");_context2.next = 6;return (
+                                    if (!timestamp) rejects("Missing data");_context.next = 6;return (
                                         _crypto2.default.
                                         createHash('sha256').
                                         update(uuid + data + timestamp).
-                                        digest('hex'));case 6:hash = _context2.sent;
+                                        digest('hex'));case 6:hash = _context.sent;
                                     if (hash === undefined) rejects(null);
-                                    resolve(hash);case 9:case 'end':return _context2.stop();}}}, _callee2, _this2);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
-            catch(function (err) {rejects(err);});
+                                    resolve(hash);case 9:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}()).
+            catch(function (err) {return err;});
         } }, { key: 'create', value: function create()
 
-        {var _this3 = this;
-            return new Promise(function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(resolve, rejects) {var date, genesis_data, _genesis_data$, uuid, walletid, timestamp, ref, hash, body, amount, signatue, _body, data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+        {var _this2 = this;
+            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var date, genesis_data, _genesis_data$, uuid, walletid, timestamp, ref, hash, body, amount, _body, data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
                                     date = (0, _moment2.default)(Date.now()).format();
                                     date = date.toString();
                                     genesis_data = {
@@ -65547,130 +64828,148 @@ Centroid = function () {
 
 
                                     console.log("Genius Block Data Genarated");_genesis_data$ =
-                                    genesis_data['0'], uuid = _genesis_data$.uuid, walletid = _genesis_data$.walletid, timestamp = _genesis_data$.timestamp, ref = _genesis_data$.ref, hash = _genesis_data$.hash, body = _genesis_data$.body, amount = _genesis_data$.amount, signatue = _genesis_data$.signatue;
+                                    genesis_data['0'], uuid = _genesis_data$.uuid, walletid = _genesis_data$.walletid, timestamp = _genesis_data$.timestamp, ref = _genesis_data$.ref, hash = _genesis_data$.hash, body = _genesis_data$.body, amount = _genesis_data$.amount;
                                     console.log("Init Database Entry");
-                                    _body = JSON.stringify(body);_context3.prev = 7;_context3.next = 10;return (
+                                    _body = JSON.stringify(body);_context2.prev = 7;_context2.next = 10;return (
 
-                                        _Centroid2.default.create({ uuid: uuid, walletid: walletid, timestamp: timestamp, ref: ref, hash: hash, body: _body, amount: amount }));case 10:data = _context3.sent;
+                                        _Centroid2.default.create({ uuid: uuid, walletid: walletid, timestamp: timestamp, ref: ref, hash: hash, body: _body, amount: amount }));case 10:data = _context2.sent;
                                     // console.log(data);
-                                    resolve(data);_context3.next = 17;break;case 14:_context3.prev = 14;_context3.t0 = _context3['catch'](7);
+                                    resolve(data);_context2.next = 17;break;case 14:_context2.prev = 14;_context2.t0 = _context2['catch'](7);
 
                                     if (error.name === 'SequelizeUniqueConstraintError') {
                                         rejects("Genesis Block Already ");
-                                    }case 17:case 'end':return _context3.stop();}}}, _callee3, _this3, [[7, 14]]);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}()).
+                                    }case 17:case 'end':return _context2.stop();}}}, _callee2, _this2, [[7, 14]]);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
 
 
             catch(function (err) {
                 rejects(err);
             });
-        } }, { key: 'get', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:return _context4.abrupt('return',
+        } }, { key: 'get', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {var data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.prev = 0;
 
 
 
-                                new Promise(function (resolve, reject) {
-                                    _Centroid2.default.findAll().then(function (_spine) {
-                                        resolve(_spine);
-                                    }).catch(function (e) {
-                                        console.error(e);
-                                        reject(e);
-                                    });
-                                }));case 1:case 'end':return _context4.stop();}}}, _callee4, this);}));function get() {return _ref4.apply(this, arguments);}return get;}() }, { key: 'push', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(
+
+                                data = _Centroid2.default.findAll();return _context3.abrupt('return',
+                                data);case 5:_context3.prev = 5;_context3.t0 = _context3['catch'](0);return _context3.abrupt('return', _context3.t0);case 8:case 'end':return _context3.stop();}}}, _callee3, this, [[0, 5]]);}));function get() {return _ref3.apply(this, arguments);}return get;}()
 
 
 
-            publickey, privateKey, body_data) {var _this4 = this;var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var pro;return regeneratorRuntime.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
-                                pro = new Promise(function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(resolve, rejects) {var sign, data, len, previous_block, temp_hash, _len_ref_block, previous_ref_block, _hash, block_no, date, new_block, _body;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
-                                                        if (!publickey) rejects("Null value found.");
-                                                        if (!privateKey) rejects("Null value found.");
-                                                        body_data = JSON.stringify(body_data);
-                                                        sign = _crypto2.default.sign("sha512", body_data, privateKey);
-                                                        sign = sign.toString('base64');
-                                                        sign = JSON.stringify(sign);
-                                                        /*
-                                                                                      Load Centroid
-                                                                                     */
-                                                        data = "database record";
-                                                        if (!data) {
-                                                            rejects("Unable to load Centroid");
-                                                        }
-                                                        /* Centroid Length */
-                                                        len = Object.keys(data);
-                                                        len = len.length - 1;
-                                                        /* 
-                                                                                   Working with previous block
-                                                                               */
-                                                        previous_block = data[len];
-
-                                                        // Security
-                                                        if (!(len != 0)) {_context5.next = 20;break;}
-                                                        temp_hash = previous_block.ref;
-                                                        _len_ref_block = len - 1;
-                                                        previous_ref_block = data[_len_ref_block];_context5.next = 17;return (
-                                                            _this4.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch(function (err) {
-                                                                rejects(err);
-                                                            }));case 17:_hash = _context5.sent;
-                                                        if (_hash != temp_hash) {
-                                                            console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                                                            rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                                                        }
-
-                                                        if (previous_block.uuid === publickey) {
-                                                            console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                                                            rejects("User already present.");
-                                                        }case 20:
-
-                                                        /*
-                                                                    Creating New Block
-                                                                  */
-                                                        block_no = len + 1;
-                                                        date = (0, _moment2.default)(Date.now()).format();
-                                                        date = date.toString(); //making date string
-
-                                                        new_block = {};_context5.t0 =
-
-                                                        block_no;_context5.t1 =
-                                                        publickey;_context5.t2 =
-                                                        date;_context5.next = 29;return (
-                                                            _this4.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch(function (err) {
-                                                                rejects(err);
-                                                            }));case 29:_context5.t3 = _context5.sent;_context5.next = 32;return (
-                                                            _this4.calculateHash(publickey, body_data, date).catch(function (err) {
-                                                                rejects(err);
-                                                            }));case 32:_context5.t4 = _context5.sent;_context5.t5 =
-                                                        body_data;_context5.t6 =
-                                                        amount;_context5.t7 =
-
-                                                        sign.toString('base64');new_block[len + 1] = { "uuid": _context5.t0, "walletid": _context5.t1, "timestamp": _context5.t2, "ref": _context5.t3, "hash": _context5.t4, "body": _context5.t5, "amount": _context5.t6, "status": "1", "signature": _context5.t7 };
-
-                                                        _body = JSON.stringify(body_data);_context5.t8 =
-                                                        Centroid;_context5.t9 =
-                                                        block_no;_context5.t10 = publickey;_context5.t11 = date;_context5.next = 44;return _this4.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch(function (err) {
-                                                            rejects(err);
-                                                        });case 44:_context5.t12 = _context5.sent;_context5.next = 47;return _this4.calculateHash(publickey, body_data, date).catch(function (err) {
-                                                            rejects(err);
-                                                        });case 47:_context5.t13 = _context5.sent;_context5.t14 = _body;_context5.t15 = amount;_context5.t16 = sign.toString('base64');_context5.t17 = { id: _context5.t9, walletid: _context5.t10, timestamp: _context5.t11, ref: _context5.t12, hash: _context5.t13, body: _context5.t14, amount: _context5.t15, sign: _context5.t16 };_context5.t18 =
-                                                        function (data) {resolve(data);};_context5.t8.create.call(_context5.t8, _context5.t17, _context5.t18);
-
-                                                        Object.assign(data, new_block); //Join with old block
-                                                        console.log(data);
-                                                        data = _this4.updateCentroid(data); //Update source file
-
-                                                        resolve(data);case 58:case 'end':return _context5.stop();}}}, _callee5, _this4);}));return function (_x11, _x12) {return _ref6.apply(this, arguments);};}()).
-
-
-                                catch(function (err) {return err;});_context6.t0 =
-                                console;_context6.next = 4;return pro;case 4:_context6.t1 = _context6.sent;_context6.t0.log.call(_context6.t0, _context6.t1);return _context6.abrupt('return',
-                                pro);case 7:case 'end':return _context6.stop();}}}, _callee6, this);}));function push(_x8, _x9, _x10) {return _ref5.apply(this, arguments);}return push;}() }, { key: 'search', value: function () {var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(
-
-
-            param) {var data;return regeneratorRuntime.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:
-                                data = _Centroid2.default.findOne({
-                                    order: [['uuid', 'DESC']] });return _context7.abrupt('return',
-
-                                data);case 2:case 'end':return _context7.stop();}}}, _callee7, this);}));function search(_x13) {return _ref7.apply(this, arguments);}return search;}() }]);return Centroid;}();exports.default =
 
 
 
+
+
+        /**************************************************
+                                                                                                                                                                                                                                                                                                       * Push Function
+                                                                                                                                                                                                                                                                                                       * 
+                                                                                                                                                                                                                                                                                                       * 
+                                                                                                                                                                                                                                                                                                       * 
+                                                                                                                                                                                                                                                                                                       * ************************************************/ }, { key: 'push', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(
+
+            walletid, body_data) {var amount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;var date, previous_block, previous_block_id, new_block_id, ref, hash, body, timestamp;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+                                console.log("walletid " + walletid);_context4.prev = 1;
+
+
+                                date = (0, _moment2.default)(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
+                                date = JSON.stringify(date);
+
+
+                                // Previous Block
+                                _context4.next = 6;return this.last_block();case 6:previous_block = _context4.sent;
+                                previous_block_id = previous_block['id'];
+                                new_block_id = previous_block['id'] + 1;
+                                previous_block = JSON.stringify(previous_block);
+
+                                // Hash Ref Block 
+                                _context4.next = 12;return this.calculateHash(walletid, previous_block, date);case 12:ref = _context4.sent;_context4.next = 15;return (
+
+
+
+                                    this.calculateHash(walletid, body_data, date));case 15:hash = _context4.sent;
+
+
+                                //Stringify Data
+                                body = JSON.stringify(body_data);
+                                // const walletid = JSON.stringify(walletid)
+                                timestamp = date;
+
+                                // Input To Database
+                                _context4.next = 20;return _Centroid2.default.create({ new_block_id: new_block_id, walletid: walletid, timestamp: timestamp, ref: ref, hash: hash, body: body, amount: amount });case 20:_context4.next = 22;return (
+                                    _Centroid2.default.findOne({
+                                        attributes: ['walletid', 'timestamp'],
+                                        order: [['id', 'DESC']] }));case 22:return _context4.abrupt('return', _context4.sent);case 25:_context4.prev = 25;_context4.t0 = _context4['catch'](1);
+
+
+
+                                console.error(_context4.t0);return _context4.abrupt('return', _context4.t0);case 29:case 'end':return _context4.stop();}}}, _callee4, this, [[1, 25]]);}));function push(_x6, _x7) {return _ref4.apply(this, arguments);}return push;}()
+
+
+
+
+
+
+        // async _push(walletid, body_data, amount = 0) {
+        //     const pro = new Promise(async (resolve, rejects) => {
+        //         if (!walletid) rejects("Null value found.")
+        //         body_data = JSON.stringify(body_data)
+        //         /*
+        //          Load Centroid
+        //         */
+        //         let data = await this.search()
+        //         console.log(">>" + data);
+        //         if (!data) {
+        //             rejects("Unable to load Centroid")
+        //         }
+        //         /* Centroid Length */
+        //         let len = Object.keys(data)
+        //         len = len.length - 1
+        //         /* 
+        //              Working with previous block
+        //          */
+        //         let previous_block = data[len]
+
+        //         // Security
+        //         if (len != 0) {
+        //             let temp_hash = previous_block.ref
+        //             const _len_ref_block = len - 1
+        //             let previous_ref_block = data[_len_ref_block]
+        //             let _hash = await this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
+        //                 rejects(err)
+        //             })
+        //             if (_hash != temp_hash) {
+        //                 console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+        //                 rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash })
+        //             }
+
+        //             if (previous_block.uuid === walletid) {
+        //                 console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+        //                 rejects("User already present.")
+        //             }
+        //         }
+        //         /*
+        //           Creating New Block
+        //         */
+        //         let block_no = len + 1
+
+        //         date = date.toString() //making date string
+        //         const ref = await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+        //             rejects(err)
+        //         })
+        //         const hash = await this.calculateHash(walletid, body_data, date).catch((err) => {
+        //             rejects(err)
+        //         })
+        //         const _body = JSON.stringify(body_data)
+        //         await db.create(block_no, walletid, date, ref, hash, _body, amount, status)
+        //         resolve(_body)
+
+        //     }).catch((err) => { return err })
+        //     console.log(await pro);
+        //     return pro
+        // }
+    }, { key: 'last_block', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {var data;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
+
+                                    _Centroid2.default.findOne({ order: [['id', 'DESC']] }));case 2:data = _context5.sent;return _context5.abrupt('return',
+                                data);case 4:case 'end':return _context5.stop();}}}, _callee5, this);}));function last_block() {return _ref5.apply(this, arguments);}return last_block;}() }]);return Centroid;}();exports.default =
 
 
 
@@ -65681,30 +64980,735 @@ Centroid;
 /* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = __webpack_require__(67);
-var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+__webpack_require__(327);
+module.exports = __webpack_require__(328);
 
-
-var Centroid = _database2.default.define('CENTROID', {
-
-    walletid: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    timestamp: { type: _sequelize.DataTypes.STRING, allowNull: false },
-    ref: { type: _sequelize.DataTypes.STRING, allowNull: false },
-    hash: { type: _sequelize.DataTypes.STRING, allowNull: false },
-    body: _sequelize.DataTypes.STRING,
-    amount: { type: _sequelize.DataTypes.FLOAT } });exports.default =
-
-
-
-Centroid;
 
 /***/ }),
 /* 327 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-__webpack_require__(109);
-module.exports = __webpack_require__(328);
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+!(function(global) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
+  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  runtime.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  runtime.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  runtime.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  runtime.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+})(
+  // In sloppy mode, unbound `this` refers to the global object, fallback to
+  // Function constructor if we're in global strict mode. That is sadly a form
+  // of indirect eval which violates Content Security Policy.
+  (function() {
+    return this || (typeof self === "object" && self);
+  })() || Function("return this")()
+);
 
 
 /***/ }),
@@ -65714,9 +65718,9 @@ module.exports = __webpack_require__(328);
 "use strict";
 var _express = __webpack_require__(43);var _express2 = _interopRequireDefault(_express);
 
-var _cors = __webpack_require__(135);var _cors2 = _interopRequireDefault(_cors);
+var _cors = __webpack_require__(134);var _cors2 = _interopRequireDefault(_cors);
 
-var _dotenv = __webpack_require__(136);var _dotenv2 = _interopRequireDefault(_dotenv);
+var _dotenv = __webpack_require__(135);var _dotenv2 = _interopRequireDefault(_dotenv);
 var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var app = (0, _express2.default)(); /*Environment Data*/
 
 _dotenv2.default.config();
@@ -65726,23 +65730,26 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
+
 app.use(_express2.default.json());
-_database2.default.authenticate().then(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                    // await db.sync({ force: true });
-                    // await db.sync();
-                    console.log('Connection has been established successfully.');case 1:case "end":return _context.stop();}}}, _callee, undefined);}))).
+_database2.default.authenticate().then(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
+                        _database2.default.sync());case 2:
+                    console.log('Connection has been established successfully.');case 3:case "end":return _context.stop();}}}, _callee, undefined);}))).
 catch(function (error) {
     console.error('Unable to connect to the database: ', error);
 });
 
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+
 
 // Middelwears
 app.use((0, _cors2.default)(corsOptions));
 
 /*And Every apis path here*/
-var routes = __webpack_require__(641);
+var routes = __webpack_require__(640);
 app.use("/", routes);
 
 
@@ -65794,12 +65801,12 @@ module.exports = app;
  * Module dependencies.
  */
 
-var bodyParser = __webpack_require__(110)
+var bodyParser = __webpack_require__(109)
 var EventEmitter = __webpack_require__(23).EventEmitter;
 var mixin = __webpack_require__(374);
 var proto = __webpack_require__(375);
-var Route = __webpack_require__(124);
-var Router = __webpack_require__(123);
+var Route = __webpack_require__(123);
+var Router = __webpack_require__(122);
 var req = __webpack_require__(387);
 var res = __webpack_require__(394);
 
@@ -65858,7 +65865,7 @@ exports.Router = Router;
  */
 
 exports.json = bodyParser.json
-exports.query = __webpack_require__(126);
+exports.query = __webpack_require__(125);
 exports.raw = bodyParser.raw
 exports.static = __webpack_require__(396);
 exports.text = bodyParser.text
@@ -65918,10 +65925,10 @@ removedMiddlewares.forEach(function (name) {
  */
 
 var bytes = __webpack_require__(44)
-var contentType = __webpack_require__(54)
+var contentType = __webpack_require__(55)
 var createError = __webpack_require__(37)
 var debug = __webpack_require__(14)('body-parser:json')
-var read = __webpack_require__(57)
+var read = __webpack_require__(58)
 var typeis = __webpack_require__(45)
 
 /**
@@ -66244,7 +66251,7 @@ function toIdentifier (str) {
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(111);
+exports = module.exports = __webpack_require__(110);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -66591,7 +66598,7 @@ function plural(ms, n, name) {
  * Module dependencies.
  */
 
-var tty = __webpack_require__(112);
+var tty = __webpack_require__(111);
 var util = __webpack_require__(3);
 
 /**
@@ -66600,7 +66607,7 @@ var util = __webpack_require__(3);
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(111);
+exports = module.exports = __webpack_require__(110);
 exports.init = init;
 exports.log = log;
 exports.formatArgs = formatArgs;
@@ -66772,7 +66779,7 @@ function createWritableStdioStream (fd) {
       break;
 
     case 'FILE':
-      var fs = __webpack_require__(15);
+      var fs = __webpack_require__(18);
       stream = new fs.SyncWriteStream(fd, { autoClose: false });
       stream._type = 'fs';
       break;
@@ -66859,7 +66866,7 @@ exports.enable(load());
 var asyncHooks = tryRequireAsyncHooks()
 var bytes = __webpack_require__(44)
 var createError = __webpack_require__(37)
-var iconv = __webpack_require__(115)
+var iconv = __webpack_require__(114)
 var unpipe = __webpack_require__(83)
 
 /**
@@ -67143,7 +67150,7 @@ function readStream (stream, encoding, length, limit, callback) {
 
 function tryRequireAsyncHooks () {
   try {
-    return __webpack_require__(119)
+    return __webpack_require__(118)
   } catch (e) {
     return {}
   }
@@ -67314,7 +67321,7 @@ InternalCodec.prototype.decoder = InternalDecoder;
 //------------------------------------------------------------------------------
 
 // We use node.js internal decoder. Its signature is the same as ours.
-var StringDecoder = __webpack_require__(116).StringDecoder;
+var StringDecoder = __webpack_require__(115).StringDecoder;
 
 if (!StringDecoder.prototype.end) // Node v0.8 doesn't have this method.
     StringDecoder.prototype.end = function() {};
@@ -69313,7 +69320,7 @@ module.exports = {
     // GBK (~22000 chars) is an extension of CP936 that added user-mapped chars and some other.
     'gbk': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(82).concat(__webpack_require__(117)) },
+        table: function() { return __webpack_require__(82).concat(__webpack_require__(116)) },
     },
     'xgbk': 'gbk',
     'isoir58': 'gbk',
@@ -69325,7 +69332,7 @@ module.exports = {
     // http://www.khngai.com/chinese/charmap/tblgbk.php?page=0
     'gb18030': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(82).concat(__webpack_require__(117)) },
+        table: function() { return __webpack_require__(82).concat(__webpack_require__(116)) },
         gb18030: function() { return __webpack_require__(351) },
         encodeSkipVals: [0x80],
         encodeAdd: {'€': 0xA2E3},
@@ -69382,14 +69389,14 @@ module.exports = {
     '950': 'cp950',
     'cp950': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(118) },
+        table: function() { return __webpack_require__(117) },
     },
 
     // Big5 has many variations and is an extension of cp950. We use Encoding Standard's as a consensus.
     'big5': 'big5hkscs',
     'big5hkscs': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(118).concat(__webpack_require__(353)) },
+        table: function() { return __webpack_require__(117).concat(__webpack_require__(353)) },
         encodeSkipVals: [0xa2cc],
     },
 
@@ -70202,7 +70209,7 @@ module.exports = {"application/1d-interleaved-parityfec":{"source":"iana"},"appl
 
 var bytes = __webpack_require__(44)
 var debug = __webpack_require__(14)('body-parser:raw')
-var read = __webpack_require__(57)
+var read = __webpack_require__(58)
 var typeis = __webpack_require__(45)
 
 /**
@@ -70309,9 +70316,9 @@ function typeChecker (type) {
  */
 
 var bytes = __webpack_require__(44)
-var contentType = __webpack_require__(54)
+var contentType = __webpack_require__(55)
 var debug = __webpack_require__(14)('body-parser:text')
-var read = __webpack_require__(57)
+var read = __webpack_require__(58)
 var typeis = __webpack_require__(45)
 
 /**
@@ -70439,11 +70446,11 @@ function typeChecker (type) {
  */
 
 var bytes = __webpack_require__(44)
-var contentType = __webpack_require__(54)
+var contentType = __webpack_require__(55)
 var createError = __webpack_require__(37)
 var debug = __webpack_require__(14)('body-parser:urlencoded')
 var deprecate = __webpack_require__(20)('body-parser')
-var read = __webpack_require__(57)
+var read = __webpack_require__(58)
 var typeis = __webpack_require__(45)
 
 /**
@@ -70651,7 +70658,7 @@ function parser (name) {
       mod = __webpack_require__(84)
       break
     case 'querystring':
-      mod = __webpack_require__(122)
+      mod = __webpack_require__(121)
       break
   }
 
@@ -70718,7 +70725,7 @@ function typeChecker (type) {
 
 
 var getSideChannel = __webpack_require__(364);
-var utils = __webpack_require__(121);
+var utils = __webpack_require__(120);
 var formats = __webpack_require__(87);
 var has = Object.prototype.hasOwnProperty;
 
@@ -71913,7 +71920,7 @@ module.exports = __webpack_require__(3).inspect;
 "use strict";
 
 
-var utils = __webpack_require__(121);
+var utils = __webpack_require__(120);
 
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
@@ -72264,21 +72271,21 @@ function merge(dest, src, redefine) {
  */
 
 var finalhandler = __webpack_require__(376);
-var Router = __webpack_require__(123);
+var Router = __webpack_require__(122);
 var methods = __webpack_require__(88);
 var middleware = __webpack_require__(378);
-var query = __webpack_require__(126);
+var query = __webpack_require__(125);
 var debug = __webpack_require__(14)('express:application');
 var View = __webpack_require__(379);
-var http = __webpack_require__(63);
+var http = __webpack_require__(64);
 var compileETag = __webpack_require__(30).compileETag;
 var compileQueryParser = __webpack_require__(30).compileQueryParser;
 var compileTrust = __webpack_require__(30).compileTrust;
 var deprecate = __webpack_require__(20)('express');
-var flatten = __webpack_require__(62);
-var merge = __webpack_require__(64);
-var resolve = __webpack_require__(8).resolve;
-var setPrototypeOf = __webpack_require__(55)
+var flatten = __webpack_require__(63);
+var merge = __webpack_require__(65);
+var resolve = __webpack_require__(10).resolve;
+var setPrototypeOf = __webpack_require__(56)
 
 /**
  * Module variables.
@@ -72930,11 +72937,11 @@ function tryRender(view, options, callback) {
  */
 
 var debug = __webpack_require__(14)('finalhandler')
-var encodeUrl = __webpack_require__(59)
-var escapeHtml = __webpack_require__(60)
-var onFinished = __webpack_require__(58)
+var encodeUrl = __webpack_require__(60)
+var escapeHtml = __webpack_require__(61)
+var onFinished = __webpack_require__(59)
 var parseUrl = __webpack_require__(46)
-var statuses = __webpack_require__(56)
+var statuses = __webpack_require__(57)
 var unpipe = __webpack_require__(83)
 
 /**
@@ -73409,7 +73416,7 @@ function pathtoRegexp(path, keys, options) {
  * @private
  */
 
-var setPrototypeOf = __webpack_require__(55)
+var setPrototypeOf = __webpack_require__(56)
 
 /**
  * Initialization middleware, exposing the
@@ -73460,8 +73467,8 @@ exports.init = function(app){
  */
 
 var debug = __webpack_require__(14)('express:view');
-var path = __webpack_require__(8);
-var fs = __webpack_require__(15);
+var path = __webpack_require__(10);
+var fs = __webpack_require__(18);
 
 /**
  * Module variables.
@@ -73715,8 +73722,8 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 /* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(8);
-var fs = __webpack_require__(15);
+var path = __webpack_require__(10);
+var fs = __webpack_require__(18);
 
 function Mime() {
   // Map of extension -> mime type
@@ -74800,11 +74807,11 @@ var accepts = __webpack_require__(388);
 var deprecate = __webpack_require__(20)('express');
 var isIP = __webpack_require__(81).isIP;
 var typeis = __webpack_require__(45);
-var http = __webpack_require__(63);
-var fresh = __webpack_require__(130);
-var parseRange = __webpack_require__(131);
+var http = __webpack_require__(64);
+var fresh = __webpack_require__(129);
+var parseRange = __webpack_require__(130);
 var parse = __webpack_require__(46);
-var proxyaddr = __webpack_require__(132);
+var proxyaddr = __webpack_require__(131);
 
 /**
  * Request prototype.
@@ -75328,7 +75335,7 @@ function defineGetter(obj, name, getter) {
  */
 
 var Negotiator = __webpack_require__(389)
-var mime = __webpack_require__(120)
+var mime = __webpack_require__(119)
 
 /**
  * Module exports.
@@ -76515,19 +76522,19 @@ function splitParameters(str) {
  * @private
  */
 
-var Buffer = __webpack_require__(127).Buffer
-var contentDisposition = __webpack_require__(128);
+var Buffer = __webpack_require__(126).Buffer
+var contentDisposition = __webpack_require__(127);
 var createError = __webpack_require__(37)
 var deprecate = __webpack_require__(20)('express');
-var encodeUrl = __webpack_require__(59);
-var escapeHtml = __webpack_require__(60);
-var http = __webpack_require__(63);
+var encodeUrl = __webpack_require__(60);
+var escapeHtml = __webpack_require__(61);
+var http = __webpack_require__(64);
 var isAbsolute = __webpack_require__(30).isAbsolute;
-var onFinished = __webpack_require__(58);
-var path = __webpack_require__(8);
-var statuses = __webpack_require__(56)
-var merge = __webpack_require__(64);
-var sign = __webpack_require__(133).sign;
+var onFinished = __webpack_require__(59);
+var path = __webpack_require__(10);
+var statuses = __webpack_require__(57)
+var merge = __webpack_require__(65);
+var sign = __webpack_require__(132).sign;
 var normalizeType = __webpack_require__(30).normalizeType;
 var normalizeTypes = __webpack_require__(30).normalizeTypes;
 var setCharset = __webpack_require__(30).setCharset;
@@ -76536,7 +76543,7 @@ var send = __webpack_require__(89);
 var extname = path.extname;
 var mime = send.mime;
 var resolve = path.resolve;
-var vary = __webpack_require__(134);
+var vary = __webpack_require__(133);
 
 /**
  * Response prototype.
@@ -77969,12 +77976,12 @@ function tryDecode(str, decode) {
  * @private
  */
 
-var encodeUrl = __webpack_require__(59)
-var escapeHtml = __webpack_require__(60)
+var encodeUrl = __webpack_require__(60)
+var escapeHtml = __webpack_require__(61)
 var parseUrl = __webpack_require__(46)
-var resolve = __webpack_require__(8).resolve
+var resolve = __webpack_require__(10).resolve
 var send = __webpack_require__(89)
-var url = __webpack_require__(61)
+var url = __webpack_require__(62)
 
 /**
  * Module exports.
@@ -78281,12 +78288,12 @@ var util = __webpack_require__(3)
 var utils = __webpack_require__(91)
 var sasl = __webpack_require__(408)
 var pgPass = __webpack_require__(409)
-var TypeOverrides = __webpack_require__(140)
+var TypeOverrides = __webpack_require__(139)
 
-var ConnectionParameters = __webpack_require__(141)
+var ConnectionParameters = __webpack_require__(140)
 var Query = __webpack_require__(413)
-var defaults = __webpack_require__(65)
-var Connection = __webpack_require__(143)
+var defaults = __webpack_require__(66)
+var Connection = __webpack_require__(142)
 
 class Client extends EventEmitter {
   constructor(config) {
@@ -78901,8 +78908,8 @@ module.exports = Client
 /* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var array = __webpack_require__(138)
-var arrayParser = __webpack_require__(139);
+var array = __webpack_require__(137)
+var arrayParser = __webpack_require__(138);
 var parseDate = __webpack_require__(401);
 var parseInterval = __webpack_require__(402);
 var parseByteA = __webpack_require__(404);
@@ -79889,7 +79896,7 @@ module.exports = {
 
 "use strict";
 
-const crypto = __webpack_require__(16)
+const crypto = __webpack_require__(15)
 
 function startSession(mechanisms) {
   if (mechanisms.indexOf('SCRAM-SHA-256') === -1) {
@@ -80106,8 +80113,8 @@ module.exports = {
 "use strict";
 
 
-var path = __webpack_require__(8)
-  , fs = __webpack_require__(15)
+var path = __webpack_require__(10)
+  , fs = __webpack_require__(18)
   , helper = __webpack_require__(410)
 ;
 
@@ -80136,7 +80143,7 @@ module.exports.warnTo = helper.warnTo;
 "use strict";
 
 
-var path = __webpack_require__(8)
+var path = __webpack_require__(10)
   , Stream = __webpack_require__(28).Stream
   , split = __webpack_require__(411)
   , util = __webpack_require__(3)
@@ -80393,7 +80400,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 const { Transform } = __webpack_require__(28)
-const { StringDecoder } = __webpack_require__(116)
+const { StringDecoder } = __webpack_require__(115)
 const kLast = Symbol('last')
 const kDecoder = Symbol('decoder')
 
@@ -80771,7 +80778,7 @@ module.exports = Query
 "use strict";
 
 
-var types = __webpack_require__(66)
+var types = __webpack_require__(67)
 
 var matchRegexp = /^([A-Za-z]+)(?: (\d+))?(?: (\d+))?/
 
@@ -81164,9 +81171,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Parser = void 0;
-const messages_1 = __webpack_require__(145);
+const messages_1 = __webpack_require__(144);
 const buffer_reader_1 = __webpack_require__(418);
-const assert_1 = __importDefault(__webpack_require__(92));
+const assert_1 = __importDefault(__webpack_require__(145));
 // every message is prefixed with a single bye
 const CODE_LENGTH = 1;
 // every message has an int32 length which includes itself but does
@@ -81622,7 +81629,7 @@ class Pool extends EventEmitter {
     this.options.allowExitOnIdle = this.options.allowExitOnIdle || false
     this.options.maxLifetimeSeconds = this.options.maxLifetimeSeconds || 0
     this.log = this.options.log || function () {}
-    this.Client = this.options.Client || Client || __webpack_require__(137).Client
+    this.Client = this.options.Client || Client || __webpack_require__(136).Client
     this.Promise = this.options.Promise || global.Promise
 
     if (typeof this.options.idleTimeoutMillis === 'undefined') {
@@ -81998,11 +82005,11 @@ module.exports = Pool
 
 // eslint-disable-next-line
 var Native = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"pg-native\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-var TypeOverrides = __webpack_require__(140)
+var TypeOverrides = __webpack_require__(139)
 var pkg = __webpack_require__(422)
 var EventEmitter = __webpack_require__(23).EventEmitter
 var util = __webpack_require__(3)
-var ConnectionParameters = __webpack_require__(141)
+var ConnectionParameters = __webpack_require__(140)
 
 var NativeQuery = __webpack_require__(423)
 
@@ -82496,9 +82503,9 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-const url = __webpack_require__(61);
-const path = __webpack_require__(8);
-const pgConnectionString = __webpack_require__(142);
+const url = __webpack_require__(62);
+const path = __webpack_require__(10);
+const pgConnectionString = __webpack_require__(141);
 const retry = __webpack_require__(425);
 const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
@@ -82506,20 +82513,20 @@ const Model = __webpack_require__(312);
 const DataTypes = __webpack_require__(4);
 const Deferrable = __webpack_require__(315);
 const ModelManager = __webpack_require__(566);
-const Transaction = __webpack_require__(100);
+const Transaction = __webpack_require__(99);
 const QueryTypes = __webpack_require__(13);
 const TableHints = __webpack_require__(316);
 const IndexHints = __webpack_require__(317);
 const sequelizeErrors = __webpack_require__(5);
 const Hooks = __webpack_require__(314);
 const Association = __webpack_require__(569);
-const Validator = __webpack_require__(95).validator;
-const Op = __webpack_require__(9);
-const deprecations = __webpack_require__(52);
+const Validator = __webpack_require__(94).validator;
+const Op = __webpack_require__(8);
+const deprecations = __webpack_require__(53);
 const { QueryInterface } = __webpack_require__(33);
 const { BelongsTo } = __webpack_require__(31);
 const HasOne = __webpack_require__(74);
-const { BelongsToMany } = __webpack_require__(51);
+const { BelongsToMany } = __webpack_require__(52);
 const { HasMany } = __webpack_require__(39);
 const { withSqliteForeignKeysOff } = __webpack_require__(570);
 const { injectReplacements } = __webpack_require__(571);
@@ -84148,7 +84155,7 @@ var __publicField = (obj, key, value) => {
 __export(exports, {
   default: () => exclusion_constraint_error_default
 });
-var import_database_error = __toModule(__webpack_require__(48));
+var import_database_error = __toModule(__webpack_require__(49));
 class ExclusionConstraintError extends import_database_error.default {
   constructor(options) {
     options = options || {};
@@ -84204,7 +84211,7 @@ __export(exports, {
   RelationshipType: () => RelationshipType,
   default: () => foreign_key_constraint_error_default
 });
-var import_database_error = __toModule(__webpack_require__(48));
+var import_database_error = __toModule(__webpack_require__(49));
 var RelationshipType = /* @__PURE__ */ ((RelationshipType2) => {
   RelationshipType2["parent"] = "parent";
   RelationshipType2["child"] = "child";
@@ -84263,7 +84270,7 @@ var __toModule = (module2) => {
 __export(exports, {
   default: () => timeout_error_default
 });
-var import_database_error = __toModule(__webpack_require__(48));
+var import_database_error = __toModule(__webpack_require__(49));
 class TimeoutError extends import_database_error.default {
   constructor(parent, options = {}) {
     super(parent, options);
@@ -84309,7 +84316,7 @@ var __publicField = (obj, key, value) => {
 __export(exports, {
   default: () => unknown_constraint_error_default
 });
-var import_database_error = __toModule(__webpack_require__(48));
+var import_database_error = __toModule(__webpack_require__(49));
 class UnknownConstraintError extends import_database_error.default {
   constructor(options) {
     options = options || {};
@@ -84402,7 +84409,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _toDate = _interopRequireDefault(__webpack_require__(96));
+var _toDate = _interopRequireDefault(__webpack_require__(95));
 
 var _toFloat = _interopRequireDefault(__webpack_require__(154));
 
@@ -84426,7 +84433,7 @@ var _isIP = _interopRequireDefault(__webpack_require__(69));
 
 var _isIPRange = _interopRequireDefault(__webpack_require__(458));
 
-var _isFQDN = _interopRequireDefault(__webpack_require__(97));
+var _isFQDN = _interopRequireDefault(__webpack_require__(96));
 
 var _isDate = _interopRequireDefault(__webpack_require__(158));
 
@@ -84464,7 +84471,7 @@ var _isSemVer = _interopRequireDefault(__webpack_require__(472));
 
 var _isSurrogatePair = _interopRequireDefault(__webpack_require__(474));
 
-var _isInt = _interopRequireDefault(__webpack_require__(98));
+var _isInt = _interopRequireDefault(__webpack_require__(97));
 
 var _isFloat = _interopRequireWildcard(__webpack_require__(155));
 
@@ -84866,7 +84873,7 @@ var _merge = _interopRequireDefault(__webpack_require__(12));
 
 var _isByteLength = _interopRequireDefault(__webpack_require__(157));
 
-var _isFQDN = _interopRequireDefault(__webpack_require__(97));
+var _isFQDN = _interopRequireDefault(__webpack_require__(96));
 
 var _isIP = _interopRequireDefault(__webpack_require__(69));
 
@@ -85065,7 +85072,7 @@ exports.default = isURL;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _isFQDN = _interopRequireDefault(__webpack_require__(97));
+var _isFQDN = _interopRequireDefault(__webpack_require__(96));
 
 var _isIP = _interopRequireDefault(__webpack_require__(69));
 
@@ -85451,7 +85458,7 @@ exports.locales = void 0;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _alpha = __webpack_require__(49);
+var _alpha = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85497,7 +85504,7 @@ exports.locales = void 0;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _alpha = __webpack_require__(49);
+var _alpha = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85542,7 +85549,7 @@ exports.default = isNumeric;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _alpha = __webpack_require__(49);
+var _alpha = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85717,7 +85724,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = isPort;
 
-var _isInt = _interopRequireDefault(__webpack_require__(98));
+var _isInt = _interopRequireDefault(__webpack_require__(97));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -86036,7 +86043,7 @@ var _assertString = _interopRequireDefault(__webpack_require__(1));
 
 var _includes = _interopRequireDefault(__webpack_require__(476));
 
-var _alpha = __webpack_require__(49);
+var _alpha = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -86751,7 +86758,7 @@ exports.default = isAfter;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _toDate = _interopRequireDefault(__webpack_require__(96));
+var _toDate = _interopRequireDefault(__webpack_require__(95));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -86780,7 +86787,7 @@ exports.default = isBefore;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _toDate = _interopRequireDefault(__webpack_require__(96));
+var _toDate = _interopRequireDefault(__webpack_require__(95));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -86915,7 +86922,7 @@ exports.default = isIdentityCard;
 
 var _assertString = _interopRequireDefault(__webpack_require__(1));
 
-var _isInt = _interopRequireDefault(__webpack_require__(98));
+var _isInt = _interopRequireDefault(__webpack_require__(97));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92131,7 +92138,7 @@ function plural(ms, msAbs, n, name) {
  * Module dependencies.
  */
 
-const tty = __webpack_require__(112);
+const tty = __webpack_require__(111);
 const util = __webpack_require__(3);
 
 /**
@@ -92740,12 +92747,12 @@ module.exports = (BaseTypes) => {
     constructor() {
       super();
       if (!hstore) {
-        hstore = __webpack_require__(99);
+        hstore = __webpack_require__(98);
       }
     }
     _value(value) {
       if (!hstore) {
-        hstore = __webpack_require__(99);
+        hstore = __webpack_require__(98);
       }
       return hstore.stringify(value);
     }
@@ -92757,7 +92764,7 @@ module.exports = (BaseTypes) => {
     }
     static parse(value) {
       if (!hstore) {
-        hstore = __webpack_require__(99);
+        hstore = __webpack_require__(98);
       }
       return hstore.parse(value);
     }
@@ -94384,7 +94391,7 @@ const v3 = Object(__WEBPACK_IMPORTED_MODULE_0__v35_js__["a" /* default */])('v3'
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_crypto__);
 
 
@@ -94449,7 +94456,7 @@ const v5 = Object(__WEBPACK_IMPORTED_MODULE_0__v35_js__["a" /* default */])('v5'
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_crypto___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_crypto__);
 
 
@@ -95618,7 +95625,7 @@ const Utils = __webpack_require__(6);
 const sequelizeError = __webpack_require__(5);
 const DataTypes = __webpack_require__(4);
 const BelongsTo = __webpack_require__(31);
-const validator = __webpack_require__(95).validator;
+const validator = __webpack_require__(94).validator;
 const { promisify } = __webpack_require__(3);
 class InstanceValidator {
   constructor(modelInstance, options) {
@@ -95820,7 +95827,7 @@ module.exports.default = InstanceValidator;
 const _ = __webpack_require__(2);
 const HasOne = __webpack_require__(74);
 const HasMany = __webpack_require__(39);
-const BelongsToMany = __webpack_require__(51);
+const BelongsToMany = __webpack_require__(52);
 const BelongsTo = __webpack_require__(31);
 function isModel(model, sequelize) {
   return model && model.prototype && model.prototype instanceof sequelize.Sequelize.Model;
@@ -96301,7 +96308,7 @@ const Association = __webpack_require__(32);
 Association.BelongsTo = __webpack_require__(31);
 Association.HasOne = __webpack_require__(74);
 Association.HasMany = __webpack_require__(39);
-Association.BelongsToMany = __webpack_require__(51);
+Association.BelongsToMany = __webpack_require__(52);
 module.exports = Association;
 module.exports.default = Association;
 module.exports.Association = Association;
@@ -96732,7 +96739,7 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
-const semver = __webpack_require__(53);
+const semver = __webpack_require__(54);
 const AbstractConnectionManager = __webpack_require__(35);
 const SequelizeErrors = __webpack_require__(5);
 const { logger } = __webpack_require__(7);
@@ -96863,7 +96870,7 @@ module.exports = clean
 /* 580 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 
 const inc = (version, release, options, identifier) => {
   if (typeof (options) === 'string') {
@@ -96888,7 +96895,7 @@ module.exports = inc
 /***/ (function(module, exports, __webpack_require__) {
 
 const parse = __webpack_require__(41)
-const eq = __webpack_require__(102)
+const eq = __webpack_require__(101)
 
 const diff = (version1, version2) => {
   if (eq(version1, version2)) {
@@ -96916,7 +96923,7 @@ module.exports = diff
 /* 582 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const major = (a, loose) => new SemVer(a, loose).major
 module.exports = major
 
@@ -96925,7 +96932,7 @@ module.exports = major
 /* 583 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const minor = (a, loose) => new SemVer(a, loose).minor
 module.exports = minor
 
@@ -96934,7 +96941,7 @@ module.exports = minor
 /* 584 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const patch = (a, loose) => new SemVer(a, loose).patch
 module.exports = patch
 
@@ -96955,7 +96962,7 @@ module.exports = prerelease
 /* 586 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 const rcompare = (a, b, loose) => compare(b, a, loose)
 module.exports = rcompare
 
@@ -96964,7 +96971,7 @@ module.exports = rcompare
 /* 587 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 const compareLoose = (a, b) => compare(a, b, true)
 module.exports = compareLoose
 
@@ -96973,7 +96980,7 @@ module.exports = compareLoose
 /* 588 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compareBuild = __webpack_require__(103)
+const compareBuild = __webpack_require__(102)
 const sort = (list, loose) => list.sort((a, b) => compareBuild(a, b, loose))
 module.exports = sort
 
@@ -96982,7 +96989,7 @@ module.exports = sort
 /* 589 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const compareBuild = __webpack_require__(103)
+const compareBuild = __webpack_require__(102)
 const rsort = (list, loose) => list.sort((a, b) => compareBuild(b, a, loose))
 module.exports = rsort
 
@@ -96991,7 +96998,7 @@ module.exports = rsort
 /* 590 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
+const SemVer = __webpack_require__(9)
 const parse = __webpack_require__(41)
 const { re, t } = __webpack_require__(40)
 
@@ -97838,7 +97845,7 @@ module.exports = function (Yallist) {
 /* 594 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Range = __webpack_require__(18)
+const Range = __webpack_require__(17)
 
 // Mostly just for testing and legacy API reasons
 const toComparators = (range, options) =>
@@ -97852,8 +97859,8 @@ module.exports = toComparators
 /* 595 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
-const Range = __webpack_require__(18)
+const SemVer = __webpack_require__(9)
+const Range = __webpack_require__(17)
 
 const maxSatisfying = (versions, range, options) => {
   let max = null
@@ -97883,8 +97890,8 @@ module.exports = maxSatisfying
 /* 596 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
-const Range = __webpack_require__(18)
+const SemVer = __webpack_require__(9)
+const Range = __webpack_require__(17)
 const minSatisfying = (versions, range, options) => {
   let min = null
   let minSV = null
@@ -97913,8 +97920,8 @@ module.exports = minSatisfying
 /* 597 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const SemVer = __webpack_require__(10)
-const Range = __webpack_require__(18)
+const SemVer = __webpack_require__(9)
+const Range = __webpack_require__(17)
 const gt = __webpack_require__(78)
 
 const minVersion = (range, loose) => {
@@ -97980,7 +97987,7 @@ module.exports = minVersion
 /* 598 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Range = __webpack_require__(18)
+const Range = __webpack_require__(17)
 const validRange = (range, options) => {
   try {
     // Return '*' instead of '' so that truthiness works.
@@ -97998,7 +98005,7 @@ module.exports = validRange
 /***/ (function(module, exports, __webpack_require__) {
 
 // Determine if version is greater than all the versions possible in the range.
-const outside = __webpack_require__(107)
+const outside = __webpack_require__(106)
 const gtr = (version, range, options) => outside(version, range, '>', options)
 module.exports = gtr
 
@@ -98007,7 +98014,7 @@ module.exports = gtr
 /* 600 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const outside = __webpack_require__(107)
+const outside = __webpack_require__(106)
 // Determine if version is less than all the versions possible in the range
 const ltr = (version, range, options) => outside(version, range, '<', options)
 module.exports = ltr
@@ -98017,7 +98024,7 @@ module.exports = ltr
 /* 601 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Range = __webpack_require__(18)
+const Range = __webpack_require__(17)
 const intersects = (r1, r2, options) => {
   r1 = new Range(r1, options)
   r2 = new Range(r2, options)
@@ -98034,7 +98041,7 @@ module.exports = intersects
 // that includes the same versions that the original range does
 // If the original range is shorter than the simplified one, return that.
 const satisfies = __webpack_require__(80)
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 module.exports = (versions, range, options) => {
   const set = []
   let first = null
@@ -98083,11 +98090,11 @@ module.exports = (versions, range, options) => {
 /* 603 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Range = __webpack_require__(18)
+const Range = __webpack_require__(17)
 const Comparator = __webpack_require__(79)
 const { ANY } = Comparator
 const satisfies = __webpack_require__(80)
-const compare = __webpack_require__(17)
+const compare = __webpack_require__(16)
 
 // Complex range `r1 || r2 || ...` is a subset of `R1 || R2 || ...` iff:
 // - Every simple range `r1, r2, ...` is a null set, OR
@@ -98969,7 +98976,7 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
-const MySQLQueryGenerator = __webpack_require__(108);
+const MySQLQueryGenerator = __webpack_require__(107);
 const Utils = __webpack_require__(6);
 class MariaDBQueryGenerator extends MySQLQueryGenerator {
   createSchema(schema, options) {
@@ -99046,7 +99053,7 @@ var __spreadValues = (a, b) => {
   return a;
 };
 const _ = __webpack_require__(2);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 const Utils = __webpack_require__(6);
 const OperatorHelpers = {
   OperatorMap: {
@@ -99130,7 +99137,7 @@ module.exports = OperatorHelpers;
 
 "use strict";
 
-const uuidv4 = __webpack_require__(50).v4;
+const uuidv4 = __webpack_require__(51).v4;
 const TransactionQueries = {
   setIsolationLevelQuery(value, options) {
     if (options.parent) {
@@ -99741,9 +99748,9 @@ const Utils = __webpack_require__(6);
 const DataTypes = __webpack_require__(4);
 const TableHints = __webpack_require__(316);
 const AbstractQueryGenerator = __webpack_require__(42);
-const randomBytes = __webpack_require__(16).randomBytes;
-const semver = __webpack_require__(53);
-const Op = __webpack_require__(9);
+const randomBytes = __webpack_require__(15).randomBytes;
+const semver = __webpack_require__(54);
+const Op = __webpack_require__(8);
 const throwMethodUndefined = function(methodName) {
   throw new Error(`The method "${methodName}" is not defined! Please add it to your sql dialect.`);
 };
@@ -100556,7 +100563,7 @@ var __spreadValues = (a, b) => {
 const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
 const QueryTypes = __webpack_require__(13);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 const { QueryInterface } = __webpack_require__(33);
 class MSSqlQueryInterface extends QueryInterface {
   async removeColumn(tableName, attributeName, options) {
@@ -100622,7 +100629,7 @@ const _ = __webpack_require__(2);
 const AbstractDialect = __webpack_require__(34);
 const ConnectionManager = __webpack_require__(617);
 const Query = __webpack_require__(618);
-const QueryGenerator = __webpack_require__(108);
+const QueryGenerator = __webpack_require__(107);
 const DataTypes = __webpack_require__(4).mysql;
 const { MySQLQueryInterface } = __webpack_require__(323);
 class MysqlDialect extends AbstractDialect {
@@ -101140,7 +101147,7 @@ const AbstractConnectionManager = __webpack_require__(35);
 const { logger } = __webpack_require__(7);
 const debug = logger.debugContext("connection:pg");
 const sequelizeErrors = __webpack_require__(5);
-const semver = __webpack_require__(53);
+const semver = __webpack_require__(54);
 const dataTypes = __webpack_require__(4);
 const momentTz = __webpack_require__(27);
 const { promisify } = __webpack_require__(3);
@@ -101733,7 +101740,7 @@ const Utils = __webpack_require__(6);
 const util = __webpack_require__(3);
 const DataTypes = __webpack_require__(4);
 const AbstractQueryGenerator = __webpack_require__(42);
-const semver = __webpack_require__(53);
+const semver = __webpack_require__(54);
 const _ = __webpack_require__(2);
 const POSTGRES_RESERVED_WORDS = "all,analyse,analyze,and,any,array,as,asc,asymmetric,authorization,binary,both,case,cast,check,collate,collation,column,concurrently,constraint,create,cross,current_catalog,current_date,current_role,current_schema,current_time,current_timestamp,current_user,default,deferrable,desc,distinct,do,else,end,except,false,fetch,for,foreign,freeze,from,full,grant,group,having,ilike,in,initially,inner,intersect,into,is,isnull,join,lateral,leading,left,like,limit,localtime,localtimestamp,natural,not,notnull,null,offset,on,only,or,order,outer,overlaps,placing,primary,references,returning,right,select,session_user,similar,some,symmetric,table,tablesample,then,to,trailing,true,union,unique,user,using,variadic,verbose,when,where,window,with".split(",");
 class PostgresQueryGenerator extends AbstractQueryGenerator {
@@ -102632,8 +102639,8 @@ module.exports.default = SqliteDialect;
 
 "use strict";
 
-const fs = __webpack_require__(15);
-const path = __webpack_require__(8);
+const fs = __webpack_require__(18);
+const path = __webpack_require__(10);
 const AbstractConnectionManager = __webpack_require__(35);
 const { logger } = __webpack_require__(7);
 const debug = logger.debugContext("connection:sqlite");
@@ -103093,9 +103100,9 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 const Utils = __webpack_require__(6);
-const Transaction = __webpack_require__(100);
+const Transaction = __webpack_require__(99);
 const _ = __webpack_require__(2);
-const MySqlQueryGenerator = __webpack_require__(108);
+const MySqlQueryGenerator = __webpack_require__(107);
 const AbstractQueryGenerator = __webpack_require__(42);
 class SQLiteQueryGenerator extends MySqlQueryGenerator {
   createSchema() {
@@ -104243,8 +104250,8 @@ const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
 const DataTypes = __webpack_require__(4);
 const AbstractQueryGenerator = __webpack_require__(42);
-const randomBytes = __webpack_require__(16).randomBytes;
-const Op = __webpack_require__(9);
+const randomBytes = __webpack_require__(15).randomBytes;
+const Op = __webpack_require__(8);
 const throwMethodUndefined = function(methodName) {
   throw new Error(`The method "${methodName}" is not defined! Please add it to your sql dialect.`);
 };
@@ -104958,7 +104965,7 @@ var __spreadValues = (a, b) => {
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 const { QueryInterface } = __webpack_require__(33);
 const QueryTypes = __webpack_require__(13);
 class Db2QueryInterface extends QueryInterface {
@@ -105542,7 +105549,7 @@ const _ = __webpack_require__(2);
 const Utils = __webpack_require__(6);
 const AbstractQueryGenerator = __webpack_require__(42);
 const util = __webpack_require__(3);
-const Op = __webpack_require__(9);
+const Op = __webpack_require__(8);
 const JSON_FUNCTION_REGEX = /^\s*((?:[a-z]+_){0,2}jsonb?(?:_[a-z]+){0,2})\([^)]*\)/i;
 const JSON_OPERATOR_REGEX = /^\s*(->>?|@>|<@|\?[|&]?|\|{2}|#-)/i;
 const TOKEN_CAPTURE_REGEX = /^\s*((?:([`"'])(?:(?!\2).|\2{2})*\2)|[\w\d\s]+|[().,;+-])/i;
@@ -106134,17 +106141,16 @@ exports.SnowflakeQueryInterface = SnowflakeQueryInterface;
 module.exports = {"name":"sequelize","description":"Sequelize is a promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server, Amazon Redshift and Snowflake’s Data Cloud. It features solid transaction support, relations, eager and lazy loading, read replication and more.","version":"6.21.3","funding":[{"type":"opencollective","url":"https://opencollective.com/sequelize"}],"repository":{"type":"git","url":"https://github.com/sequelize/sequelize.git"},"bugs":{"url":"https://github.com/sequelize/sequelize/issues"},"homepage":"https://sequelize.org/","main":"./lib/index.js","types":"./types","type":"commonjs","exports":{".":{"import":"./lib/index.mjs","require":"./lib/index.js","types":"./types/index.d.ts"},"./lib/*":{"default":"./lib/*.js","types":"./types/*.d.ts"},"./lib/errors":{"default":"./lib/errors/index.js","types":"./types/errors/index.d.ts"},"./package.json":"./package.json"},"engines":{"node":">=10.0.0"},"files":["lib","types","index.js"],"license":"MIT","dependencies":{"@types/debug":"^4.1.7","@types/validator":"^13.7.1","debug":"^4.3.3","dottie":"^2.0.2","inflection":"^1.13.2","lodash":"^4.17.21","moment":"^2.29.1","moment-timezone":"^0.5.34","pg-connection-string":"^2.5.0","retry-as-promised":"^5.0.0","semver":"^7.3.5","sequelize-pool":"^7.1.0","toposort-class":"^1.0.1","uuid":"^8.3.2","validator":"^13.7.0","wkx":"^0.5.0"},"devDependencies":{"@commitlint/cli":"^15.0.0","@commitlint/config-angular":"^15.0.0","@octokit/rest":"^18.12.0","@octokit/types":"^6.34.0","@types/chai":"^4.3.0","@types/lodash":"4.14.182","@types/mocha":"^9.0.0","@types/node":"^16.11.17","@types/sinon":"^10.0.6","@typescript-eslint/eslint-plugin":"^5.8.1","@typescript-eslint/parser":"^5.8.1","acorn":"^8.7.0","chai":"^4.3.4","chai-as-promised":"^7.1.1","chai-datetime":"^1.8.0","cheerio":"^1.0.0-rc.10","cls-hooked":"^4.2.2","copyfiles":"^2.4.1","cross-env":"^7.0.3","delay":"^5.0.0","esbuild":"0.14.3","esdoc":"^1.1.0","esdoc-ecmascript-proposal-plugin":"^1.0.0","esdoc-inject-style-plugin":"^1.0.0","esdoc-standard-plugin":"^1.0.0","eslint":"^8.5.0","eslint-plugin-jsdoc":"^37.4.0","eslint-plugin-mocha":"^9.0.0","expect-type":"^0.12.0","fast-glob":"^3.2.7","fs-jetpack":"^4.3.0","husky":"^7.0.4","ibm_db":"^2.8.1","js-combinatorics":"^0.6.1","lcov-result-merger":"^3.1.0","lint-staged":"^12.1.4","mariadb":"^2.5.5","markdownlint-cli":"^0.30.0","mocha":"^7.2.0","module-alias":"^2.2.2","mysql2":"^2.3.3","node-hook":"^1.0.0","nyc":"^15.1.0","p-map":"^4.0.0","p-props":"^4.0.0","p-settle":"^4.1.1","p-timeout":"^4.0.0","pg":"^8.7.1","pg-hstore":"^2.3.4","rimraf":"^3.0.2","semantic-release":"^18.0.1","semantic-release-fail-on-major-bump":"^1.0.0","sinon":"^12.0.1","sinon-chai":"^3.7.0","snowflake-sdk":"^1.6.6","source-map-support":"^0.5.21","sqlite3":"npm:@vscode/sqlite3@^5.0.7","tedious":"8.3.0","typescript":"^4.5.4"},"peerDependenciesMeta":{"pg":{"optional":true},"pg-hstore":{"optional":true},"mysql2":{"optional":true},"ibm_db":{"optional":true},"snowflake-sdk":{"optional":true},"mariadb":{"optional":true},"sqlite3":{"optional":true},"tedious":{"optional":true}},"keywords":["mysql","mariadb","sqlite","postgresql","postgres","pg","mssql","db2","ibm_db","sql","sqlserver","snowflake","orm","nodejs","object relational mapper","database","db"],"commitlint":{"extends":["@commitlint/config-angular"],"rules":{"type-enum":[2,"always",["build","ci","docs","feat","fix","perf","refactor","revert","style","test","meta"]]}},"lint-staged":{"*!(d).[tj]s":"eslint"},"release":{"plugins":["@semantic-release/commit-analyzer","semantic-release-fail-on-major-bump","@semantic-release/release-notes-generator","@semantic-release/npm","@semantic-release/github"],"branches":["v6",{"name":"v6-beta","prerelease":"beta"}]},"publishConfig":{"tag":"latest"},"scripts":{"----------------------------------------- static analysis -----------------------------------------":"","lint":"eslint src test --quiet --fix","lint-docs":"markdownlint docs","test-typings":"tsc --noEmit --emitDeclarationOnly false && tsc -b test/tsconfig.json","----------------------------------------- documentation -------------------------------------------":"","docs":"sh docs.sh","----------------------------------------- tests ---------------------------------------------------":"","mocha":"mocha -r ./test/registerEsbuild","test-unit":"yarn mocha \"test/unit/**/*.test.[tj]s\"","test-integration":"yarn mocha \"test/integration/**/*.test.[tj]s\"","teaser":"node test/teaser.js","test":"npm run prepare && npm run test-typings && npm run teaser && npm run test-unit && npm run test-integration","----------------------------------------- coverage ------------------------------------------------":"","cover":"rimraf coverage && npm run teaser && npm run cover-integration && npm run cover-unit && npm run merge-coverage","cover-integration":"cross-env COVERAGE=true nyc --reporter=lcovonly yarn mocha \"test/integration/**/*.test.[tj]s\" && node -e \"require('fs').renameSync('coverage/lcov.info', 'coverage/integration.info')\"","cover-unit":"cross-env COVERAGE=true nyc --reporter=lcovonly yarn mocha \"test/unit/**/*.test.[tj]s\" && node -e \"require('fs').renameSync('coverage/lcov.info', 'coverage/unit.info')\"","merge-coverage":"lcov-result-merger \"coverage/*.info\" \"coverage/lcov.info\"","----------------------------------------- local test dbs ------------------------------------------":"","start-mariadb":"bash dev/mariadb/10.3/start.sh","start-mysql":"bash dev/mysql/5.7/start.sh","start-mysql-8":"bash dev/mysql/8.0/start.sh","start-postgres":"bash dev/postgres/10/start.sh","start-mssql":"bash dev/mssql/2019/start.sh","start-db2":"bash dev/db2/11.5/start.sh","stop-mariadb":"bash dev/mariadb/10.3/stop.sh","stop-mysql":"bash dev/mysql/5.7/stop.sh","stop-mysql-8":"bash dev/mysql/8.0/stop.sh","stop-postgres":"bash dev/postgres/10/stop.sh","stop-mssql":"bash dev/mssql/2019/stop.sh","stop-db2":"bash dev/db2/11.5/stop.sh","restart-mariadb":"npm run start-mariadb","restart-mysql":"npm run start-mysql","restart-postgres":"npm run start-postgres","restart-mssql":"npm run start-mssql","restart-db2":"npm run start-db2","----------------------------------------- local tests ---------------------------------------------":"","test-unit-mariadb":"cross-env DIALECT=mariadb npm run test-unit","test-unit-mysql":"cross-env DIALECT=mysql npm run test-unit","test-unit-postgres":"cross-env DIALECT=postgres npm run test-unit","test-unit-postgres-native":"cross-env DIALECT=postgres-native npm run test-unit","test-unit-sqlite":"cross-env DIALECT=sqlite npm run test-unit","test-unit-mssql":"cross-env DIALECT=mssql npm run test-unit","test-unit-db2":"cross-env DIALECT=db2 npm run test-unit","test-unit-snowflake":"cross-env DIALECT=snowflake npm run test-unit","test-unit-all":"npm run test-unit-mariadb && npm run test-unit-mysql && npm run test-unit-postgres && npm run test-unit-postgres-native && npm run test-unit-mssql && npm run test-unit-sqlite && npm run test-unit-snowflake && npm run test-unit-db2","test-integration-mariadb":"cross-env DIALECT=mariadb npm run test-integration","test-integration-mysql":"cross-env DIALECT=mysql npm run test-integration","test-integration-postgres":"cross-env DIALECT=postgres npm run test-integration","test-integration-postgres-native":"cross-env DIALECT=postgres-native npm run test-integration","test-integration-sqlite":"cross-env DIALECT=sqlite npm run test-integration","test-integration-mssql":"cross-env DIALECT=mssql npm run test-integration","test-integration-db2":"cross-env DIALECT=db2 npm run test-integration","test-integration-snowflake":"cross-env DIALECT=snowflake npm run test-integration","test-mariadb":"cross-env DIALECT=mariadb npm test","test-mysql":"cross-env DIALECT=mysql npm test","test-sqlite":"cross-env DIALECT=sqlite npm test","test-postgres":"cross-env DIALECT=postgres npm test","test-postgres-native":"cross-env DIALECT=postgres-native npm test","test-mssql":"cross-env DIALECT=mssql npm test","test-db2":"cross-env DIALECT=db2 npm test","----------------------------------------- development ---------------------------------------------":"","sscce":"node sscce.js","sscce-mariadb":"cross-env DIALECT=mariadb node sscce.js","sscce-mysql":"cross-env DIALECT=mysql node sscce.js","sscce-postgres":"cross-env DIALECT=postgres node sscce.js","sscce-postgres-native":"cross-env DIALECT=postgres-native node sscce.js","sscce-sqlite":"cross-env DIALECT=sqlite node sscce.js","sscce-mssql":"cross-env DIALECT=mssql node sscce.js","sscce-db2":"cross-env DIALECT=db2 node sscce.js","prepare":"npm run build && husky install","build":"node ./build.js","---------------------------------------------------------------------------------------------------":""},"support":true}
 
 /***/ }),
-/* 640 */,
-/* 641 */
+/* 640 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var _express = __webpack_require__(43);
 
 
-var _bodyParser = __webpack_require__(110);var _bodyParser2 = _interopRequireDefault(_bodyParser);
+var _bodyParser = __webpack_require__(109);var _bodyParser2 = _interopRequireDefault(_bodyParser);
 var _cookieParser = __webpack_require__(324);var _cookieParser2 = _interopRequireDefault(_cookieParser);
-var _cors = __webpack_require__(135);var _cors2 = _interopRequireDefault(_cors);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};} /*Environment Data*/__webpack_require__(136).config();
+var _cors = __webpack_require__(134);var _cors2 = _interopRequireDefault(_cors);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};} /*Environment Data*/__webpack_require__(135).config();
 var api = (0, _express.Router)();
 
 // Cors Config
@@ -106167,11 +106173,11 @@ api.use(function (req, res, next) {
     next();
 });
 /*And Every apis path here*/
-var user = __webpack_require__(643);
+var user = __webpack_require__(642);
 api.use("/user", user);
-var Spine = __webpack_require__(645);
+var Spine = __webpack_require__(644);
 api.use("/spine", Spine);
-var _test = __webpack_require__(646);
+var _test = __webpack_require__(645);
 api.use("/test", _test);
 
 
@@ -106186,7 +106192,7 @@ api.get("/*", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regenerato
 module.exports = api;
 
 /***/ }),
-/* 642 */
+/* 641 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106395,20 +106401,20 @@ function tryDecode(str, decode) {
 
 
 /***/ }),
-/* 643 */
+/* 642 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var _express = __webpack_require__(43);
-var _user = __webpack_require__(644);var _user2 = _interopRequireDefault(_user);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}
+var _user = __webpack_require__(643);var _user2 = _interopRequireDefault(_user);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}
 var user = new _user2.default();
 var api = (0, _express.Router)();
 
-api.post("/adduser", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
-                        req.body.email) {_context.next = 8;break;}_context.t0 =
-                        res;_context.next = 4;return user.add(req.body.email);case 4:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);_context.next = 8;break;case 8:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+api.post("/add", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
+                        req.body) {_context.next = 8;break;}_context.t0 =
+                        res;_context.next = 4;return user.add(req.body.email, req.body.first, req.body.last, req.body.contact);case 4:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);_context.next = 9;break;case 8:
 
-
+                        res.status(404).json({ "Error": "User data not found" });case 9:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
 
 
 
@@ -106423,70 +106429,88 @@ api.post("/adduser", function () {var _ref = _asyncToGenerator( /*#__PURE__*/reg
 module.exports = api;
 
 /***/ }),
-/* 644 */
+/* 643 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _assert = __webpack_require__(92);
-var _crypto = __webpack_require__(16);var _crypto2 = _interopRequireDefault(_crypto);
-var _path = __webpack_require__(8);
-var _Centroid = __webpack_require__(325);var _Centroid2 = _interopRequireDefault(_Centroid);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}
-var hive = new _Centroid2.default();var
+Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _crypto = __webpack_require__(15);var _crypto2 = _interopRequireDefault(_crypto);
+var _Centroid = __webpack_require__(108);var _Centroid2 = _interopRequireDefault(_Centroid);
+var _User = __webpack_require__(646);var _User2 = _interopRequireDefault(_User);
+var _Centroid3 = __webpack_require__(648);var _Centroid4 = _interopRequireDefault(_Centroid3);
+var _security = __webpack_require__(649);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}
+var centroid = new _Centroid4.default();var
 User = function () {
     function User() {_classCallCheck(this, User);
 
-    }_createClass(User, [{ key: 'saveuser', value: function saveuser(
+    }_createClass(User, [{ key: 'add', value: function add(
 
-
-        user, key) {
-
-        } }, { key: 'add', value: function add(
-
-        param) {var _this = this;
+        username, firstName, lastName, contact) {var _this = this;
 
             return new Promise(function (resolve, rejects) {
+                var salt = _crypto2.default.randomBytes(7).toString("hex");
+                var _password = Math.random().toString(36).slice(-8);
+                _password = _password.replace(/o/g, 't');
+                _password = _password.replace(/O/g, 'x');
+                _password = _password.replace(/0/g, 'c');
+                _password = _password.replace(/l/g, 'r');
+                _password = _password.replace(/I/g, 't');
+                _password = _password.replace(/1/g, 'a');
+                var text_password = _password.replace(/1/g, 'a');
+                var password = _crypto2.default.createHash('sha256').
+                update(_password, "utf8").
+                update((0, _security.passwordHash)(salt)).
+                digest("base64");
 
-                var password = Math.random().toString(36).slice(-8);
-                password = password.replace(/o/g, 't');
-                password = password.replace(/O/g, 'x');
-                password = password.replace(/0/g, 'c');
-                password = password.replace(/l/g, 'r');
-                password = password.replace(/I/g, 't');
-                password = password.replace(/1/g, 'a');
-                console.log("password: " + password);
+                _crypto2.default.generateKeyPair('rsa', {
+                    modulusLength: 4096, // options
+                    publicExponent: 0x10101,
+                    publicKeyEncoding: {
+                        type: 'pkcs1',
+                        format: 'der' },
+                    privateKeyEncoding: {
+                        type: 'pkcs8',
+                        format: 'der',
+                        cipher: 'aes-192-cbc',
+                        passphrase: username } }, function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(
 
-                // crypto.generateKeyPair('rsa', {
-                //     modulusLength: 4096,    // options
-                //     publicExponent: 0x10101,
-                //     publicKeyEncoding: {
-                //         type: 'spki',
-                //         format: 'pem'
-                //     },
-                //     privateKeyEncoding: {
-                //         type: 'pkcs8',
-                //         format: 'pem',
-                //         cipher: 'aes-256-cbc',
-                //         passphrase: param
-                //     }
-                // }, async (err, publicKey, privateKey) => {
-                _crypto2.default.generateKeyPair('rsa', { modulusLength: 4096 }, function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(
-                    function _callee(err, publicKey, privateKey) {var user;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+
+                    function _callee(err, publicKey, privateKey) {var user, key, walletid, block_data, wallet, reg_date, email, status, fin_data;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                                         // Callback function
                                         user = [];if (
-                                        err) {_context.next = 11;break;}
+                                        err) {_context.next = 22;break;}
+
+                                        // Hexing Password
                                         publicKey = Buffer.from('publicKey');
-                                        // publicKey = publicKey.toString('hex');
-                                        _context.next = 5;return (
-                                            hive.pushSpine(publicKey, privateKey, '{"Login_ID":' + param + '}'));case 5:user = _context.sent;
+                                        publicKey = publicKey.toString('hex');
+                                        privateKey = Buffer.from('privateKey');
+                                        key = privateKey.toString('hex');
+                                        // Adding Salt
+                                        walletid = salt + '.' + publicKey;
+
+                                        // Genarating Block
+                                        _context.next = 9;return centroid.push(walletid, '{"Login_ID":' + username + '}', "0");case 9:block_data = _context.sent;
+                                        // Exreacting Data
+                                        wallet = block_data.walletid;
+                                        reg_date = block_data.timestamp;
+
+                                        email = username;
+                                        status = 1;
+                                        // Additional Data
+
+                                        // Adding To DB
+                                        _context.next = 16;return _User2.default.create({ username: username, reg_date: reg_date, wallet: wallet, key: key, firstName: firstName, lastName: lastName, email: email, contact: contact, password: password, status: status });case 16:
                                         // Prints new asymmetric key pair
-                                        console.log("Public Key is : ", publicKey);
-                                        console.log("Private Key is: ", privateKey);
-                                        resolve(user);_context.next = 13;break;case 11:
+                                        console.log("Public Key is : ", walletid);
+                                        console.log("Private Key is: ", key);
+
+
+                                        fin_data = '{\'username\' : \'' + username + '\',\'password\':\'' + text_password + '\',\'walletid\':\'' + publicKey + '\'}';
+                                        resolve(fin_data);_context.next = 24;break;case 22:
 
 
                                         // Prints error
                                         console.log("Errr is: ", err);
-                                        rejects("Errr is: ", err);case 13:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2, _x3) {return _ref.apply(this, arguments);};}());
+                                        rejects("Errr is: ", err);case 24:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2, _x3) {return _ref.apply(this, arguments);};}());
 
 
 
@@ -106499,7 +106523,7 @@ User = function () {
 User;
 
 /***/ }),
-/* 645 */
+/* 644 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106541,16 +106565,16 @@ api.get("/*", function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regenerat
 module.exports = api;
 
 /***/ }),
-/* 646 */
+/* 645 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var _express = __webpack_require__(43);
 
 var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);
-var _User = __webpack_require__(647);var _User2 = _interopRequireDefault(_User);
-var _Centroid = __webpack_require__(326);var _Centroid2 = _interopRequireDefault(_Centroid);
-var _Child_Node = __webpack_require__(648);var _Child_Node2 = _interopRequireDefault(_Child_Node);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
+var _User = __webpack_require__(646);var _User2 = _interopRequireDefault(_User);
+var _Centroid = __webpack_require__(108);var _Centroid2 = _interopRequireDefault(_Centroid);
+var _Child_Node = __webpack_require__(647);var _Child_Node2 = _interopRequireDefault(_Child_Node);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
 
 
 api.get("/user", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
@@ -106582,11 +106606,11 @@ api.get("/*", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regenerat
 module.exports = api;
 
 /***/ }),
-/* 647 */
+/* 646 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = __webpack_require__(67);
+Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = __webpack_require__(48);
 var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
@@ -106595,7 +106619,7 @@ var User = _database2.default.define('USER', {
         type: _sequelize.DataTypes.STRING },
 
     reg_date: {
-        type: _sequelize.DataTypes.DATE },
+        type: _sequelize.DataTypes.STRING },
 
     wallet: {
         type: _sequelize.DataTypes.STRING },
@@ -106618,9 +106642,6 @@ var User = _database2.default.define('USER', {
     password: {
         type: _sequelize.DataTypes.STRING },
 
-    recovery: {
-        type: _sequelize.DataTypes.STRING },
-
     status: {
         type: _sequelize.DataTypes.STRING } });exports.default =
 
@@ -106629,11 +106650,11 @@ var User = _database2.default.define('USER', {
 User;
 
 /***/ }),
-/* 648 */
+/* 647 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = __webpack_require__(67);
+Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = __webpack_require__(48);
 var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
@@ -106650,6 +106671,243 @@ var Child_node = _database2.default.define('CHILD_NODE', {
 
 
 Child_node;
+
+/***/ }),
+/* 648 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _crypto = __webpack_require__(15);var _crypto2 = _interopRequireDefault(_crypto);
+var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);
+var _Centroid = __webpack_require__(108);var _Centroid2 = _interopRequireDefault(_Centroid);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+
+
+Centroid = function () {
+
+    function Centroid() {_classCallCheck(this, Centroid);
+    }_createClass(Centroid, [{ key: 'calculateHash', value: function calculateHash(
+
+        uuid, data, timestamp) {var _this = this;
+            return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                                    data = JSON.stringify(data);
+                                    if (!uuid) rejects("Missing data");
+                                    if (!data) rejects("Missing data");
+                                    if (!timestamp) rejects("Missing data");_context.next = 6;return (
+                                        _crypto2.default.
+                                        createHash('sha256').
+                                        update(uuid + data + timestamp).
+                                        digest('hex'));case 6:hash = _context.sent;
+                                    if (hash === undefined) rejects(null);
+                                    resolve(hash);case 9:case 'end':return _context.stop();}}}, _callee, _this);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}()).
+            catch(function (err) {return err;});
+        } }, { key: 'create', value: function create()
+
+        {var _this2 = this;
+            return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var date, genesis_data, _genesis_data$, uuid, walletid, timestamp, ref, hash, body, amount, _body, data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                    date = (0, _moment2.default)(Date.now()).format();
+                                    date = date.toString();
+                                    genesis_data = {
+                                        0: {
+                                            "walletid": "genesis",
+                                            "timestamp": date,
+                                            "ref": "root",
+                                            "hash": "empty",
+                                            "body":
+                                            { "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" },
+
+                                            "amount": "0" } };
+
+
+
+                                    console.log("Genius Block Data Genarated");_genesis_data$ =
+                                    genesis_data['0'], uuid = _genesis_data$.uuid, walletid = _genesis_data$.walletid, timestamp = _genesis_data$.timestamp, ref = _genesis_data$.ref, hash = _genesis_data$.hash, body = _genesis_data$.body, amount = _genesis_data$.amount;
+                                    console.log("Init Database Entry");
+                                    _body = JSON.stringify(body);_context2.prev = 7;_context2.next = 10;return (
+
+                                        _Centroid2.default.create({ uuid: uuid, walletid: walletid, timestamp: timestamp, ref: ref, hash: hash, body: _body, amount: amount }));case 10:data = _context2.sent;
+                                    // console.log(data);
+                                    resolve(data);_context2.next = 17;break;case 14:_context2.prev = 14;_context2.t0 = _context2['catch'](7);
+
+                                    if (error.name === 'SequelizeUniqueConstraintError') {
+                                        rejects("Genesis Block Already ");
+                                    }case 17:case 'end':return _context2.stop();}}}, _callee2, _this2, [[7, 14]]);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
+
+
+            catch(function (err) {
+                rejects(err);
+            });
+        } }, { key: 'get', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {var data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.prev = 0;
+
+
+
+
+                                data = _Centroid2.default.findAll();return _context3.abrupt('return',
+                                data);case 5:_context3.prev = 5;_context3.t0 = _context3['catch'](0);return _context3.abrupt('return', _context3.t0);case 8:case 'end':return _context3.stop();}}}, _callee3, this, [[0, 5]]);}));function get() {return _ref3.apply(this, arguments);}return get;}()
+
+
+
+
+
+
+
+
+        /**************************************************
+                                                                                                                                                                                                                                                                                                       * Push Function
+                                                                                                                                                                                                                                                                                                       * 
+                                                                                                                                                                                                                                                                                                       * 
+                                                                                                                                                                                                                                                                                                       * 
+                                                                                                                                                                                                                                                                                                       * ************************************************/ }, { key: 'push', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(
+
+            walletid, body_data) {var amount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;var date, previous_block, previous_block_id, new_block_id, ref, hash, body, timestamp;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+                                console.log("walletid " + walletid);_context4.prev = 1;
+
+
+                                date = (0, _moment2.default)(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
+                                date = JSON.stringify(date);
+
+
+                                // Previous Block
+                                _context4.next = 6;return this.last_block();case 6:previous_block = _context4.sent;
+                                previous_block_id = previous_block['id'];
+                                new_block_id = previous_block['id'] + 1;
+                                previous_block = JSON.stringify(previous_block);
+
+                                // Hash Ref Block 
+                                _context4.next = 12;return this.calculateHash(walletid, previous_block, date);case 12:ref = _context4.sent;_context4.next = 15;return (
+
+
+
+                                    this.calculateHash(walletid, body_data, date));case 15:hash = _context4.sent;
+
+
+                                //Stringify Data
+                                body = JSON.stringify(body_data);
+                                // const walletid = JSON.stringify(walletid)
+                                timestamp = date;
+
+                                // Input To Database
+                                _context4.next = 20;return _Centroid2.default.create({ new_block_id: new_block_id, walletid: walletid, timestamp: timestamp, ref: ref, hash: hash, body: body, amount: amount });case 20:_context4.next = 22;return (
+                                    _Centroid2.default.findOne({
+                                        attributes: ['walletid', 'timestamp'],
+                                        order: [['id', 'DESC']] }));case 22:return _context4.abrupt('return', _context4.sent);case 25:_context4.prev = 25;_context4.t0 = _context4['catch'](1);
+
+
+
+                                console.error(_context4.t0);return _context4.abrupt('return', _context4.t0);case 29:case 'end':return _context4.stop();}}}, _callee4, this, [[1, 25]]);}));function push(_x6, _x7) {return _ref4.apply(this, arguments);}return push;}()
+
+
+
+
+
+
+        // async _push(walletid, body_data, amount = 0) {
+        //     const pro = new Promise(async (resolve, rejects) => {
+        //         if (!walletid) rejects("Null value found.")
+        //         body_data = JSON.stringify(body_data)
+        //         /*
+        //          Load Centroid
+        //         */
+        //         let data = await this.search()
+        //         console.log(">>" + data);
+        //         if (!data) {
+        //             rejects("Unable to load Centroid")
+        //         }
+        //         /* Centroid Length */
+        //         let len = Object.keys(data)
+        //         len = len.length - 1
+        //         /* 
+        //              Working with previous block
+        //          */
+        //         let previous_block = data[len]
+
+        //         // Security
+        //         if (len != 0) {
+        //             let temp_hash = previous_block.ref
+        //             const _len_ref_block = len - 1
+        //             let previous_ref_block = data[_len_ref_block]
+        //             let _hash = await this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
+        //                 rejects(err)
+        //             })
+        //             if (_hash != temp_hash) {
+        //                 console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+        //                 rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash })
+        //             }
+
+        //             if (previous_block.uuid === walletid) {
+        //                 console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+        //                 rejects("User already present.")
+        //             }
+        //         }
+        //         /*
+        //           Creating New Block
+        //         */
+        //         let block_no = len + 1
+
+        //         date = date.toString() //making date string
+        //         const ref = await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+        //             rejects(err)
+        //         })
+        //         const hash = await this.calculateHash(walletid, body_data, date).catch((err) => {
+        //             rejects(err)
+        //         })
+        //         const _body = JSON.stringify(body_data)
+        //         await db.create(block_no, walletid, date, ref, hash, _body, amount, status)
+        //         resolve(_body)
+
+        //     }).catch((err) => { return err })
+        //     console.log(await pro);
+        //     return pro
+        // }
+    }, { key: 'last_block', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {var data;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
+
+                                    _Centroid2.default.findOne({ order: [['id', 'DESC']] }));case 2:data = _context5.sent;return _context5.abrupt('return',
+                                data);case 4:case 'end':return _context5.stop();}}}, _callee5, this);}));function last_block() {return _ref5.apply(this, arguments);}return last_block;}() }]);return Centroid;}();exports.default =
+
+
+
+
+Centroid;
+
+/***/ }),
+/* 649 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var _crypto = __webpack_require__(15);var _crypto2 = _interopRequireDefault(_crypto);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var algorithm = 'aes-256-ctr';
+var secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
+
+var encrypt = function encrypt(text) {var user = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : secretKey;
+
+    var iv = _crypto2.default.randomBytes(16);
+
+    var cipher = _crypto2.default.createCipheriv(algorithm, user, iv);
+
+    var encrypted = Buffer.concat([cipher.update(text), cipher.final()]);
+    return {
+        iv: iv.toString('hex'),
+        content: encrypted.toString('hex') };
+
+};
+
+var decrypt = function decrypt(hash) {var user = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : secretKey;
+
+    var decipher = _crypto2.default.createDecipheriv(algorithm, user, Buffer.from(hash.iv, 'hex'));
+
+    var decrpyted = Buffer.concat([decipher.update(Buffer.from(hash.content, 'hex')), decipher.final()]);
+
+    return decrpyted.toString();
+};
+
+
+function passwordHash(val) {
+    return _crypto2.default.createHash('sha256').update(val, "utf8").digest();
+}
+module.exports = {
+    encrypt: encrypt,
+    decrypt: decrypt,
+    passwordHash: passwordHash };
 
 /***/ })
 /******/ ]);

@@ -1,23 +1,11 @@
 import crypto from 'crypto'
-const fs = require('fs');
 import moment from 'moment';
 import db from '../../Database/models/Centroid';
+
 
 class Centroid {
 
     constructor() {
-    }
-
-    update(data) {
-        return new Promise(async (resolve, rejects) => {
-            try {
-                storage.saveData((data), 'data', 'spine', () => {
-                    resolve(data)
-                })
-            } catch (err) {
-                rejects("Failed to update Centroid " + err)
-            }
-        })
     }
 
     calculateHash(uuid, data, timestamp) {
@@ -32,7 +20,7 @@ class Centroid {
                 .digest('hex')
             if (hash === undefined) rejects(null)
             resolve(hash)
-        }).catch((err) => { rejects(err) })
+        }).catch((err) => { return err })
     }
 
     create() {
@@ -73,110 +61,128 @@ class Centroid {
 
 
     async get() {
-        return new Promise((resolve, reject) => {
-            db.findAll().then(_spine => {
-                resolve(_spine)
-            }).catch(e => {
-                console.error(e)
-                reject(e)
-            })
-        })
+        try {
+            const data = db.findAll()
+            return data
+
+        } catch (e) {
+            return e
+        }
+
+
+    }
+
+    /**************************************************
+     * Push Function
+     * 
+     * 
+     * 
+     * ************************************************/
+
+    async push(walletid, body_data, amount = 0) {
+        console.log("walletid " + walletid);
+
+        try {
+            let date = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a')
+            date = JSON.stringify(date)
+
+
+            // Previous Block
+            let previous_block = await this.last_block()
+            const previous_block_id = previous_block['id']
+            const new_block_id = previous_block['id'] + 1
+            previous_block = JSON.stringify(previous_block)
+
+            // Hash Ref Block 
+            let ref = await this.calculateHash(walletid, previous_block, date)
+
+
+            // Hash Block 
+            let hash = await this.calculateHash(walletid, body_data, date)
+
+
+            //Stringify Data
+            const body = JSON.stringify(body_data)
+            // const walletid = JSON.stringify(walletid)
+            const timestamp = date
+
+            // Input To Database
+            await db.create({ new_block_id, walletid, timestamp, ref, hash, body, amount })
+            return await db.findOne({
+                attributes: ['walletid', 'timestamp'],
+                order: [['id', 'DESC']]
+            });
+        }
+        catch (e) {
+            console.error(e);
+            return e
+        }
     }
 
 
-    async push(publickey, privateKey, body_data, amount = 0) {
-        const pro = new Promise(async (resolve, rejects) => {
-            if (!publickey) rejects("Null value found.")
-            if (!privateKey) rejects("Null value found.")
-            body_data = JSON.stringify(body_data)
-            let sign = crypto.sign("sha512", body_data, privateKey)
-            sign = sign.toString('base64')
-            sign = JSON.stringify(sign)
-            /*
-             Load Centroid
-            */
-            let data = "database record"
-            if (!data) {
-                rejects("Unable to load Centroid")
-            }
-            /* Centroid Length */
-            let len = Object.keys(data)
-            len = len.length - 1
-            /* 
-                 Working with previous block
-             */
-            let previous_block = data[len]
 
-            // Security
-            if (len != 0) {
-                let temp_hash = previous_block.ref
-                const _len_ref_block = len - 1
-                let previous_ref_block = data[_len_ref_block]
-                let _hash = await this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
-                    rejects(err)
-                })
-                if (_hash != temp_hash) {
-                    console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                    rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash })
-                }
+    // async _push(walletid, body_data, amount = 0) {
+    //     const pro = new Promise(async (resolve, rejects) => {
+    //         if (!walletid) rejects("Null value found.")
+    //         body_data = JSON.stringify(body_data)
+    //         /*
+    //          Load Centroid
+    //         */
+    //         let data = await this.search()
+    //         console.log(">>" + data);
+    //         if (!data) {
+    //             rejects("Unable to load Centroid")
+    //         }
+    //         /* Centroid Length */
+    //         let len = Object.keys(data)
+    //         len = len.length - 1
+    //         /* 
+    //              Working with previous block
+    //          */
+    //         let previous_block = data[len]
 
-                if (previous_block.uuid === publickey) {
-                    console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
-                    rejects("User already present.")
-                }
-            }
-            /*
-              Creating New Block
-            */
-            let block_no = len + 1
-            let date = moment(Date.now()).format()
-            date = date.toString() //making date string
+    //         // Security
+    //         if (len != 0) {
+    //             let temp_hash = previous_block.ref
+    //             const _len_ref_block = len - 1
+    //             let previous_ref_block = data[_len_ref_block]
+    //             let _hash = await this.calculateHash(previous_ref_block.uuid, previous_ref_block.body, previous_ref_block.timestamp).catch((err) => {
+    //                 rejects(err)
+    //             })
+    //             if (_hash != temp_hash) {
+    //                 console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+    //                 rejects({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash })
+    //             }
 
-            let new_block = {}
-            new_block[len + 1] = {
-                "uuid": block_no,
-                "walletid": publickey,
-                "timestamp": date,
-                "ref": await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
-                    rejects(err)
-                }),
-                "hash": await this.calculateHash(publickey, body_data, date).catch((err) => {
-                    rejects(err)
-                }),
-                "body": body_data,
-                "amount": amount,
-                "status": "1",
-                "signature": sign.toString('base64')
-            }
-            const _body = JSON.stringify(body_data)
-            Centroid.create({
-                id: block_no, walletid: publickey, timestamp: date, ref: await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
-                    rejects(err)
-                }), hash: await this.calculateHash(publickey, body_data, date).catch((err) => {
-                    rejects(err)
-                }), body: _body, amount: amount, sign: sign.toString('base64')
-            }, (data) => { resolve(data) })
+    //             if (previous_block.uuid === walletid) {
+    //                 console.log({ "Error": "Hash Mismatch", "hash": _hash, "ref": temp_hash });
+    //                 rejects("User already present.")
+    //             }
+    //         }
+    //         /*
+    //           Creating New Block
+    //         */
+    //         let block_no = len + 1
 
-            Object.assign(data, new_block) //Join with old block
-            console.log(data);
-            data = this.updateCentroid(data) //Update source file
+    //         date = date.toString() //making date string
+    //         const ref = await this.calculateHash(previous_block.uuid, previous_block.body, previous_block.timestamp).catch((err) => {
+    //             rejects(err)
+    //         })
+    //         const hash = await this.calculateHash(walletid, body_data, date).catch((err) => {
+    //             rejects(err)
+    //         })
+    //         const _body = JSON.stringify(body_data)
+    //         await db.create(block_no, walletid, date, ref, hash, _body, amount, status)
+    //         resolve(_body)
 
-            resolve(data)
+    //     }).catch((err) => { return err })
+    //     console.log(await pro);
+    //     return pro
+    // }
 
-
-        }).catch((err) => { return err })
-        console.log(await pro);
-        return pro
-    }
-
-    async search(param) {
-        const data = db.findOne({
-            order: [['uuid', 'DESC']],
-        });
+    async last_block() {
+        const data = await db.findOne({ order: [['id', 'DESC']] })
         return data
-        // const user = `"uuid": "${param}"`
-
-
     }
 
 }

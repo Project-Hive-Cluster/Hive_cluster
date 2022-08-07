@@ -3,11 +3,11 @@ import User from "../../module/user/user"
 const user = new User
 const api = Router()
 
-api.post("/adduser", async (req, res) => {
-    if (req.body.email) {
-        res.send(await user.add(req.body.email))
+api.post("/add", async (req, res) => {
+    if (req.body) {
+        res.send(await user.add(req.body.email, req.body.first, req.body.last, req.body.contact))
     } else {
-        // res.status(404).json({ "Error": "User data not found" })
+        res.status(404).json({ "Error": "User data not found" })
     }
 })
 

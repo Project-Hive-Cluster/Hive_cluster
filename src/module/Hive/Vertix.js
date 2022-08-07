@@ -10,35 +10,12 @@ const hash_size = 2
 
 class Vertix {
 
-
     constructor() {
         this.publicid = uuid
     }
-    async update(data) {
-
-        try {
-            data = JSON.stringify(data)
-            let encrypt_data = encrypt(data)
-            encrypt_data = JSON.stringify(encrypt_data)
-            fs.writeFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data\\cluster' + `${uuid}.aura`, encrypt_data, 'utf8')
-        } catch (err) {
-            return err
-        }
-        return "Success"
-
-    }
-
     calculateHash(parante, data, timestamp, dir_vartix_in, dir_vartix_out) {
         if (!parante || !data || !timestamp) return "Missing data"
         return crypto.createHash('sha256').update(parante + dir_vartix_in + dir_vartix_out + data + timestamp).digest('hex');
-    }
-
-    async get() {
-        const _node = await fs.readFileSync(path.resolve(__dirname) + 'ProgramData\\Hive Cluster\\data\\cluster' + `${uuid}.aura`, 'utf8')
-        let data = JSON.parse(_node)
-        data = await decrypt(data)
-        data = JSON.parse(data)
-        return data
     }
 
     async insart(publickey, body_data, dir_vartix_in, dir_vartix_out) {

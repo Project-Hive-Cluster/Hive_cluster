@@ -3,14 +3,12 @@ import Sequelize from '../utils/database'
 
 
 const Centroid = Sequelize.define('CENTROID', {
-
-    walletid: { type: DataTypes.STRING, allowNull: false, unique: true },
-    timestamp: { type: DataTypes.STRING, allowNull: false },
-    ref: { type: DataTypes.STRING, allowNull: false },
-    hash: { type: DataTypes.STRING, allowNull: false },
+    walletid: { type: DataTypes.STRING, allowNull: true, unique: true },
+    timestamp: { type: DataTypes.STRING, allowNull: true },
+    ref: { type: DataTypes.STRING, allowNull: true },
+    hash: { type: DataTypes.STRING, allowNull: true },
     body: DataTypes.STRING,
     amount: { type: DataTypes.FLOAT },
-
 })
 
 export default Centroid

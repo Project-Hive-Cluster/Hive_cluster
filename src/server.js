@@ -12,17 +12,20 @@ const corsOptions = {
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
+
 app.use(express.json())
 db.authenticate().then(async () => {
     // await db.sync({ force: true });
-    // await db.sync();
+    await db.sync();
     console.log('Connection has been established successfully.');
 }).catch((error) => {
     console.error('Unable to connect to the database: ', error);
 });
 
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+
 
 // Middelwears
 app.use(cors(corsOptions))

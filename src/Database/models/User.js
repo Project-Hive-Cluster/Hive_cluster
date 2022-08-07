@@ -7,7 +7,7 @@ const User = Sequelize.define('USER', {
         type: DataTypes.STRING
     },
     reg_date: {
-        type: DataTypes.DATE
+        type: DataTypes.STRING
     },
     wallet: {
         type: DataTypes.STRING
@@ -28,9 +28,6 @@ const User = Sequelize.define('USER', {
         type: DataTypes.STRING
     },
     password: {
-        type: DataTypes.STRING
-    },
-    recovery: {
         type: DataTypes.STRING
     },
     status: {

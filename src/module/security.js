@@ -25,7 +25,12 @@ const decrypt = (hash, user = secretKey) => {
     return decrpyted.toString();
 };
 
+
+function passwordHash(val) {
+    return crypto.createHash('sha256').update(val, "utf8").digest();
+}
 module.exports = {
     encrypt,
-    decrypt
+    decrypt,
+    passwordHash
 };
