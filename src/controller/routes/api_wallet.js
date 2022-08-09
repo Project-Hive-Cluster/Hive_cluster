@@ -3,7 +3,7 @@ import User from "../../module/user/user"
 const user = new User
 const api = Router()
 
-api.post("/add", async (req, res) => {
+api.post("/open", async (req, res) => {
     if (req.body) {
         res.send(await user.add(req.body.email, req.body.first, req.body.last, req.body.contact))
     } else {

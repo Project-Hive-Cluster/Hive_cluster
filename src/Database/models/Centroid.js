@@ -10,6 +10,7 @@ const Centroid = Sequelize.define('CENTROID', {
     hash: { type: DataTypes.STRING, allowNull: true },
     body: DataTypes.STRING,
     amount: { type: DataTypes.FLOAT },
+    signatue: { type: DataTypes.BOOLEAN }
 })
 
 export default Centroid

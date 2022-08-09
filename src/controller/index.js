@@ -26,12 +26,12 @@ api.use((req, res, next) => {
     next()
 })
 /*And Every apis path here*/
-const user = require("./routes/api_user")
-api.use("/user", user)
+const user = require("./routes/api_wallet")
+api.use("/wallet", user)
 const Spine = require("./routes/api_Centroid")
 api.use("/spine", Spine)
-const _test = require("./routes/api_test")
-api.use("/test", _test)
+const _vartix = require("./routes/api_vertex")
+api.use("/", _vartix)
 
 
 

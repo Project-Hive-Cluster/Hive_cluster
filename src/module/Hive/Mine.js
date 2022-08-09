@@ -14,8 +14,20 @@ const calculateHash = (uuid, data, timestamp) => {
         resolve(hash)
     }).catch((err) => { return err })
 }
+const hash_gen = (data) => {
+    return new Promise(async (resolve, rejects) => {
+        data = JSON.stringify(data)
+        if (!data) rejects("Missing data")
+        const hash = await crypto
+            .createHash('sha256')
+            .update(data)
+            .digest('hex')
+        if (hash === undefined) rejects(null)
+        resolve(JSON.stringify(hash))
+    }).catch((err) => { return err })
+}
 
 
 
 
-module.exports = { calculateHash }
+module.exports = { calculateHash, hash_gen }

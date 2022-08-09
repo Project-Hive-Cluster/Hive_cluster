@@ -35203,7 +35203,8 @@ var Centroid = _database2.default.define('CENTROID', {
     ref: { type: _sequelize.DataTypes.STRING, allowNull: true },
     hash: { type: _sequelize.DataTypes.STRING, allowNull: true },
     body: _sequelize.DataTypes.STRING,
-    amount: { type: _sequelize.DataTypes.FLOAT } });exports.default =
+    amount: { type: _sequelize.DataTypes.FLOAT },
+    signatue: { type: _sequelize.DataTypes.BOOLEAN } });exports.default =
 
 
 Centroid;
@@ -106022,12 +106023,12 @@ api.use(function (req, res, next) {
     next();
 });
 /*And Every apis path here*/
-var user = __webpack_require__(642);
-api.use("/user", user);
+var user = __webpack_require__(654);
+api.use("/wallet", user);
 var Spine = __webpack_require__(647);
 api.use("/spine", Spine);
-var _test = __webpack_require__(650);
-api.use("/test", _test);
+var _vartix = __webpack_require__(652);
+api.use("/", _vartix);
 
 
 
@@ -106250,34 +106251,7 @@ function tryDecode(str, decode) {
 
 
 /***/ }),
-/* 642 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var _express = __webpack_require__(43);
-var _user = __webpack_require__(643);var _user2 = _interopRequireDefault(_user);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}
-var user = new _user2.default();
-var api = (0, _express.Router)();
-
-api.post("/add", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
-                        req.body) {_context.next = 8;break;}_context.t0 =
-                        res;_context.next = 4;return user.add(req.body.email, req.body.first, req.body.last, req.body.contact);case 4:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);_context.next = 9;break;case 8:
-
-                        res.status(404).json({ "Error": "User data not found" });case 9:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
-
-
-
-
-/************** Middelware **************/
-// api.get("/*", async (req, res) => {
-//     res.status(404).json({ Error: "Invalid Address" })
-// })
-
-
-
-module.exports = api;
-
-/***/ }),
+/* 642 */,
 /* 643 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -106353,7 +106327,7 @@ User = function () {
                                         console.log("Private Key is: ", key);
 
 
-                                        fin_data = '{\'username\' : \'' + username + '\',\'password\':\'' + text_password + '\',\'walletid\':\'' + publicKey + '\'}';
+                                        fin_data = '{\'username\' : \'' + username + '\',\'password\':\'' + text_password + '\',\'walletid\':\'' + wallet + '\',\'authokey\':\'' + publicKey + '\'}';
                                         resolve(fin_data);_context.next = 24;break;case 22:
 
 
@@ -106386,9 +106360,6 @@ Centroid = function () {
 
     function Centroid() {_classCallCheck(this, Centroid);
     }_createClass(Centroid, [{ key: 'create', value: function create()
-
-
-
         {var _this = this;
             return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {var date, body;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                                     console.log("Genius Block Data Genarated");
@@ -106399,13 +106370,11 @@ Centroid = function () {
                                     body = { "Titel": "Genesis", "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" };
                                     body = JSON.stringify(body);_context.prev = 5;_context.next = 8;return (
 
-
-                                        _Centroid2.default.create({ titel: 'Genesis', walletid: '0000000000000000', walletkey: 'genesis', timestamp: date, ref: 'this_root', hash: 'root', body: body, amount: 0 }));case 8:_context.next = 10;return (
-                                        _this.push('0000000000000001', 'assects', { "Titel": "Assets", "Data": "Assets Block", 'Owner': "Genesis" }, 0));case 10:_context.next = 12;return (
-                                        _this.push('0000000000000002', 'liabilities', { "Titel": "Liabilities", "Data": "Assets Block", 'Owner': "Genesis" }, 0));case 12:_context.next = 14;return (
-                                        _this.push('0000000000000003', 'income', { "Titel": "Income", "Data": "Income Block", 'Owner': "Genesis" }, 0));case 14:_context.next = 16;return (
-                                        _this.push('0000000000000004', 'expense', { "Titel": "Expense", "Data": "Expense Block", 'Owner': "Genesis" }, 0));case 16:
-
+                                        _Centroid2.default.create({ walletid: '0000000000000000', walletkey: 'genesis', timestamp: date, ref: 'this_root', hash: 'root', body: body, amount: 0, signatue: false }));case 8:_context.next = 10;return (
+                                        _this.push('0000000000000001', 'assects', { "Titel": "Assets", "Data": "Assets Block", 'Owner': "Genesis" }, 0, false));case 10:_context.next = 12;return (
+                                        _this.push('0000000000000002', 'liabilities', { "Titel": "Liabilities", "Data": "Assets Block", 'Owner': "Genesis" }, 0, false));case 12:_context.next = 14;return (
+                                        _this.push('0000000000000003', 'income', { "Titel": "Income", "Data": "Income Block", 'Owner': "Genesis" }, 0, false));case 14:_context.next = 16;return (
+                                        _this.push('0000000000000004', 'expense', { "Titel": "Expense", "Data": "Expense Block", 'Owner': "Genesis" }, 0, false));case 16:
                                     resolve('Success');_context.next = 22;break;case 19:_context.prev = 19;_context.t0 = _context['catch'](5);
 
                                     console.error(_context.t0);
@@ -106417,13 +106386,29 @@ Centroid = function () {
             catch(function (err) {
                 rejects(err);
             });
-        } }, { key: 'get', value: function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.prev = 0;
+        } }, { key: 'zeroPad', value: function zeroPad(
+        num, places) {return String(num).padStart(places, '0');} }, { key: 'walletid', value: function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {var
+                product = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '0000';var int_code, bank_route, code, walletid;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                int_code = '0100';
+                                bank_route = '9000';_context2.next = 4;return (
+                                    _Centroid2.default.findOne({
+                                        attributes: ['walletid'],
+                                        order: [['id', 'DESC']] }));case 4:code = _context2.sent;
+
+                                code = code.walletid;
+                                code = code.substr(-4);
+                                code = Number(code);
+                                code = code + 1;
+                                code = this.zeroPad(code, 4);
+                                walletid = int_code + bank_route + product + code;return _context2.abrupt('return',
+                                walletid);case 12:case 'end':return _context2.stop();}}}, _callee2, this);}));function walletid() {return _ref2.apply(this, arguments);}return walletid;}() }, { key: 'get', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {var data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.prev = 0;
 
 
 
 
-                                data = _Centroid2.default.findAll();return _context2.abrupt('return',
-                                data);case 5:_context2.prev = 5;_context2.t0 = _context2['catch'](0);return _context2.abrupt('return', _context2.t0);case 8:case 'end':return _context2.stop();}}}, _callee2, this, [[0, 5]]);}));function get() {return _ref2.apply(this, arguments);}return get;}()
+
+                                data = _Centroid2.default.findAll();return _context3.abrupt('return',
+                                data);case 5:_context3.prev = 5;_context3.t0 = _context3['catch'](0);return _context3.abrupt('return', _context3.t0);case 8:case 'end':return _context3.stop();}}}, _callee3, this, [[0, 5]]);}));function get() {return _ref3.apply(this, arguments);}return get;}()
 
 
 
@@ -106437,28 +106422,26 @@ Centroid = function () {
                                                                                                                                                                                                                                                                                                        * 
                                                                                                                                                                                                                                                                                                        * 
                                                                                                                                                                                                                                                                                                        * 
-                                                                                                                                                                                                                                                                                                       * ************************************************/ }, { key: 'push', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(
+                                                                                                                                                                                                                                                                                                       * ************************************************/ }, { key: 'push', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(
 
-            walletid, walletkey, body_data) {var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var date, previous_block, previous_block_id, new_block_id, ref, hash, body, timestamp;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                                console.log("walletid " + walletid);_context3.prev = 1;
-
+            walletid, walletkey, body_data) {var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var date, previous_block, previous_block_id, new_block_id, ref, hash, body, timestamp;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+                                    this.walletid());case 2:walletid = _context4.sent;_context4.prev = 3;
 
                                 date = (0, _moment2.default)(Date.now()).format();
                                 date = JSON.stringify(date);
 
-
                                 // Previous Block
-                                _context3.next = 6;return this.last_block();case 6:previous_block = _context3.sent;
+                                _context4.next = 8;return this.last_block();case 8:previous_block = _context4.sent;
                                 previous_block_id = previous_block['id'];
                                 new_block_id = previous_block['id'] + 1;
                                 previous_block = JSON.stringify(previous_block);
 
                                 // Hash Ref Block 
-                                _context3.next = 12;return (0, _Mine.calculateHash)(walletid, previous_block, date);case 12:ref = _context3.sent;_context3.next = 15;return (
+                                _context4.next = 14;return (0, _Mine.calculateHash)(walletid, previous_block, date);case 14:ref = _context4.sent;_context4.next = 17;return (
 
 
 
-                                    (0, _Mine.calculateHash)(walletid, body_data, date));case 15:hash = _context3.sent;
+                                    (0, _Mine.calculateHash)(walletid, body_data, date));case 17:hash = _context4.sent;
 
 
                                 //Stringify Data
@@ -106467,14 +106450,14 @@ Centroid = function () {
                                 timestamp = date;
 
                                 // Input To Database
-                                _context3.next = 20;return _Centroid2.default.create({ walletid: walletid, walletkey: walletkey, timestamp: timestamp, ref: ref, hash: hash, body: body, amount: amount });case 20:_context3.next = 22;return (
+                                _context4.next = 22;return _Centroid2.default.create({ walletid: walletid, walletkey: walletkey, timestamp: timestamp, ref: ref, hash: hash, body: body, amount: amount });case 22:_context4.next = 24;return (
                                     _Centroid2.default.findOne({
                                         attributes: ['walletid', 'timestamp'],
-                                        order: [['id', 'DESC']] }));case 22:return _context3.abrupt('return', _context3.sent);case 25:_context3.prev = 25;_context3.t0 = _context3['catch'](1);
+                                        order: [['id', 'DESC']] }));case 24:return _context4.abrupt('return', _context4.sent);case 27:_context4.prev = 27;_context4.t0 = _context4['catch'](3);
 
 
 
-                                console.error(_context3.t0);return _context3.abrupt('return', _context3.t0);case 29:case 'end':return _context3.stop();}}}, _callee3, this, [[1, 25]]);}));function push(_x4, _x5, _x6) {return _ref3.apply(this, arguments);}return push;}()
+                                console.error(_context4.t0);return _context4.abrupt('return', _context4.t0);case 31:case 'end':return _context4.stop();}}}, _callee4, this, [[3, 27]]);}));function push(_x5, _x6, _x7) {return _ref4.apply(this, arguments);}return push;}()
 
 
 
@@ -106539,10 +106522,10 @@ Centroid = function () {
         //     console.log(await pro);
         //     return pro
         // }
-    }, { key: 'last_block', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {var data;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+    }, { key: 'last_block', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {var data;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
 
-                                    _Centroid2.default.findOne({ order: [['id', 'DESC']] }));case 2:data = _context4.sent;return _context4.abrupt('return',
-                                data);case 4:case 'end':return _context4.stop();}}}, _callee4, this);}));function last_block() {return _ref4.apply(this, arguments);}return last_block;}() }]);return Centroid;}();exports.default =
+                                    _Centroid2.default.findOne({ order: [['id', 'DESC']] }));case 2:data = _context5.sent;return _context5.abrupt('return',
+                                data);case 4:case 'end':return _context5.stop();}}}, _callee5, this);}));function last_block() {return _ref5.apply(this, arguments);}return last_block;}() }]);return Centroid;}();exports.default =
 
 
 
@@ -106570,11 +106553,23 @@ var calculateHash = function calculateHash(uuid, data, timestamp) {
                             resolve(hash);case 9:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}()).
     catch(function (err) {return err;});
 };
+var hash_gen = function hash_gen(data) {
+    return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                            data = JSON.stringify(data);
+                            if (!data) rejects("Missing data");_context2.next = 4;return (
+                                _crypto2.default.
+                                createHash('sha256').
+                                update(data).
+                                digest('hex'));case 4:hash = _context2.sent;
+                            if (hash === undefined) rejects(null);
+                            resolve(JSON.stringify(hash));case 7:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
+    catch(function (err) {return err;});
+};
 
 
 
 
-module.exports = { calculateHash: calculateHash };
+module.exports = { calculateHash: calculateHash, hash_gen: hash_gen };
 
 /***/ }),
 /* 646 */
@@ -106627,26 +106622,28 @@ var _express = __webpack_require__(43);
 var _Centroid = __webpack_require__(648);var _Centroid2 = _interopRequireDefault(_Centroid);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
 var hive = new _Centroid2.default();
 
-api.get("/", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.t0 =
-                        res;_context.next = 3;return hive.get_db_data();case 3:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);case 5:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+api.get("/get", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.t0 =
+                        res;_context.next = 3;return hive.get();case 3:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);case 5:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
 
 
-api.post('/push', function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                            hive.pushCentroid(req.body.waletid, req.body.content, req.body.amount));case 2:data = _context2.sent;
-                        res.send(data);case 4:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
-
-api.post("/search", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+api.post("/search", function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
 
 
                             hive.search().then(function (payload) {res.send(payload);}).
-                            catch(function (err) {res.status(404).json({ "error": err });}));case 2:case "end":return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
+                            catch(function (err) {res.status(404).json({ "error": err });}));case 2:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
 
 
-api.post("/init", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.t0 =
-                        setTimeout;_context4.next = 3;return hive.create().then(function (payload) {
+api.post("/init", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.t0 =
+                        setTimeout;_context3.next = 3;return hive.create().then(function (payload) {
                             res.send(payload);
                         }).
-                        catch(function (err) {res.status(404).json({ "error": err });});case 3:_context4.t1 = _context4.sent;(0, _context4.t0)(_context4.t1, 3000);case 5:case "end":return _context4.stop();}}}, _callee4, undefined);}));return function (_x7, _x8) {return _ref4.apply(this, arguments);};}());
+                        catch(function (err) {res.status(404).json({ "error": err });});case 3:_context3.t1 = _context3.sent;(0, _context3.t0)(_context3.t1, 3000);case 5:case "end":return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
+
+api.get("/id", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.t0 =
+
+                        res;_context4.next = 3;return hive.walletid();case 3:_context4.t1 = _context4.sent;_context4.t0.send.call(_context4.t0, _context4.t1);case 5:case "end":return _context4.stop();}}}, _callee4, undefined);}));return function (_x7, _x8) {return _ref4.apply(this, arguments);};}());
+
+
 
 
 
@@ -106674,9 +106671,6 @@ Centroid = function () {
 
     function Centroid() {_classCallCheck(this, Centroid);
     }_createClass(Centroid, [{ key: 'create', value: function create()
-
-
-
         {var _this = this;
             return new Promise(function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(resolve, rejects) {var date, body;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                                     console.log("Genius Block Data Genarated");
@@ -106687,13 +106681,11 @@ Centroid = function () {
                                     body = { "Titel": "Genesis", "Data": "Genesis Block", 'Auther': "Tanbin Hassan Bappi" };
                                     body = JSON.stringify(body);_context.prev = 5;_context.next = 8;return (
 
-
-                                        _Centroid2.default.create({ titel: 'Genesis', walletid: '0000000000000000', walletkey: 'genesis', timestamp: date, ref: 'this_root', hash: 'root', body: body, amount: 0 }));case 8:_context.next = 10;return (
-                                        _this.push('0000000000000001', 'assects', { "Titel": "Assets", "Data": "Assets Block", 'Owner': "Genesis" }, 0));case 10:_context.next = 12;return (
-                                        _this.push('0000000000000002', 'liabilities', { "Titel": "Liabilities", "Data": "Assets Block", 'Owner': "Genesis" }, 0));case 12:_context.next = 14;return (
-                                        _this.push('0000000000000003', 'income', { "Titel": "Income", "Data": "Income Block", 'Owner': "Genesis" }, 0));case 14:_context.next = 16;return (
-                                        _this.push('0000000000000004', 'expense', { "Titel": "Expense", "Data": "Expense Block", 'Owner': "Genesis" }, 0));case 16:
-
+                                        _Centroid2.default.create({ walletid: '0000000000000000', walletkey: 'genesis', timestamp: date, ref: 'this_root', hash: 'root', body: body, amount: 0, signatue: false }));case 8:_context.next = 10;return (
+                                        _this.push('0000000000000001', 'assects', { "Titel": "Assets", "Data": "Assets Block", 'Owner': "Genesis" }, 0, false));case 10:_context.next = 12;return (
+                                        _this.push('0000000000000002', 'liabilities', { "Titel": "Liabilities", "Data": "Assets Block", 'Owner': "Genesis" }, 0, false));case 12:_context.next = 14;return (
+                                        _this.push('0000000000000003', 'income', { "Titel": "Income", "Data": "Income Block", 'Owner': "Genesis" }, 0, false));case 14:_context.next = 16;return (
+                                        _this.push('0000000000000004', 'expense', { "Titel": "Expense", "Data": "Expense Block", 'Owner': "Genesis" }, 0, false));case 16:
                                     resolve('Success');_context.next = 22;break;case 19:_context.prev = 19;_context.t0 = _context['catch'](5);
 
                                     console.error(_context.t0);
@@ -106705,13 +106697,29 @@ Centroid = function () {
             catch(function (err) {
                 rejects(err);
             });
-        } }, { key: 'get', value: function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.prev = 0;
+        } }, { key: 'zeroPad', value: function zeroPad(
+        num, places) {return String(num).padStart(places, '0');} }, { key: 'walletid', value: function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {var
+                product = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '0000';var int_code, bank_route, code, walletid;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                int_code = '0100';
+                                bank_route = '9000';_context2.next = 4;return (
+                                    _Centroid2.default.findOne({
+                                        attributes: ['walletid'],
+                                        order: [['id', 'DESC']] }));case 4:code = _context2.sent;
+
+                                code = code.walletid;
+                                code = code.substr(-4);
+                                code = Number(code);
+                                code = code + 1;
+                                code = this.zeroPad(code, 4);
+                                walletid = int_code + bank_route + product + code;return _context2.abrupt('return',
+                                walletid);case 12:case 'end':return _context2.stop();}}}, _callee2, this);}));function walletid() {return _ref2.apply(this, arguments);}return walletid;}() }, { key: 'get', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {var data;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.prev = 0;
 
 
 
 
-                                data = _Centroid2.default.findAll();return _context2.abrupt('return',
-                                data);case 5:_context2.prev = 5;_context2.t0 = _context2['catch'](0);return _context2.abrupt('return', _context2.t0);case 8:case 'end':return _context2.stop();}}}, _callee2, this, [[0, 5]]);}));function get() {return _ref2.apply(this, arguments);}return get;}()
+
+                                data = _Centroid2.default.findAll();return _context3.abrupt('return',
+                                data);case 5:_context3.prev = 5;_context3.t0 = _context3['catch'](0);return _context3.abrupt('return', _context3.t0);case 8:case 'end':return _context3.stop();}}}, _callee3, this, [[0, 5]]);}));function get() {return _ref3.apply(this, arguments);}return get;}()
 
 
 
@@ -106725,28 +106733,26 @@ Centroid = function () {
                                                                                                                                                                                                                                                                                                        * 
                                                                                                                                                                                                                                                                                                        * 
                                                                                                                                                                                                                                                                                                        * 
-                                                                                                                                                                                                                                                                                                       * ************************************************/ }, { key: 'push', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(
+                                                                                                                                                                                                                                                                                                       * ************************************************/ }, { key: 'push', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(
 
-            walletid, walletkey, body_data) {var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var date, previous_block, previous_block_id, new_block_id, ref, hash, body, timestamp;return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                                console.log("walletid " + walletid);_context3.prev = 1;
-
+            walletid, walletkey, body_data) {var amount = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;var date, previous_block, previous_block_id, new_block_id, ref, hash, body, timestamp;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+                                    this.walletid());case 2:walletid = _context4.sent;_context4.prev = 3;
 
                                 date = (0, _moment2.default)(Date.now()).format();
                                 date = JSON.stringify(date);
 
-
                                 // Previous Block
-                                _context3.next = 6;return this.last_block();case 6:previous_block = _context3.sent;
+                                _context4.next = 8;return this.last_block();case 8:previous_block = _context4.sent;
                                 previous_block_id = previous_block['id'];
                                 new_block_id = previous_block['id'] + 1;
                                 previous_block = JSON.stringify(previous_block);
 
                                 // Hash Ref Block 
-                                _context3.next = 12;return (0, _Mine.calculateHash)(walletid, previous_block, date);case 12:ref = _context3.sent;_context3.next = 15;return (
+                                _context4.next = 14;return (0, _Mine.calculateHash)(walletid, previous_block, date);case 14:ref = _context4.sent;_context4.next = 17;return (
 
 
 
-                                    (0, _Mine.calculateHash)(walletid, body_data, date));case 15:hash = _context3.sent;
+                                    (0, _Mine.calculateHash)(walletid, body_data, date));case 17:hash = _context4.sent;
 
 
                                 //Stringify Data
@@ -106755,14 +106761,14 @@ Centroid = function () {
                                 timestamp = date;
 
                                 // Input To Database
-                                _context3.next = 20;return _Centroid2.default.create({ walletid: walletid, walletkey: walletkey, timestamp: timestamp, ref: ref, hash: hash, body: body, amount: amount });case 20:_context3.next = 22;return (
+                                _context4.next = 22;return _Centroid2.default.create({ walletid: walletid, walletkey: walletkey, timestamp: timestamp, ref: ref, hash: hash, body: body, amount: amount });case 22:_context4.next = 24;return (
                                     _Centroid2.default.findOne({
                                         attributes: ['walletid', 'timestamp'],
-                                        order: [['id', 'DESC']] }));case 22:return _context3.abrupt('return', _context3.sent);case 25:_context3.prev = 25;_context3.t0 = _context3['catch'](1);
+                                        order: [['id', 'DESC']] }));case 24:return _context4.abrupt('return', _context4.sent);case 27:_context4.prev = 27;_context4.t0 = _context4['catch'](3);
 
 
 
-                                console.error(_context3.t0);return _context3.abrupt('return', _context3.t0);case 29:case 'end':return _context3.stop();}}}, _callee3, this, [[1, 25]]);}));function push(_x4, _x5, _x6) {return _ref3.apply(this, arguments);}return push;}()
+                                console.error(_context4.t0);return _context4.abrupt('return', _context4.t0);case 31:case 'end':return _context4.stop();}}}, _callee4, this, [[3, 27]]);}));function push(_x5, _x6, _x7) {return _ref4.apply(this, arguments);}return push;}()
 
 
 
@@ -106827,10 +106833,10 @@ Centroid = function () {
         //     console.log(await pro);
         //     return pro
         // }
-    }, { key: 'last_block', value: function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {var data;return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+    }, { key: 'last_block', value: function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {var data;return regeneratorRuntime.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
 
-                                    _Centroid2.default.findOne({ order: [['id', 'DESC']] }));case 2:data = _context4.sent;return _context4.abrupt('return',
-                                data);case 4:case 'end':return _context4.stop();}}}, _callee4, this);}));function last_block() {return _ref4.apply(this, arguments);}return last_block;}() }]);return Centroid;}();exports.default =
+                                    _Centroid2.default.findOne({ order: [['id', 'DESC']] }));case 2:data = _context5.sent;return _context5.abrupt('return',
+                                data);case 4:case 'end':return _context5.stop();}}}, _callee5, this);}));function last_block() {return _ref5.apply(this, arguments);}return last_block;}() }]);return Centroid;}();exports.default =
 
 
 
@@ -106858,54 +106864,26 @@ var calculateHash = function calculateHash(uuid, data, timestamp) {
                             resolve(hash);case 9:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}()).
     catch(function (err) {return err;});
 };
+var hash_gen = function hash_gen(data) {
+    return new Promise(function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(resolve, rejects) {var hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                            data = JSON.stringify(data);
+                            if (!data) rejects("Missing data");_context2.next = 4;return (
+                                _crypto2.default.
+                                createHash('sha256').
+                                update(data).
+                                digest('hex'));case 4:hash = _context2.sent;
+                            if (hash === undefined) rejects(null);
+                            resolve(JSON.stringify(hash));case 7:case "end":return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}()).
+    catch(function (err) {return err;});
+};
 
 
 
 
-module.exports = { calculateHash: calculateHash };
-
-/***/ }),
-/* 650 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var _express = __webpack_require__(43);
-
-var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);
-var _User = __webpack_require__(325);var _User2 = _interopRequireDefault(_User);
-var _Centroid = __webpack_require__(81);var _Centroid2 = _interopRequireDefault(_Centroid);
-var _Child_Node = __webpack_require__(651);var _Child_Node2 = _interopRequireDefault(_Child_Node);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
-
-
-api.get("/user", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                        _User2.default.findAll().then(function (data) {
-                            res.send(data);
-                        }).catch(function (e) {return console.error(e);});case 1:case 'end':return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
-
-
-api.get("/center", function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                        _Centroid2.default.findAll().then(function (data) {
-                            res.send(data);
-                        }).catch(function (e) {return console.error(e);});case 1:case 'end':return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
-
-
-api.get("/node", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                        _Child_Node2.default.findAll().then(function (data) {
-                            res.send(data);
-                        }).catch(function (e) {return console.error(e);});case 1:case 'end':return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
-
-
-
-
-/************** Middelware **************/
-api.get("/*", function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {return regeneratorRuntime.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
-                        res.status(404).json({ Error: "Invalid Address" });case 1:case 'end':return _context4.stop();}}}, _callee4, undefined);}));return function (_x7, _x8) {return _ref4.apply(this, arguments);};}());
-
-
-
-module.exports = api;
+module.exports = { calculateHash: calculateHash, hash_gen: hash_gen };
 
 /***/ }),
+/* 650 */,
 /* 651 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -106914,19 +106892,269 @@ Object.defineProperty(exports, "__esModule", { value: true });var _sequelize = _
 var _database = __webpack_require__(47);var _database2 = _interopRequireDefault(_database);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
-var Child_node = _database2.default.define('CHILD_NODE', {
-    centroid: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    timestamp: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    previous_node: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    ref_node: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    vector_dir: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    amount: { type: _sequelize.DataTypes.FLOAT, allowNull: false, unique: true },
-    hash: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true },
-    body: _sequelize.DataTypes.STRING,
-    sign: { type: _sequelize.DataTypes.STRING, allowNull: false, unique: true } });exports.default =
+var Child_node = _database2.default.define('VERTIX', {
+    walletid: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    transaction_no: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    transaction_count: { type: _sequelize.DataTypes.INTEGER },
+    timestamp: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    ref: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    edge_in: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    edge_out: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    hash: { type: _sequelize.DataTypes.STRING, allowNull: false },
+    amount: { type: _sequelize.DataTypes.FLOAT, allowNull: false },
+    body: _sequelize.DataTypes.STRING });exports.default =
+
 
 
 Child_node;
+
+/***/ }),
+/* 652 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var _express = __webpack_require__(43);
+
+var _Vertix = __webpack_require__(653);var _Vertix2 = _interopRequireDefault(_Vertix);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}var api = (0, _express.Router)();
+var V = new _Vertix2.default();
+
+
+api.post('/push', function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {var data;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                            V.insert(req.body.waletid, req.body.data, req.body.from, req.body.to, req.body.amount));case 2:data = _context.sent;
+                        res.send("Transfer Complited TR-" + data);case 4:case 'end':return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+
+api.post('/balance', function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {var data;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                            V.balance(req.body.waletid));case 2:data = _context2.sent;
+                        res.send("Balance " + data + " BDT");case 4:case 'end':return _context2.stop();}}}, _callee2, undefined);}));return function (_x3, _x4) {return _ref2.apply(this, arguments);};}());
+
+
+
+
+
+
+
+
+
+
+/************** Middelware **************/
+api.get("/*", function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {return regeneratorRuntime.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                        res.status(404).json({ Error: "Invalid Address" });case 1:case 'end':return _context3.stop();}}}, _callee3, undefined);}));return function (_x5, _x6) {return _ref3.apply(this, arguments);};}());
+
+
+
+
+module.exports = api;
+
+/***/ }),
+/* 653 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _security = __webpack_require__(646);
+var _crypto = __webpack_require__(12);var _crypto2 = _interopRequireDefault(_crypto);
+var _moment = __webpack_require__(0);var _moment2 = _interopRequireDefault(_moment);
+var _Centroid = __webpack_require__(644);var _Centroid2 = _interopRequireDefault(_Centroid);
+var _Centroid3 = __webpack_require__(81);var _Centroid4 = _interopRequireDefault(_Centroid3);
+var _Child_Node = __webpack_require__(651);var _Child_Node2 = _interopRequireDefault(_Child_Node);
+var _Mine = __webpack_require__(649);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+
+
+
+Vertix = function () {
+
+    function Vertix() {_classCallCheck(this, Vertix);
+
+    }_createClass(Vertix, [{ key: 'calculateHash', value: function calculateHash(
+        parante, data, timestamp, dir_vartix_in, dir_vartix_out) {
+            if (!parante || !data || !timestamp) return "Missing data";
+            return _crypto2.default.createHash('sha256').update(parante + dir_vartix_in + dir_vartix_out + data + timestamp).digest('hex');
+        } }, { key: 'balance', value: function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(
+
+            walletid) {var _balance, payload;return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.prev = 0;
+
+                                _balance = 0;_context.next = 4;return (
+                                    _Child_Node2.default.findAll({
+                                        attributes: ['amount'],
+                                        where: { walletid: walletid } }));case 4:payload = _context.sent;
+
+                                payload.map(function (_ref2) {var amount = _ref2.amount;
+                                    _balance = _balance + amount;
+                                });return _context.abrupt('return',
+
+                                _balance);case 9:_context.prev = 9;_context.t0 = _context['catch'](0);
+
+                                console.error(_context.t0);return _context.abrupt('return', _context.t0);case 13:case 'end':return _context.stop();}}}, _callee, this, [[0, 9]]);}));function balance(_x) {return _ref.apply(this, arguments);}return balance;}() }, { key: 'insert', value: function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(
+
+
+
+
+
+
+
+            walletid, body_data, dir_vartix_in, dir_vartix_out, amount) {var cr_bal, dr_amount, cr_amount, date, init_block, previous_Block, vartix_in, vartix_out, trno, hashing_data, in_hash, out_hash;return regeneratorRuntime.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.prev = 0;
+
+
+                                cr_bal = this.balance(dir_vartix_out);if (!(
+                                cr_bal <= 0)) {_context2.next = 4;break;}return _context2.abrupt('return');case 4:
+
+
+
+
+                                dr_amount = Number(amount);
+                                cr_amount = amount - amount * 2;
+                                cr_amount = Number(cr_amount);
+                                /************
+                                                                * *  Date   *
+                                                                * 
+                                                                * **********/
+                                date = (0, _moment2.default)(Date.now()).format();
+                                /***********************************************
+                                                                                   * 
+                                                                                   * 
+                                                                                   *             Previous Block
+                                                                                   * 
+                                                                                   * 
+                                                                                   * *********************************************/_context2.next = 10;return (
+                                    _Centroid4.default.findOne({
+                                        where: {
+                                            walletid: walletid } }));case 10:init_block = _context2.sent;
+
+
+                                //Init object
+                                previous_Block = {};
+
+                                // Condotion 
+                                if (!(
+                                init_block.signatue === false)) {_context2.next = 20;break;}_context2.next = 15;return (
+                                    _Centroid4.default.findOne({
+                                        where: {
+                                            walletid: walletid } }));case 15:previous_Block = _context2.sent;_context2.next = 18;return (
+
+
+                                    _Centroid4.default.update({ signatue: true }, {
+                                        where: {
+                                            walletid: walletid } }));case 18:_context2.next = 23;break;case 20:_context2.next = 22;return (
+
+
+
+                                    _Child_Node2.default.findOne({
+                                        where: {
+                                            walletid: walletid } }));case 22:previous_Block = _context2.sent;case 23:
+
+
+
+                                /***********************************************
+                                                                                                                        * 
+                                                                                                                        * 
+                                                                                                                        *             Directed Vartix IN/OUT
+                                                                                                                        * 
+                                                                                                                        * 
+                                                                                                                        * *********************************************/
+
+                                vartix_in = {};
+                                vartix_out = {};if (!(
+
+                                dir_vartix_in === walletid)) {_context2.next = 30;break;}
+                                vartix_in = previous_Block;_context2.next = 29;return (
+                                    _Child_Node2.default.findOne({
+                                        where: {
+                                            walletid: walletid },
+
+                                        order: [['id', 'DESC']] }));case 29:vartix_out = _context2.sent;case 30:if (!(
+
+
+
+                                dir_vartix_out === walletid)) {_context2.next = 35;break;}
+                                vartix_out = previous_Block;_context2.next = 34;return (
+                                    _Child_Node2.default.findOne({
+                                        where: {
+                                            walletid: walletid },
+
+                                        order: [['id', 'DESC']] }));case 34:vartix_in = _context2.sent;case 35:
+
+
+
+                                // Making Tr
+                                trno = Date.now() + _crypto2.default.randomInt(7);
+                                // trno = JSON.stringify(trno)
+                                /***********************************************
+                                 * 
+                                 * 
+                                 *                  Hashing
+                                 * 
+                                 * 
+                                 * *********************************************/
+                                hashing_data = trno + dr_amount + body_data + date + dir_vartix_in + dir_vartix_out;_context2.next = 39;return (
+                                    (0, _Mine.hash_gen)(hashing_data));case 39:in_hash = _context2.sent;
+
+                                hashing_data = trno + cr_amount + body_data + date + dir_vartix_out + dir_vartix_in;_context2.next = 43;return (
+                                    (0, _Mine.hash_gen)(hashing_data));case 43:out_hash = _context2.sent;
+                                console.log(dir_vartix_in + trno + date + in_hash +
+                                dir_vartix_in +
+                                dir_vartix_out +
+                                out_hash +
+                                body_data);_context2.next = 47;return (
+                                    _Child_Node2.default.create({
+
+                                        walletid: dir_vartix_in,
+                                        transaction_no: trno,
+                                        transaction_count: 1,
+                                        timestamp: date,
+                                        ref: in_hash,
+                                        edge_in: dir_vartix_in,
+                                        edge_out: dir_vartix_out,
+                                        hash: out_hash,
+                                        amount: cr_amount,
+                                        body: body_data }));case 47:_context2.next = 49;return (
+
+
+                                    _Child_Node2.default.create({
+                                        walletid: dir_vartix_out,
+                                        transaction_no: trno,
+                                        transaction_count: 2,
+                                        timestamp: date,
+                                        ref: out_hash,
+                                        edge_in: dir_vartix_in,
+                                        edge_out: dir_vartix_out,
+                                        hash: in_hash,
+                                        amount: dr_amount,
+                                        body: body_data }));case 49:return _context2.abrupt('return',
+
+
+
+                                trno);case 52:_context2.prev = 52;_context2.t0 = _context2['catch'](0);
+
+
+                                console.log("_insart");
+                                console.error(_context2.t0);case 56:case 'end':return _context2.stop();}}}, _callee2, this, [[0, 52]]);}));function insert(_x2, _x3, _x4, _x5, _x6) {return _ref3.apply(this, arguments);}return insert;}() }]);return Vertix;}();exports.default = Vertix;
+
+/***/ }),
+/* 654 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var _express = __webpack_require__(43);
+var _user = __webpack_require__(643);var _user2 = _interopRequireDefault(_user);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _asyncToGenerator(fn) {return function () {var gen = fn.apply(this, arguments);return new Promise(function (resolve, reject) {function step(key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {return Promise.resolve(value).then(function (value) {step("next", value);}, function (err) {step("throw", err);});}}return step("next");});};}
+var user = new _user2.default();
+var api = (0, _express.Router)();
+
+api.post("/open", function () {var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {return regeneratorRuntime.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
+                        req.body) {_context.next = 8;break;}_context.t0 =
+                        res;_context.next = 4;return user.add(req.body.email, req.body.first, req.body.last, req.body.contact);case 4:_context.t1 = _context.sent;_context.t0.send.call(_context.t0, _context.t1);_context.next = 9;break;case 8:
+
+                        res.status(404).json({ "Error": "User data not found" });case 9:case "end":return _context.stop();}}}, _callee, undefined);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+
+
+
+
+/************** Middelware **************/
+// api.get("/*", async (req, res) => {
+//     res.status(404).json({ Error: "Invalid Address" })
+// })
+
+
+
+module.exports = api;
 
 /***/ })
 /******/ ]);

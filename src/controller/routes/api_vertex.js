@@ -1,28 +1,16 @@
 import { Router } from "express"
 const api = Router()
-import v from '../../module/Vertix'
-const hive = new Hive
+import Vertix from '../../module/Hive/Vertix'
+const V = new Vertix
 
-api.post("/get", async (req, res) => {
-    let data = await v.get()
-    res.send(data)
-})
 
 api.post('/push', async (req, res) => {
-    let data = await v.insert(req.body.waletid, req.body.content)
-    res.send(data)
+    let data = await V.insert(req.body.waletid, req.body.data, req.body.from, req.body.to, req.body.amount)
+    res.send("Transfer Complited TR-" + data)
 })
-api.post("/search", async (req, res) => {
-    let data = await v.search(req.body.user)
-    if (data === undefined) {
-        res.status(404).json("Not Found ")
-    } else {
-        res.send(data)
-    }
-})
-
-api.patch("/genarate", async (req, res) => {
-    res.send(await v.createSpine())
+api.post('/balance', async (req, res) => {
+    let data = await V.balance(req.body.waletid)
+    res.send("Balance " + data + " BDT")
 })
 
 
