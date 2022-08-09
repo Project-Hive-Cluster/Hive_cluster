@@ -5,8 +5,12 @@ const V = new Vertix
 
 
 api.post('/push', async (req, res) => {
-    let data = await V.insert(req.body.waletid, req.body.data, req.body.from, req.body.to, req.body.amount)
-    res.send("Transfer Complited TR-" + data)
+    try {
+        let data = await V.insert(req.body.waletid, req.body.data, req.body.to, req.body.amount)
+        res.send(data)
+    } catch (err) {
+        res.send("Error " + err)
+    }
 })
 api.post('/balance', async (req, res) => {
     let data = await V.balance(req.body.waletid)

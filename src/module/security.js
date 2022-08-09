@@ -26,11 +26,30 @@ const decrypt = (hash, user = secretKey) => {
 };
 
 
+const calculateHash = (data) => {
+    return new Promise(async (resolve, rejects) => {
+        data = JSON.stringify(data)
+        if (!data) rejects("Missing data")
+        const hash = await crypto
+            .createHash('sha256')
+            .update(data)
+            .digest('hex')
+        if (hash === undefined) rejects(null)
+        resolve(JSON.stringify(hash))
+    }).catch((err) => { return err })
+}
+
+
+
+
 function passwordHash(val) {
     return crypto.createHash('sha256').update(val, "utf8").digest();
 }
+
+
+
 module.exports = {
     encrypt,
-    decrypt,
+    decrypt, calculateHash,
     passwordHash
 };

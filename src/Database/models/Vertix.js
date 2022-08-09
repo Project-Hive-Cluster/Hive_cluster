@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize'
 import Sequelize from '../utils/database'
 
 
-const Child_node = Sequelize.define('VERTIX', {
+const Vertix = Sequelize.define('VERTIX', {
     walletid: { type: DataTypes.STRING, allowNull: false },
     transaction_no: { type: DataTypes.STRING, allowNull: false },
     transaction_count: { type: DataTypes.INTEGER },
@@ -16,4 +16,4 @@ const Child_node = Sequelize.define('VERTIX', {
 
 })
 
-export default Child_node
+export default Vertix

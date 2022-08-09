@@ -1,10 +1,8 @@
-import { encrypt, decrypt } from '../security'
 import crypto from 'crypto'
 import moment from 'moment';
-import Hive from '../hive/Centroid';
 import c_db from '../../Database/models/Centroid'
-import v_db from '../../Database/models/Child_Node'
-import { hash_gen } from '../Hive/Mine'
+import v_db from '../../Database/models/Vertix'
+import { calculateHash } from '../security'
 
 
 
@@ -13,9 +11,9 @@ export default class Vertix {
     constructor() {
 
     }
-    calculateHash(parante, data, timestamp, dir_vartix_in, dir_vartix_out) {
+    calculateHash(parante, data, timestamp, transfer_to, walletid) {
         if (!parante || !data || !timestamp) return "Missing data"
-        return crypto.createHash('sha256').update(parante + dir_vartix_in + dir_vartix_out + data + timestamp).digest('hex');
+        return crypto.createHash('sha256').update(parante + transfer_to + walletid + data + timestamp).digest('hex');
     }
 
     async balance(walletid) {
@@ -39,23 +37,27 @@ export default class Vertix {
 
 
 
-    async insert(walletid, body_data, dir_vartix_in, dir_vartix_out, amount) {
+    async insert(walletid, body_data, transfer_to, amount) {
         try {
-
-            const cr_bal = this.balance(dir_vartix_out)
-            if (cr_bal <= 0) {
-                return
-            }
-
-
-            const dr_amount = Number(amount)
-            let cr_amount = amount - (amount * 2)
-            cr_amount = Number(cr_amount)
             /************
              * *  Date   *
              * 
              * **********/
             let date = moment(Date.now()).format()
+
+            const genisis = "000000000000000"
+            let genisis_flag = true
+            const cr_bal = await this.balance(walletid)
+            if (walletid != genisis + "0") {
+                genisis_flag = false
+                if (cr_bal <= 0 || cr_bal < amount) {
+                    return "Insufficient Balance"
+                }
+            }
+            const cr_amount = Number(amount)
+            let dr_amount = amount - (amount * 2)
+            dr_amount = Number(dr_amount)
+
             /***********************************************
             * 
             * 
@@ -72,7 +74,6 @@ export default class Vertix {
             let previous_Block = {}
 
             // Condotion 
-
             if (init_block.signatue === false) {
                 previous_Block = await c_db.findOne({
                     where: {
@@ -84,6 +85,7 @@ export default class Vertix {
                         walletid: walletid,
                     }
                 });
+
             } else {
                 previous_Block = await v_db.findOne({
                     where: {
@@ -91,6 +93,9 @@ export default class Vertix {
                     }
                 })
             }
+
+            console.log(previous_Block);
+            console.log(previous_Block.hash);
             /***********************************************
               * 
               * 
@@ -102,7 +107,7 @@ export default class Vertix {
             let vartix_in = {}
             let vartix_out = {}
 
-            if (dir_vartix_in === walletid) {
+            if (transfer_to === walletid) {
                 vartix_in = previous_Block
                 vartix_out = await v_db.findOne({
                     where: {
@@ -112,7 +117,7 @@ export default class Vertix {
                 })
             }
 
-            if (dir_vartix_out === walletid) {
+            if (walletid === walletid) {
                 vartix_out = previous_Block
                 vartix_in = await v_db.findOne({
                     where: {
@@ -128,54 +133,98 @@ export default class Vertix {
             /***********************************************
              * 
              * 
-             *                  Hashing
+             *                  Hashing 
              * 
              * 
              * *********************************************/
-            let hashing_data = trno + dr_amount + body_data + date + dir_vartix_in + dir_vartix_out
-            const in_hash = await hash_gen(hashing_data)
 
-            hashing_data = trno + cr_amount + body_data + date + dir_vartix_out + dir_vartix_in
-            const out_hash = await hash_gen(hashing_data)
-            console.log(dir_vartix_in + trno + date + in_hash +
-                dir_vartix_in +
-                dir_vartix_out +
-                out_hash +
-                body_data);
-            await v_db.create({
-
-                walletid: dir_vartix_in,
-                transaction_no: trno,
-                transaction_count: 1,
-                timestamp: date,
-                ref: in_hash,
-                edge_in: dir_vartix_in,
-                edge_out: dir_vartix_out,
-                hash: out_hash,
-                amount: cr_amount,
-                body: body_data
+            // CR
+            let crRef_block = await c_db.findOne({
+                where: {
+                    walletid: transfer_to,
+                },
+                order: [['id', 'DESC']]
             })
 
-            await v_db.create({
-                walletid: dir_vartix_out,
-                transaction_no: trno,
-                transaction_count: 2,
-                timestamp: date,
-                ref: out_hash,
-                edge_in: dir_vartix_in,
-                edge_out: dir_vartix_out,
-                hash: in_hash,
-                amount: dr_amount,
-                body: body_data
-            })
+            if (await this.verifyBlock(crRef_block) && await this.verifyBlock(previous_Block)) {
+                // Credit Part
+                const cr_hashing_data =
+                    transfer_to
+                    + body_data
+                    + crRef_block.hash
+                    + date
+                    + cr_amount
+                const cr_hash = await calculateHash(cr_hashing_data)
+                await v_db.create({
+                    walletid: transfer_to,
+                    transaction_no: trno,
+                    transaction_count: 1,
+                    timestamp: date,
+                    ref: crRef_block.hash,
+                    edge_in: transfer_to,
+                    edge_out: walletid,
+                    hash: cr_hash,
+                    amount: cr_amount,
+                    body: body_data
+                })
 
+                // Debit Part
 
-            return trno
+                const dr_hashing_data =
+                    walletid
+                    + body_data
+                    + crRef.hash
+                    + date
+                    + dr_amount
+                const dr_hash = await calculateHash(dr_hashing_data)
+                await v_db.create({
+                    walletid: walletid,
+                    transaction_no: trno,
+                    transaction_count: 2,
+                    timestamp: date,
+                    ref: previous_Block.hash,
+                    edge_in: walletid,
+                    edge_out: transfer_to,
+                    hash: dr_hash,
+                    amount: dr_amount,
+                    body: body_data
+                })
+            }
+
+            if (genisis_flag === true) {
+                const cur_bal = await this.balance(transfer_to)
+                return `Fund loaded Successful. Trno: ${trno} Balance: ${cur_bal}`
+            }
+            else {
+                const cur_bal = await this.balance(walletid)
+                return `Transfer from ${walletid} to ${transfer_to} Successful. Trno: ${trno} Remaining Balance: ${cur_bal}`
+            }
 
         } catch (e) {
             console.log("_insart");
             console.error(e);
         }
+    }
+
+
+    async verifyBlock(previous_Block,) {
+
+        // previous_Block = JSON.parse(previous_Block)
+
+        console.log(previous_Block);
+
+        let hash = previous_Block.hash
+        let _hash =
+            + previous_Block.walletid
+            + previous_Block.ref
+            + previous_Block.body
+            + previous_Block.timestamp
+            + previous_Block.amount
+        _hash = await calculateHash(_hash)
+        console.log(hash + "<+>" + _hash);
+
+        return true
+
     }
 
 }
