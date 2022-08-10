@@ -26,7 +26,6 @@ export default class Vertix {
             payload.map(({ amount }) => {
                 balance = balance + amount
             })
-
             return balance
         } catch (err) {
             console.error(err);
@@ -39,12 +38,9 @@ export default class Vertix {
 
     async insert(walletid, body_data, transfer_to, amount) {
         try {
-            /************
-             * *  Date   *
-             * 
-             * **********/
+            //* Date */
             let date = moment(Date.now()).format()
-
+            //** Check For Genusis  */
             const genisis = "000000000000000"
             let genisis_flag = true
             const cr_bal = await this.balance(walletid)
@@ -93,8 +89,8 @@ export default class Vertix {
                     }
                 })
             }
-
-            console.log(previous_Block);
+            console.log("--------------------------------------")
+            console.log(typeof previous_Block);
             console.log(previous_Block.hash);
             /***********************************************
               * 
@@ -146,6 +142,7 @@ export default class Vertix {
                 order: [['id', 'DESC']]
             })
 
+
             if (await this.verifyBlock(crRef_block) && await this.verifyBlock(previous_Block)) {
                 // Credit Part
                 const cr_hashing_data =
@@ -173,7 +170,7 @@ export default class Vertix {
                 const dr_hashing_data =
                     walletid
                     + body_data
-                    + crRef.hash
+                    + crRef_block.hash
                     + date
                     + dr_amount
                 const dr_hash = await calculateHash(dr_hashing_data)

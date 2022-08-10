@@ -27,11 +27,6 @@ class Centroid {
             await this.push('0000000000000003', 'income', { "Titel": "Income", "Data": "Income Block", 'Owner': "Genesis" })
             await this.push('0000000000000004', 'expense', { "Titel": "Expense", "Data": "Expense Block", 'Owner': "Genesis" })
 
-
-
-
-
-
             return await db.findAll()
         }
         catch (err) {
@@ -76,17 +71,18 @@ class Centroid {
      * ************************************************/
 
     async push(walletid, walletkey, body_data, amount = 0) {
-
-        walletid = await this.walletid()
         try {
+
+            walletid = await this.walletid()
             let date = moment(Date.now()).format()
             date = JSON.stringify(date)
-
             // Previous Block
             let previous_block = await this.last_block()
             let ref = previous_block.hash
             // Hash Block 
             let hash = await calculateHash(walletid, ref + body_data, date + amount)
+
+            if (!hash) return "Hash Not Found"
             //Stringify Data
             const body = JSON.stringify(body_data)
             // const walletid = JSON.stringify(walletid)
@@ -98,8 +94,9 @@ class Centroid {
                 attributes: ['walletid', 'timestamp'],
                 order: [['id', 'DESC']]
             });
-        }
-        catch (e) {
+
+
+        } catch (e) {
             console.error(e);
             return e
         }

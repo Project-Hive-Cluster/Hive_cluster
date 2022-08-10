@@ -14,11 +14,9 @@ api.post("/search", async (req, res) => {
         .catch((err) => { res.status(404).json({ "error": err }) })
 })
 
-api.post("/init", async (req, res) => {
-    setTimeout(await hive.create().then((payload) => {
-        res.send(payload)
-    })
-        .catch((err) => { res.status(404).json({ "error": err }) }), 3000)
+api.get("/init", async (req, res) => {
+    let payload = await hive.create()
+    res.send(payload)
 })
 api.get("/id", async (req, res) => {
 

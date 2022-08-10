@@ -4,7 +4,7 @@ import Vertix from '../../module/Hive/Vertix'
 const V = new Vertix
 
 
-api.post('/push', async (req, res) => {
+api.post('/transfer', async (req, res) => {
     try {
         let data = await V.insert(req.body.waletid, req.body.data, req.body.to, req.body.amount)
         res.send(data)
@@ -14,7 +14,8 @@ api.post('/push', async (req, res) => {
 })
 api.post('/balance', async (req, res) => {
     let data = await V.balance(req.body.waletid)
-    res.send("Balance " + data + " BDT")
+    res.json(data)
+    // .send(`Balance BDT. ${data}`)
 })
 
 

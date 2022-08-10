@@ -69,7 +69,9 @@ class User {
                         console.log("Private Key is: ", key);
 
 
-                        const fin_data = `{'username' : '${username}','password':'${text_password}','walletid':'${wallet}','authokey':'${publicKey}'}`
+                        const fin_data = `{"username" : "${username}","password":"${text_password}","walletid":"${wallet}","authokey":"${publicKey}"}`
+
+
                         resolve(fin_data)
                     }
                     else {

@@ -28,6 +28,8 @@ api.use((req, res, next) => {
 /*And Every apis path here*/
 const user = require("./routes/api_wallet")
 api.use("/wallet", user)
+const auth = require("./routes/api_auth")
+api.use("/auth", auth)
 const Spine = require("./routes/api_Centroid")
 api.use("/spine", Spine)
 const _vartix = require("./routes/api_vertex")

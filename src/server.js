@@ -52,7 +52,7 @@ app.get("/*", function (req, res) {
  *
  *********************************************************************/
 /* Port come from env file if fail so it will run at 3000 port*/
-const port = 3000
+const port = 8080
 
 /* Express Init*/
 app.listen(port, ((err) => {

@@ -5,7 +5,13 @@ const api = Router()
 
 api.post("/open", async (req, res) => {
     if (req.body) {
-        res.send(await user.add(req.body.email, req.body.first, req.body.last, req.body.contact))
+        let data = await user.add(req.body.email, req.body.first, req.body.last, req.body.contact)
+        data = JSON.parse(data)
+        const walletid = data.walletid
+        const authokey = data.authokey
+        res.cookie(`walletid`, walletid, { expire: 200 + Date.now() })
+        res.cookie(`public`, authokey, { expire: 200 + Date.now() })
+        res.send(data)
     } else {
         res.status(404).json({ "Error": "User data not found" })
     }
