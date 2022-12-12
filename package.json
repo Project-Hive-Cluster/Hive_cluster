@@ -6,7 +6,8 @@
     "build": "webpack",
     "start": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack --watch",
-    "watch:server": "nodemon --inspect=\"9229\" \"./build/bundle.js\" --watch \"./build\" "
+    "watch:server": "nodemon --inspect=\"9229\" \"./build/bundle.js\" --watch \"./build\" ",
+    "db": "docker run --name hive -p 0000:5432 -e POSTGRES_PASSWORD=hornet -d postgres"
   },
   "author": "tanbin",
   "license": "MIT",
@@ -30,6 +31,7 @@
     "express": "^4.18.1",
     "moment": "^2.29.4",
     "mongodb": "^4.8.1",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "pg": "^8.7.3",
     "sequelize": "^6.21.3"
