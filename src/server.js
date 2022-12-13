@@ -6,7 +6,7 @@ import dotenv from "dotenv"
 import db from "./Database/utils/database"
 import morgan from "morgan"
 import fs from "fs"
-import * as mem from "../mem.json"
+import * as stateVariable from "../database_init.json"
 dotenv.config()
 
 const corsOptions = {
@@ -18,20 +18,22 @@ app.use(express.json())
 
 db.authenticate()
   .then(() => {
-    let data = jdata.recordset
-    data.map(({ init }) => {
-      if (!init) {
-        db.sync({ force: true }).then(() => {
-          fs.writeFile("mem.json", { init: true }, (err) =>
-            err ? console.log(err) : console.log("DB Updated Locked")
-          )
+    if (!stateVariable.init) {
+      const _data = `{"init": true}`
+      db.sync({ force: true }).then(() => {
+        fs.writeFile("/database_init.json", _data, (data, err) => {
+          if (err) {
+            console.error("Error Creating data folder: " + err)
+          } else {
+            console.log("Database update set to ", data.init)
+          }
         })
-      } else {
-        db.sync().then(() =>
-          console.log("Connection has been established successfully.")
-        )
-      }
-    })
+      })
+    } else {
+      db.sync().then(() =>
+        console.log("Connection has been established successfully.")
+      )
+    }
   })
   .catch((error) => {
     console.error("Unable to connect to the database: ", error)
@@ -63,7 +65,7 @@ app.get("/*", function (req, res) {
  *
  *********************************************************************/
 /* Port come from env file if fail so it will run at 3000 port*/
-const port = 8080
+const port = 2000
 
 /* Express Init*/
 app.listen(port, (err) => {
