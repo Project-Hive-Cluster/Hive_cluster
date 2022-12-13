@@ -8,7 +8,7 @@ import { Sequelize } from "sequelize"
 module.exports = new Sequelize("postgres", "postgres", "hornet", {
   host: "127.0.0.1",
   dialect: "postgres",
-  port: "49153",
+  port: "5432",
   dialectModule: pg,
   operatorsAliases: false,
   pool: {

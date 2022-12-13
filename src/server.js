@@ -5,6 +5,8 @@ import cors from "cors"
 import dotenv from "dotenv"
 import db from "./Database/utils/database"
 import morgan from "morgan"
+import fs from "fs"
+import * as mem from "../mem.json"
 dotenv.config()
 
 const corsOptions = {
@@ -13,11 +15,23 @@ const corsOptions = {
 }
 
 app.use(express.json())
+
 db.authenticate()
-  .then(async () => {
-    // await db.sync({ force: true })
-    await db.sync()
-    console.log("Connection has been established successfully.")
+  .then(() => {
+    let data = jdata.recordset
+    data.map(({ init }) => {
+      if (!init) {
+        db.sync({ force: true }).then(() => {
+          fs.writeFile("mem.json", { init: true }, (err) =>
+            err ? console.log(err) : console.log("DB Updated Locked")
+          )
+        })
+      } else {
+        db.sync().then(() =>
+          console.log("Connection has been established successfully.")
+        )
+      }
+    })
   })
   .catch((error) => {
     console.error("Unable to connect to the database: ", error)
