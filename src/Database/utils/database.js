@@ -5,7 +5,7 @@ import { Sequelize } from "sequelize"
 //     dialectModule: pg
 // });
 
-module.exports = new Sequelize("postgres", "postgres", "hornet", {
+module.exports = new Sequelize("postgres", "hornet", "hornet", {
   host: "127.0.0.1",
   dialect: "postgres",
   port: "5432",

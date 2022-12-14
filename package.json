@@ -4,7 +4,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",
-    "dev": "npm-run-all --parallel watch:server watch:build",
+    "dev": "run-s watch:build watch:server",
     "start": "node ./build/bundle.js",
     "watch:build": "webpack --watch",
     "watch:server": "nodemon --inspect=\"9229\" \"./build/bundle.js\" --watch \"./build\" ",
