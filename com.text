@@ -1,0 +1,28 @@
+services:
+  app:
+    entrypoint:
+      - sleep
+      - infinity
+    container_name: Hornet
+    image: docker/dev-environments-javascript:stable-1
+    # init: true
+    tty: true
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: postgres:15.1
+    restart: always
+    container_name: Hive
+    environment:
+      - POSTGRES_USER=hornet
+      - POSTGRES_PASSWORD=hornet
+    ports:
+      - "5432:5432"
+
+

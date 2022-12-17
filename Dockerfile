@@ -4,5 +4,5 @@ WORKDIR /api
 # COPY package.json package.json
 # RUN npm install 
 COPY . .
-CMD ["npm","start"]
+CMD ["npm","run","dev"]
 EXPOSE 2000

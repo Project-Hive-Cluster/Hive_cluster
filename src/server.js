@@ -15,7 +15,7 @@ const corsOptions = {
 }
 
 app.use(express.json())
-
+let errMsg
 db.authenticate()
   .then(() => {
     if (!stateVariable.init) {
@@ -30,12 +30,20 @@ db.authenticate()
         })
       })
     } else {
-      db.sync().then(() =>
+      db.sync().then(() => {
+        errMsg = {
+          massage: "Database Connection has been established successfully.",
+          error: undefined,
+        }
         console.log("Connection has been established successfully.")
-      )
+      })
     }
   })
   .catch((error) => {
+    errMsg = {
+      massage: "Database Connection Error",
+      error: JSON.stringify(error),
+    }
     console.error("Unable to connect to the database: ", error)
   })
 
@@ -46,13 +54,16 @@ app.set("view engine", "ejs")
 app.use(cors(corsOptions))
 app.use(morgan("tiny"))
 
-/*And Every apis path here*/
-const routes = require("./controller/index")
-app.use("/", routes)
-
 // need cookieParser middleware before we can do anything with cookies
 const cookieParser = require("cookie-parser")
 app.use(cookieParser())
+
+app.get("/db", function (req, res) {
+  res.send(200, errMsg)
+})
+/*And Every apis path here*/
+const routes = require("./controller/index")
+app.use("/", routes)
 
 /*If Page not found (404) this path handels it*/
 app.get("/*", function (req, res) {
@@ -65,7 +76,7 @@ app.get("/*", function (req, res) {
  *
  *********************************************************************/
 /* Port come from env file if fail so it will run at 3000 port*/
-const port = 2000
+const port = 8080
 
 /* Express Init*/
 app.listen(port, (err) => {
