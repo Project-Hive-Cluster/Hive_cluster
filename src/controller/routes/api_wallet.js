@@ -1,5 +1,5 @@
-import { Router } from "express"
-import User from "../../module/user/user"
+const  { Router } = require("express")
+const  User = require("../../module/user/user")
 const user = new User()
 const api = Router()
 

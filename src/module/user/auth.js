@@ -1,6 +1,6 @@
-import crypto from "crypto"
-import user_db from "../../Database/models/User"
-import { passwordHash } from "../security"
+const crypto = require("crypto")
+const user_db = require("../../Database/models/User")
+const { passwordHash } = require("../security")
 
 const login = async (user, password) => {
   console.log("userinfo />")

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "run-p watch:build watch:server",
-    "start": "nodemon ./build/bundle.js",
+    "start": "nodemon ./server.js",
     "watch:build": "webpack --watch",
     "watch:server": "nodemon --inspect=\"9229\" \"./build/bundle.js\" --watch \"./build\" ",
     "db": "docker run --name hive -p 0000:5432 -e POSTGRES_PASSWORD=hornet -d postgres"

@@ -1,5 +1,5 @@
 const fs = require('fs');
-import { encrypt } from '../security'
+const  { encrypt } = require("../security")
 
 const createDataFolder = () => {
     return new Promise((resolve, rejects) => {

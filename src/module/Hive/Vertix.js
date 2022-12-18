@@ -1,8 +1,8 @@
-import crypto from 'crypto'
-import moment from 'moment';
-import c_db from '../../Database/models/Centroid'
-import v_db from '../../Database/models/Vertix'
-import { calculateHash } from '../security'
+const  crypto = require('crypto')
+const  moment = require('moment')
+const  c_db = require('../../Database/models/Centroid')
+const  v_db = require('../../Database/models/Vertix')
+const  { calculateHash } = require('../security')
 
 
 
@@ -194,7 +194,7 @@ export default class Vertix {
             }
             else {
                 const cur_bal = await this.balance(walletid)
-                return `Transfer from ${walletid} to ${transfer_to} Successful. Trno: ${trno} Remaining Balance: ${cur_bal}`
+                return `Transfer = require(" ${walletid} to ${transfer_to} Successful. Trno: ${trno} Remaining Balance: ${cur_bal}`
             }
 
         } catch (e) {

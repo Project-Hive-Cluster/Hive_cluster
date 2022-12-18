@@ -1,12 +1,12 @@
-import express from "express"
+const express = require("express")
 const app = express()
-import cors from "cors"
+const cors = require("cors")
 /*Environment Data*/
-import dotenv from "dotenv"
-import db from "./Database/utils/database"
-import morgan from "morgan"
-import fs from "fs"
-import * as stateVariable from "../database_init.json"
+const dotenv = require("dotenv")
+const db = require("./Database/utils/database")
+const morgan = require("morgan")
+const fs = require("fs")
+// const  * as stateVariable = require(" "../database_init.json"
 dotenv.config()
 
 const corsOptions = {
@@ -18,26 +18,27 @@ app.use(express.json())
 let errMsg
 db.authenticate()
   .then(() => {
-    if (!stateVariable.init) {
-      const _data = `{"init": true}`
-      db.sync({ force: true }).then(() => {
-        fs.writeFile("/database_init.json", _data, (data, err) => {
-          if (err) {
-            console.error("Error Creating data folder: " + err)
-          } else {
-            console.log("Database update set to ", data.init)
-          }
-        })
-      })
-    } else {
-      db.sync().then(() => {
-        errMsg = {
-          massage: "Database Connection has been established successfully.",
-          error: undefined,
-        }
-        console.log("Connection has been established successfully.")
-      })
-    }
+    // if (!stateVariable.init) {
+    //   const _data = `{"init": true}`
+    // db.sync({ force: true })
+    // .then(() => {
+    //   fs.writeFile("/database_init.json", _data, (data, err) => {
+    //     if (err) {
+    //       console.error("Error Creating data folder: " + err)
+    //     } else {
+    //       console.log("Database update set to ", data.init)
+    //     }
+    //   })
+    // })
+    // } else {
+    db.sync().then(() => {
+      errMsg = {
+        massage: "Database Connection has been established successfully.",
+        error: undefined,
+      }
+      console.log("Connection has been established successfully.")
+    })
+    // }
   })
   .catch((error) => {
     errMsg = {
@@ -75,7 +76,7 @@ app.get("/*", function (req, res) {
  * 		Express Config
  *
  *********************************************************************/
-/* Port come from env file if fail so it will run at 3000 port*/
+/* Port come = require(" env file if fail so it will run at 3000 port*/
 const port = 8080
 
 /* Express Init*/

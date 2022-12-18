@@ -1,6 +1,6 @@
-import { Router } from "express"
+const { Router } = require("express")
 const api = Router()
-import Vertix from "../../module/Hive/Vertix"
+const Vertix = require("../../module/Hive/Vertix")
 const V = new Vertix()
 
 api.post("/transfer", async (req, res) => {

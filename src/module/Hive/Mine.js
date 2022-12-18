@@ -1,4 +1,4 @@
-import crypto from 'crypto'
+const  crypto = require('crypto')
 
 const calculateHash = (uuid, data, timestamp) => {
     return new Promise(async (resolve, rejects) => {
